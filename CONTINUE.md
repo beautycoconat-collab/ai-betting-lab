@@ -5,12 +5,12 @@ Ana dal değiştirilmedi. Önceki push başarısızlığında yerel dosyalar kay
 
 Tamamlanan somut iş: `experts/contracts.py`, `research.py`, `football.py`, `review.py`, `portfolio.py`, `workflow.py`, `walkforward.py`, `benchmark.py`; `tests_experts/`; mevcut CI Python keşfine yeni testlerin eklenmesi. 14 rol için durumlar EXPERT_PROGRESS.md içinde. Bütün canlı işlevler tamamlanmış değildir.
 
-Son doğrulama: 221 Python testi (214 başarılı, 7 kontrollü skip), PGlite 123 başarılı. Native PostgreSQL bu ortamda kurulum izni yüzünden çalışmadı. Hosted yalnız read-only ACL/RLS katalog kontrolü; JWT kabulü açık. Migration 001–005 aynen korundu; Supabase'e yazma yapılmadı.
+Son doğrulama: 221 Python testi (214 başarılı, 7 kontrollü skip), PGlite 123 başarılı. Yerel native PostgreSQL kurulamadı; PR #1 GitHub Actions koşusu `38804459813` PostgreSQL 17 servis konteynerinde native bağımsız oturum/eşzamanlılık adımı dahil başarıyla tamamlandı. Hosted yalnız read-only ACL/RLS katalog kontrolü; JWT kabulü açık. Migration 001–005 aynen korundu; Supabase'e yazma yapılmadı.
 
 Sıradaki somut işler:
 
-1. Test edilmiş dalı GitHub'a push edip PR aç. Önceki GitHub connector branch yazımı 403 `Resource not accessible by integration`, HTTPS push ise kimlik doğrulama eksikliği verdi. Yetki değişmeden tekrar denemeyin. Tarayıcıyla alternatif yazma için kullanıcı onayı alın; ana dalı değiştirmeyin.
-2. Bağımsız native CI'yi bu dal/PR üzerinde çalıştır; tarihsel main CI'sini yeni dal için kullanma.
+1. PR #1 açıktır: `feature/expert-engines` → `main`. İncelemeden sonra birleştirme kararı ver; ana dal bu teslim sırasında değiştirilmedi.
+2. GitHub Actions koşusu `38804459813` başarıyla geçti. Sonraki kod değişikliklerinde aynı native ve PGlite kapısını tekrar çalıştır.
 3. Sadece mevcut test projesinde, güvenli secret deposuyla gerçek kullanıcı JWT/Auth/RLS kabulünü tamamla. Test kullanıcısı/yetki/migration gerekiyorsa önce somut değişikliği hazırla ve izin al. Mevcut projeyi boşmuş gibi cloudcheck.runner ile migration'dan başlatma.
 4. Kaynak izinlerini güncel birincil kaynaklarla araştır. Gerçek kadro, dış tahmin ve oran adapterleri yok; koşulları doğrulanmadan ekleme. Sonuçları kaynak registry'de PARTIAL/BLOCKED tut.
 5. Mevcut Runtime lease/retry kuyruğuna gerçek uzman dispatcher bağla; yeni yerel review audit'ini hosted rol sınırlarıyla birleştir. Queue görevlerini işlenmeden done yapma.

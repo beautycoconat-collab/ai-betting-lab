@@ -2,12 +2,14 @@
 
 Bu bölüm mevcut çalışma dalına aittir; aşağıdaki Aşama 0.1 kayıtları tarihsel sonuçlardır.
 
+GitHub PR #1 üzerinde `Complete offline and native verification` koşusu `38804459813` başarıyla tamamlandı. `verify` işi; Python regresyonları, PostgreSQL 17 servis konteynerindeki bağımsız native oturum ve eşzamanlılık kontrolleri ile dört PGlite grubunun tamamını geçti. Bu sonuç, aşağıdaki yerel native ortam eksikliğini kapatan ayrı CI kanıtıdır; hosted Supabase JWT/Auth kabulü değildir.
+
 | Ortam | Bu çalışmada gerçekten elde edilen sonuç |
 |---|---|
 | Python | `python -m scripts.ci_python`: 221 test; 214 geçti, 7 atlandı. Yeni uzman testleri 62 adet. |
 | Atlamalar | Büyük uluslararası arşiv gerektiren 5 eski test; DSN/opt-in gerektiren 2 native test. |
 | PGlite | Dört script yeniden çalıştı: 23 + 28 + 56 + 16 = 123 başarılı kontrol. |
-| Native PostgreSQL | Bu ortamda çalıştırılamadı. PostgreSQL binary yok; kurulum setgroups/seteuid izin hatasıyla durdu. Tarihsel CI sonucu bu dala mal edilmedi. |
+| Native PostgreSQL | Yerel ortamda çalıştırılamadı. PR CI koşusu `38804459813` içinde PostgreSQL 17 servis konteyneriyle bağımsız bağlantı ve eşzamanlılık adımı geçti. |
 | Hosted Supabase | Yalnız `oswpkwwbjwyktuqcakhr` üzerinde read-only katalog/ACL kontrolü yapıldı. 67 lab tablosu, RLS kapalı tablo 0, beklenen güvenli search_path dışında SECURITY DEFINER 0. Pilot false. |
 | Hosted rol sınırı | anon/authenticated ve 14 worker için predictions, prediction_runs, review_decisions, paper_wallet, wallet_ledger üzerinde INSERT/UPDATE/DELETE yetkisi 0. Bu metadata kontrolüdür; gerçek JWT veya kötü niyetli yazma denemesi değildir. |
 | Hosted JWT/Auth | Yeni gerçek kullanıcı JWT testi yapılmadı; açık kabul kapısı. |
