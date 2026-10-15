@@ -1,0 +1,16 @@
+{
+  "archive_sha256": "0f1cc56fa11a66ef311962a993995492de90d9bea685c5617c2f590eb7f13680",
+  "files": 203,
+  "parts": [
+    {
+      "name": "project-source.zip.part-00",
+      "bytes": 18000000,
+      "sha256": "9b40e2855439f1e291f7ae557ef9b70278a8fd014327c16fa617fdef3da1771e"
+    },
+    {
+      "name": "project-source.zip.part-01",
+      "bytes": 15978077,
+      "sha256": "bfb151ce4eb01a0bb7c112906fcf1a7fcf6844a7a16681a772440653a429f396"
+    }
+  ]
+}
