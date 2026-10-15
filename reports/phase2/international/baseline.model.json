@@ -1,0 +1,15 @@
+{
+  "format_version": 1,
+  "model": "baseline",
+  "state": {
+    "a": 1.1242857142857143,
+    "fit_info": {
+      "converged": true,
+      "method": "training_goal_means"
+    },
+    "h": 1.6129591836734694,
+    "n_train": 9800,
+    "target": "final_including_extra_time",
+    "training_end": "2019-12-29"
+  }
+}

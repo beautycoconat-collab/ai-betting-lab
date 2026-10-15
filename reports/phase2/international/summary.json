@@ -1,0 +1,39 @@
+{
+  "counts": {
+    "train": 9800,
+    "validation": 1471,
+    "test": 2034
+  },
+  "validation_selected_model": "dixon_coles",
+  "target": "final_including_extra_time",
+  "test_metrics": {
+    "baseline": {
+      "brier_1x2": 0.6321861076142666,
+      "log_loss_1x2": 1.0490156489662237,
+      "score_log_loss": 3.1545653757827705,
+      "score_brier": 0.9381457724760831,
+      "exact_score_hit_rate": 0.10422812192723697
+    },
+    "elo": {
+      "brier_1x2": 0.5591697135162779,
+      "log_loss_1x2": 0.9437732378354662,
+      "score_log_loss": 2.966895071737129,
+      "score_brier": 0.9275197347892367,
+      "exact_score_hit_rate": 0.13225172074729596
+    },
+    "poisson": {
+      "brier_1x2": 0.5331647435431841,
+      "log_loss_1x2": 0.9093306653380578,
+      "score_log_loss": 2.866937845046399,
+      "score_brier": 0.9211322423123987,
+      "exact_score_hit_rate": 0.13470993117010815
+    },
+    "dixon_coles": {
+      "brier_1x2": 0.5336158260055895,
+      "log_loss_1x2": 0.9104241726032224,
+      "score_log_loss": 2.8682242066676333,
+      "score_brier": 0.9212582142423181,
+      "exact_score_hit_rate": 0.13815142576204523
+    }
+  }
+}
