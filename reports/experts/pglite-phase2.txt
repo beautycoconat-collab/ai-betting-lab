@@ -1,0 +1,29 @@
+PASS additive migrations create 29 tables
+PASS all tables RLS enabled
+PASS wallet remains 1000 TRY, pilot disabled
+PASS browser cannot enqueue
+PASS browser cannot claim
+PASS browser cannot read source health
+PASS duplicate job key refused
+PASS claim sets expiring lease
+PASS leased task not reclaimed early
+PASS incorrect lease cannot complete
+PASS expired lease cannot complete
+PASS expired job gets new token
+PASS current token completes once
+PASS completed token cannot be replayed
+PASS running status requires lease
+PASS bad split boundaries refused
+PASS valid normalized prediction accepted
+PASS prediction cannot misstate training cutoff
+PASS prediction cannot precede training
+PASS score mass enforced
+PASS negative score probability refused
+PASS outcome mass enforced
+PASS score predictions immutable
+PASS model run immutable
+PASS historical forecast stored as unverified
+PASS unvalidated external weight forced zero
+PASS future publication refused
+PASS external forecasts immutable
+TOTAL 28 Phase 2 PostgreSQL checks passed. Hosted Supabase and concurrent network sessions NOT tested.
