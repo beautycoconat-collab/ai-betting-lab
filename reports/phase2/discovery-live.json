@@ -1,0 +1,14 @@
+[
+  {
+    "job_id": "500803a4b79713b43d7f0263f0876a03473830e986259fe624b2d1d8564c6006",
+    "source": "openliga",
+    "catalog_entries": 680,
+    "status": "done"
+  },
+  {
+    "job_id": "8d6151ec5c2c78420338e60c25691635e1d8fc96f66fe37841f2f39693e69cca",
+    "source": "openfootball",
+    "catalog_entries": 270,
+    "status": "done"
+  }
+]
