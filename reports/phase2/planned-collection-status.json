@@ -1,0 +1,44 @@
+[
+  {
+    "job_id": "c6b098868d3d4ff2212a35b38978cd1b39c31a0f4535124b6ba117dbf884d56f",
+    "source": "openfootball",
+    "status": "deferred",
+    "reason": "minimum_interval"
+  },
+  {
+    "job_id": "6e2bd78f2b88a97ee85924f4e40556ef20e24811c2e51d8ad5f37dece564f62a",
+    "source": "openfootball",
+    "status": "deferred",
+    "reason": "minimum_interval"
+  },
+  {
+    "job_id": "fcb7820c431b6b8eb11b1ffd36712ffd2584ee8bd5c7a20e99d346b9943257f3",
+    "source": "openliga",
+    "status": "deferred",
+    "reason": "minimum_interval"
+  },
+  {
+    "job_id": "56a84a92329e7097eccbc96bcb4c0867cf762eaa9e7f7bad6c4b3302bb08f5f9",
+    "source": "openliga",
+    "status": "deferred",
+    "reason": "minimum_interval"
+  },
+  {
+    "job_id": "16b0fdf3933539d2e3ae6dd883f0ad862707ec0cf732820a8ca87f74325937b7",
+    "source": "openliga",
+    "status": "deferred",
+    "reason": "minimum_interval"
+  },
+  {
+    "job_id": "2bcf909e62fa0470819e1ad6b1fb2af570d40d0e91b3bfddab47cd3eb2222746",
+    "source": "openliga",
+    "status": "deferred",
+    "reason": "minimum_interval"
+  },
+  {
+    "job_id": "75880a3c05cb7a3bd007c6ebd6c4b4f728a127007b403531d9917834c391845f",
+    "source": "openliga",
+    "status": "deferred",
+    "reason": "minimum_interval"
+  }
+]

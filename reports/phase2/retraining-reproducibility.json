@@ -1,0 +1,66 @@
+[
+  {
+    "dataset": "international",
+    "model": "baseline",
+    "training_count": 9800,
+    "max_absolute_probability_difference": 0,
+    "tolerance": 1e-12,
+    "passed": true
+  },
+  {
+    "dataset": "international",
+    "model": "elo",
+    "training_count": 9800,
+    "max_absolute_probability_difference": 0,
+    "tolerance": 1e-12,
+    "passed": true
+  },
+  {
+    "dataset": "international",
+    "model": "poisson",
+    "training_count": 9800,
+    "max_absolute_probability_difference": 0,
+    "tolerance": 1e-12,
+    "passed": true
+  },
+  {
+    "dataset": "international",
+    "model": "dixon_coles",
+    "training_count": 9800,
+    "max_absolute_probability_difference": 0,
+    "tolerance": 1e-12,
+    "passed": true
+  },
+  {
+    "dataset": "bundesliga",
+    "model": "baseline",
+    "training_count": 135,
+    "max_absolute_probability_difference": 0,
+    "tolerance": 1e-12,
+    "passed": true
+  },
+  {
+    "dataset": "bundesliga",
+    "model": "elo",
+    "training_count": 135,
+    "max_absolute_probability_difference": 0,
+    "tolerance": 1e-12,
+    "passed": true
+  },
+  {
+    "dataset": "bundesliga",
+    "model": "poisson",
+    "training_count": 135,
+    "max_absolute_probability_difference": 0,
+    "tolerance": 1e-12,
+    "passed": true
+  },
+  {
+    "dataset": "bundesliga",
+    "model": "dixon_coles",
+    "training_count": 135,
+    "max_absolute_probability_difference": 0,
+    "tolerance": 1e-12,
+    "passed": true
+  }
+]

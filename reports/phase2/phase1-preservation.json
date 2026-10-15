@@ -1,0 +1,177 @@
+{
+  "baseline_zip_sha256": "e187b0afa545815c702959da962e190915998440ecf4d46c1b81c714b3280712",
+  "files_checked": 34,
+  "all_byte_identical": true,
+  "files": [
+    {
+      "file": ".env.example",
+      "unchanged": true,
+      "sha256": "ba8e6e03fd4a3070dfe6707424a6dc49476c5b5cffa7d9f88b3c0efb96e96c7f"
+    },
+    {
+      "file": ".github/workflows/test.yml",
+      "unchanged": true,
+      "sha256": "9bc5aa717596e7a551afe174e0efac098a8f89e25e2adf97c1bd3f76460ba131"
+    },
+    {
+      "file": ".gitignore",
+      "unchanged": true,
+      "sha256": "556ce204e3e2085d9ed1bf71c3f2e3e60aada8e16e4d7032c555dd6610fc3015"
+    },
+    {
+      "file": "README.md",
+      "unchanged": true,
+      "sha256": "5910c9da8679ff08721d853c9d8b36a68365bba103a3d17f0dabad74c5f47f48"
+    },
+    {
+      "file": "betting_lab/__init__.py",
+      "unchanged": true,
+      "sha256": "9591a663bbb65fecd8e173e62093e5cadd2151d76eea3800562885ba5a05a767"
+    },
+    {
+      "file": "betting_lab/__main__.py",
+      "unchanged": true,
+      "sha256": "250d6d164f7cb0587f7560d4bc8fa70ad98e84770a0ecce52270fc905f2caf46"
+    },
+    {
+      "file": "betting_lab/adapters/__init__.py",
+      "unchanged": true,
+      "sha256": "99245cbec5c0f7d2cc00ed9e0070fc4790f4d01c9e38c0270c5892815de19306"
+    },
+    {
+      "file": "betting_lab/adapters/base.py",
+      "unchanged": true,
+      "sha256": "e8190acc30d72b4722d5804b6b6dc3ad11a80a3b94666d081e3081c2702f3798"
+    },
+    {
+      "file": "betting_lab/adapters/openfootball.py",
+      "unchanged": true,
+      "sha256": "cdb236179907a665846e2adbebf946e806fe96cd333b76568ec313520c1a9a56"
+    },
+    {
+      "file": "betting_lab/adapters/openliga.py",
+      "unchanged": true,
+      "sha256": "31c8d400343346a83904130ace0c90f2d2e3dab0d233bac7d3eab534379f89b8"
+    },
+    {
+      "file": "betting_lab/collector.py",
+      "unchanged": true,
+      "sha256": "081a2781db965347d71adc22338b237dc95da4929e1000db0d8da1b584249450"
+    },
+    {
+      "file": "betting_lab/domain.py",
+      "unchanged": true,
+      "sha256": "0994a48c77b174cca00347c9ac7490db58310263432a24becc7f332beaefb839"
+    },
+    {
+      "file": "betting_lab/identity.py",
+      "unchanged": true,
+      "sha256": "28158a89e1f0b6903af65ad406af2250ab20d2c00294f51c4caf8b98b6a68b8a"
+    },
+    {
+      "file": "betting_lab/store.py",
+      "unchanged": true,
+      "sha256": "85bc2fa97075eb774178c6ab1dd9ac3049ce75b304b86a9c1bde4dc13a68be10"
+    },
+    {
+      "file": "config/aliases.json",
+      "unchanged": true,
+      "sha256": "a2f3ded7bc9067d0b163ede7411d299589ddf1a3f47605a3e741b94443b65910"
+    },
+    {
+      "file": "config/sources.json",
+      "unchanged": true,
+      "sha256": "d08cfd630d410abf5548b82005745c211af7827ff0f31b3055fbfd1b1258debd"
+    },
+    {
+      "file": "config/strategy.json",
+      "unchanged": true,
+      "sha256": "dae49ffed2a26a239a34f4d1737c58f3b7f11e2fea9bf0c677e6090caf759d09"
+    },
+    {
+      "file": "docs/acceptance.md",
+      "unchanged": true,
+      "sha256": "d866597ef98cebb6fe5543d6ab7fdbfe8b5e229c13c9016d5ce4abc3b2d9f777"
+    },
+    {
+      "file": "docs/architecture.md",
+      "unchanged": true,
+      "sha256": "96f976c1fce9571762be45a0f616c5e249f7d11861dfd58b534fcc295f76557f"
+    },
+    {
+      "file": "docs/database.md",
+      "unchanged": true,
+      "sha256": "16f27b97488e5d0b2bbcfbf4878ffc80f0238d5d6e468976982aacee2f83eda9"
+    },
+    {
+      "file": "docs/sources.md",
+      "unchanged": true,
+      "sha256": "164ae04f509c5c8ef9f28bb1779d3282c980818537e11504c8396c4733748bcd"
+    },
+    {
+      "file": "pyproject.toml",
+      "unchanged": true,
+      "sha256": "c1e03617f551906c7606472b2231bdd675486cfc00c675e13bbd0277abf30146"
+    },
+    {
+      "file": "reports/cache-repeat.json",
+      "unchanged": true,
+      "sha256": "19dbb98c76851c2becf34668faddc2bb0eb7e5fd2edc9e6b7f7d0a62a7c32423"
+    },
+    {
+      "file": "reports/live-collection.json",
+      "unchanged": true,
+      "sha256": "3840ceed2be54e4d4b329833f69d3f89dd2d79935cba41a39dec5fdf4a2312d5"
+    },
+    {
+      "file": "reports/package-manifest.json",
+      "unchanged": true,
+      "sha256": "1d9cd1922289e88efc90cd0bebeeaad37ac481fc7f502b4e391c98029aa93904"
+    },
+    {
+      "file": "reports/python-tests.txt",
+      "unchanged": true,
+      "sha256": "e7c04b0085ff3a4eb1bc99deb54d0fd2dc3b1f8a5fce295cb5cc1bd2fa3f5afb"
+    },
+    {
+      "file": "reports/real-data-evidence.json",
+      "unchanged": true,
+      "sha256": "18cca4dc8e3a7da4f72783c19b28a76f9cfaaedd1af2484342f89594bab87ef3"
+    },
+    {
+      "file": "reports/sql-tests.txt",
+      "unchanged": true,
+      "sha256": "a55f240506ea3d5f96dcc97d65a2bbdb6dda542500c2508c192aa2ba701c5606"
+    },
+    {
+      "file": "scripts/import_supabase.py",
+      "unchanged": true,
+      "sha256": "2d5b0ba60a3a25afe0b837f871d38a231a58343995184f9569f75c1580b5d8f4"
+    },
+    {
+      "file": "supabase/migrations/001_lab.sql",
+      "unchanged": true,
+      "sha256": "d10e21ec761a7a94527009a319abd4b07b9510f03d17b3e0fab62fae443bffee"
+    },
+    {
+      "file": "supabase/tests/package-lock.json",
+      "unchanged": true,
+      "sha256": "d739f72dbe4217ba47e93a677d900ec5c9a57524668a65f635779be448ee33af"
+    },
+    {
+      "file": "supabase/tests/package.json",
+      "unchanged": true,
+      "sha256": "8662accfa7cf43f8d8eede6070d9dda8867cf82e6f288f453df1365b34e90a01"
+    },
+    {
+      "file": "supabase/tests/validate.mjs",
+      "unchanged": true,
+      "sha256": "e75939e428ae6ee401a4b892255b246cdb598b23003806e1737b59fa8144862a"
+    },
+    {
+      "file": "tests/test_ingestion.py",
+      "unchanged": true,
+      "sha256": "ff69f15b9e955d07a40ff4a0463093a1797e100c75dcec3b8089d946b86ee7f3"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+[
+  {
+    "job_id": "debe6c14b99b6f88475cccaa6c6da0ecfdba28da4fc447090caef80c3e6eafb6",
+    "source": "international",
+    "accepted": 49944,
+    "rejected": 1,
+    "status": "done"
+  },
+  {
+    "job_id": "db7db7c5ad0b4c89c51e3306cd551c124df3ef68481eaa81bc78fa5d09f04808",
+    "source": "thesportsdb",
+    "accepted": 5,
+    "rejected": 0,
+    "status": "done"
+  },
+  {
+    "job_id": "8d6151ec5c2c78420338e60c25691635e1d8fc96f66fe37841f2f39693e69cca",
+    "source": "openfootball",
+    "status": "deferred",
+    "reason": "minimum_interval"
+  },
+  {
+    "job_id": "500803a4b79713b43d7f0263f0876a03473830e986259fe624b2d1d8564c6006",
+    "source": "openliga",
+    "status": "deferred",
+    "reason": "minimum_interval"
+  }
+]

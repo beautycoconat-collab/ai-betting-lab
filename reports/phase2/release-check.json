@@ -1,0 +1,8 @@
+{
+  "clean_extraction": true,
+  "phase1_python_tests": 33,
+  "phase2_python_tests": 66,
+  "saved_model_cli_output_identical": true,
+  "network_requests_during_tests": 0,
+  "note": "Final repack adds these test logs only; source and model files unchanged."
+}
