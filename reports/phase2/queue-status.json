@@ -1,0 +1,204 @@
+{
+  "jobs": [
+    {
+      "id": "dd01be5d5ee6d1076f75cc278b4352d39139ed20f1c7a11f4d7702234cb05c59",
+      "source": "fjelstul",
+      "kind": "collect",
+      "params": "{}",
+      "status": "done",
+      "attempts": 1,
+      "not_before": "2026-10-14T16:47:34.657055+00:00",
+      "last_error": null
+    },
+    {
+      "id": "debe6c14b99b6f88475cccaa6c6da0ecfdba28da4fc447090caef80c3e6eafb6",
+      "source": "international",
+      "kind": "collect",
+      "params": "{}",
+      "status": "done",
+      "attempts": 1,
+      "not_before": "2026-10-14T16:41:05.149397+00:00",
+      "last_error": null
+    },
+    {
+      "id": "6e2bd78f2b88a97ee85924f4e40556ef20e24811c2e51d8ad5f37dece564f62a",
+      "source": "openfootball",
+      "kind": "collect",
+      "params": "{\"league\": \"de.1\", \"season\": \"2023-24\"}",
+      "status": "pending",
+      "attempts": 0,
+      "not_before": "2026-10-14T22:16:17.799270+00:00",
+      "last_error": "minimum_interval"
+    },
+    {
+      "id": "8d6151ec5c2c78420338e60c25691635e1d8fc96f66fe37841f2f39693e69cca",
+      "source": "openfootball",
+      "kind": "discover",
+      "params": "{}",
+      "status": "done",
+      "attempts": 1,
+      "not_before": "2026-10-14T17:22:30.230635+00:00",
+      "last_error": null
+    },
+    {
+      "id": "b844f27705a4eddd66f86fc3d28bb4a596e05b1b6f7f814b6f935d346c11cb6c",
+      "source": "openfootball",
+      "kind": "collect",
+      "params": "{\"league\": \"de.1\", \"season\": \"2024-25\"}",
+      "status": "done",
+      "attempts": 0,
+      "not_before": "2026-10-14T16:22:36.226864+00:00",
+      "last_error": null
+    },
+    {
+      "id": "c6b098868d3d4ff2212a35b38978cd1b39c31a0f4535124b6ba117dbf884d56f",
+      "source": "openfootball",
+      "kind": "collect",
+      "params": "{\"league\": \"de.1\", \"season\": \"2022-23\"}",
+      "status": "pending",
+      "attempts": 0,
+      "not_before": "2026-10-14T22:16:17.799270+00:00",
+      "last_error": "minimum_interval"
+    },
+    {
+      "id": "16b0fdf3933539d2e3ae6dd883f0ad862707ec0cf732820a8ca87f74325937b7",
+      "source": "openliga",
+      "kind": "collect",
+      "params": "{\"league\": \"bl1\", \"season\": \"2023\"}",
+      "status": "pending",
+      "attempts": 0,
+      "not_before": "2026-10-14T22:16:12.238299+00:00",
+      "last_error": "minimum_interval"
+    },
+    {
+      "id": "2bcf909e62fa0470819e1ad6b1fb2af570d40d0e91b3bfddab47cd3eb2222746",
+      "source": "openliga",
+      "kind": "collect",
+      "params": "{\"league\": \"bl2\", \"season\": \"2023\"}",
+      "status": "pending",
+      "attempts": 0,
+      "not_before": "2026-10-14T22:16:12.238299+00:00",
+      "last_error": "minimum_interval"
+    },
+    {
+      "id": "500803a4b79713b43d7f0263f0876a03473830e986259fe624b2d1d8564c6006",
+      "source": "openliga",
+      "kind": "discover",
+      "params": "{}",
+      "status": "done",
+      "attempts": 1,
+      "not_before": "2026-10-14T17:22:21.981031+00:00",
+      "last_error": null
+    },
+    {
+      "id": "539034f69f19045f17b545e4a0dd2d5a512918480d6c1dde9b700fe619724263",
+      "source": "openliga",
+      "kind": "collect",
+      "params": "{\"league\": \"bl1\", \"season\": \"2024\"}",
+      "status": "done",
+      "attempts": 0,
+      "not_before": "2026-10-14T16:22:29.208952+00:00",
+      "last_error": null
+    },
+    {
+      "id": "56a84a92329e7097eccbc96bcb4c0867cf762eaa9e7f7bad6c4b3302bb08f5f9",
+      "source": "openliga",
+      "kind": "collect",
+      "params": "{\"league\": \"bl1\", \"season\": \"2022\"}",
+      "status": "pending",
+      "attempts": 0,
+      "not_before": "2026-10-14T22:16:12.238299+00:00",
+      "last_error": "minimum_interval"
+    },
+    {
+      "id": "75880a3c05cb7a3bd007c6ebd6c4b4f728a127007b403531d9917834c391845f",
+      "source": "openliga",
+      "kind": "collect",
+      "params": "{\"league\": \"bl2\", \"season\": \"2024\"}",
+      "status": "pending",
+      "attempts": 0,
+      "not_before": "2026-10-14T22:16:12.238299+00:00",
+      "last_error": "minimum_interval"
+    },
+    {
+      "id": "fcb7820c431b6b8eb11b1ffd36712ffd2584ee8bd5c7a20e99d346b9943257f3",
+      "source": "openliga",
+      "kind": "collect",
+      "params": "{\"league\": \"bl2\", \"season\": \"2022\"}",
+      "status": "pending",
+      "attempts": 0,
+      "not_before": "2026-10-14T22:16:12.238299+00:00",
+      "last_error": "minimum_interval"
+    },
+    {
+      "id": "db7db7c5ad0b4c89c51e3306cd551c124df3ef68481eaa81bc78fa5d09f04808",
+      "source": "thesportsdb",
+      "kind": "collect",
+      "params": "{\"league\": \"4328\", \"season\": \"2024-2025\"}",
+      "status": "done",
+      "attempts": 1,
+      "not_before": "2026-10-14T16:41:05.223575+00:00",
+      "last_error": null
+    },
+    {
+      "id": "db8ffaccbb7ba1ec07704289ad74ed0d842cc9ef15bc8261a53ac93409258e5c",
+      "source": "worldcup",
+      "kind": "collect",
+      "params": "{\"season\": \"2018\"}",
+      "status": "done",
+      "attempts": 1,
+      "not_before": "2026-10-14T16:47:34.720483+00:00",
+      "last_error": null
+    }
+  ],
+  "health": [
+    {
+      "source": "international",
+      "successes": 1,
+      "failures": 0,
+      "consecutive_failures": 0,
+      "last_success": "2026-10-14T16:41:13.975458+00:00",
+      "last_error": null
+    },
+    {
+      "source": "thesportsdb",
+      "successes": 1,
+      "failures": 0,
+      "consecutive_failures": 0,
+      "last_success": "2026-10-14T16:41:21.892538+00:00",
+      "last_error": null
+    },
+    {
+      "source": "fjelstul",
+      "successes": 1,
+      "failures": 0,
+      "consecutive_failures": 0,
+      "last_success": "2026-10-14T16:47:42.229412+00:00",
+      "last_error": null
+    },
+    {
+      "source": "worldcup",
+      "successes": 1,
+      "failures": 0,
+      "consecutive_failures": 0,
+      "last_success": "2026-10-14T16:47:48.688704+00:00",
+      "last_error": null
+    },
+    {
+      "source": "openliga",
+      "successes": 1,
+      "failures": 0,
+      "consecutive_failures": 0,
+      "last_success": "2026-10-14T21:16:16.793119+00:00",
+      "last_error": null
+    },
+    {
+      "source": "openfootball",
+      "successes": 1,
+      "failures": 0,
+      "consecutive_failures": 0,
+      "last_success": "2026-10-14T21:16:21.543000+00:00",
+      "last_error": null
+    }
+  ]
+}
