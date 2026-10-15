@@ -1,4 +1,34 @@
-# Aşama 0.1 test raporu — 15 Ekim 2026
+# Uzman motorları yeniden doğrulama — 15 Ekim 2026
+
+Bu bölüm mevcut çalışma dalına aittir; aşağıdaki Aşama 0.1 kayıtları tarihsel sonuçlardır.
+
+| Ortam | Bu çalışmada gerçekten elde edilen sonuç |
+|---|---|
+| Python | `python -m scripts.ci_python`: 221 test; 214 geçti, 7 atlandı. Yeni uzman testleri 62 adet. |
+| Atlamalar | Büyük uluslararası arşiv gerektiren 5 eski test; DSN/opt-in gerektiren 2 native test. |
+| PGlite | Dört script yeniden çalıştı: 23 + 28 + 56 + 16 = 123 başarılı kontrol. |
+| Native PostgreSQL | Bu ortamda çalıştırılamadı. PostgreSQL binary yok; kurulum setgroups/seteuid izin hatasıyla durdu. Tarihsel CI sonucu bu dala mal edilmedi. |
+| Hosted Supabase | Yalnız `oswpkwwbjwyktuqcakhr` üzerinde read-only katalog/ACL kontrolü yapıldı. 67 lab tablosu, RLS kapalı tablo 0, beklenen güvenli search_path dışında SECURITY DEFINER 0. Pilot false. |
+| Hosted rol sınırı | anon/authenticated ve 14 worker için predictions, prediction_runs, review_decisions, paper_wallet, wallet_ledger üzerinde INSERT/UPDATE/DELETE yetkisi 0. Bu metadata kontrolüdür; gerçek JWT veya kötü niyetli yazma denemesi değildir. |
+| Hosted JWT/Auth | Yeni gerçek kullanıcı JWT testi yapılmadı; açık kabul kapısı. |
+
+İlk regresyon denemesi eksik psycopg bağımlılığı nedeniyle 6 hata verdi. Mevcut requirements-cloud.txt kurulduktan sonra tamamı yeniden çalıştırıldı. İlk test keşfinde import edilen TestCase ikinci kez keşfediliyordu; düzeltilerek yukarıdaki sayıya ulaşıldı. Başarısız ilk koşu başarı olarak sunulmadı.
+
+Gerçek arşiv benchmark'ı: 135 eğitim / 73 doğrulama / 98 bağımsız test maçı. Ensemble ağırlıkları test verisinden öğrenilmedi.
+
+| Model | 1X2 Brier (toplam tanımı) | 1X2 Log Loss | Tam skor Log Loss |
+|---|---:|---:|---:|
+| Baseline | 0.692886 | 1.135026 | 3.179433 |
+| Elo | 0.661306 | 1.092905 | 3.097351 |
+| Poisson | 0.671348 | 1.110270 | 3.102978 |
+| Dixon-Coles | 0.666377 | 1.105077 | 3.113344 |
+| Ensemble | 0.660219 | 1.088914 | 3.071025 |
+
+Ayrı üç genişleyen walk-forward dilimi 134 farklı maç üzerinde değerlendirildi; toplu ensemble skor Log Loss 3.143488. Bu testler aynı sezonu kullanır, iki değerlendirme birbirinden bağımsız ikinci veri seti değildir. Kanıt/model hashleri, fold sınırları, skor matrisi, gerçek sonucu ayrı alanı ve kalibrasyon kutuları `reports/experts/benchmark.json` içindedir. Canlı başarı, kârlılık veya iyi kalibrasyon iddia edilmez.
+
+Ham test günlükleri `reports/experts/python-tests.txt` ve `pglite-*.txt` dosyalarındadır. Migration 001–005 değişmedi. Yeni kullanıcı, migration, yetki veya pilot değişikliği yapılmadı. Mevcut 67 tablonun kayıtlarına yazılmadı. Veritabanı boyutu read-only ölçümde 14.325.427 bayt; bu tek ölçüm organizasyon egress veya güncel plan kotası doğrulaması değildir.
+
+# Aşama 0.1 test raporu — 15 Ekim 2026 (tarihsel)
 
 ## GitHub geliştirme deposu doğrulaması — tamamlandı
 

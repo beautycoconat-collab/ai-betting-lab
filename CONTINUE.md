@@ -1,4 +1,36 @@
-# Aşama 0.1 devam kaydı — 15 Ekim 2026
+# Uzman geliştirme devam kaydı — 15 Ekim 2026
+
+Aktif dal: `feature/expert-engines`; taban: `31b30d5105abb1368839014c9a15b211fd7ce1f5`.
+Ana dal değiştirilmedi. Önceki push başarısızlığında yerel dosyalar kayboldu; experts/ bu oturumda yeniden kuruldu ve yeniden test edildi. Önceki yerel commit kimliklerini aramayın.
+
+Tamamlanan somut iş: `experts/contracts.py`, `research.py`, `football.py`, `review.py`, `portfolio.py`, `workflow.py`, `walkforward.py`, `benchmark.py`; `tests_experts/`; mevcut CI Python keşfine yeni testlerin eklenmesi. 14 rol için durumlar EXPERT_PROGRESS.md içinde. Bütün canlı işlevler tamamlanmış değildir.
+
+Son doğrulama: 221 Python testi (214 başarılı, 7 kontrollü skip), PGlite 123 başarılı. Native PostgreSQL bu ortamda kurulum izni yüzünden çalışmadı. Hosted yalnız read-only ACL/RLS katalog kontrolü; JWT kabulü açık. Migration 001–005 aynen korundu; Supabase'e yazma yapılmadı.
+
+Sıradaki somut işler:
+
+1. Test edilmiş dalı GitHub'a push edip PR aç. Önceki GitHub connector branch yazımı 403 `Resource not accessible by integration`, HTTPS push ise kimlik doğrulama eksikliği verdi. Yetki değişmeden tekrar denemeyin. Tarayıcıyla alternatif yazma için kullanıcı onayı alın; ana dalı değiştirmeyin.
+2. Bağımsız native CI'yi bu dal/PR üzerinde çalıştır; tarihsel main CI'sini yeni dal için kullanma.
+3. Sadece mevcut test projesinde, güvenli secret deposuyla gerçek kullanıcı JWT/Auth/RLS kabulünü tamamla. Test kullanıcısı/yetki/migration gerekiyorsa önce somut değişikliği hazırla ve izin al. Mevcut projeyi boşmuş gibi cloudcheck.runner ile migration'dan başlatma.
+4. Kaynak izinlerini güncel birincil kaynaklarla araştır. Gerçek kadro, dış tahmin ve oran adapterleri yok; koşulları doğrulanmadan ekleme. Sonuçları kaynak registry'de PARTIAL/BLOCKED tut.
+5. Mevcut Runtime lease/retry kuyruğuna gerçek uzman dispatcher bağla; yeni yerel review audit'ini hosted rol sınırlarıyla birleştir. Queue görevlerini işlenmeden done yapma.
+6. Ayrı çok sezonlu doğrulama, kalibrasyon dönüşümü, belirsizlik modeli, zamansal bootstrap, Red Team/özellik ablation ekle. Tek sezon ensemble iyileşmesini genelleme.
+7. Sanal kupon yürütücüsünü kapalı tut. Araştırma ve tarihsel deneylerde cüzdan harcama; gerçek zamanlı kararlarla tarihsel replay'i karıştırma.
+
+Yeniden başlatma:
+
+```bash
+git switch feature/expert-engines
+python -m pip install -r requirements-cloud.txt
+python -m scripts.ci_python
+python -m experts.benchmark --out reports/experts/benchmark.json
+```
+
+Teslim yedeğindeki `expert-changes.bundle`, main üzerine bu dalın commitlerini içerir. Kaynak ZIP `.git`, bağımlılık/cache, bağlantı bilgisi veya büyük arşivlerin ikinci kopyasını içermez; mevcut depo arşiv parçaları değiştirilmedi.
+
+---
+
+# Aşama 0.1 devam kaydı — 15 Ekim 2026 (tarihsel)
 
 ## GitHub geliştirme deposu geçişi tamamlandı
 
