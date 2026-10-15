@@ -1,0 +1,18 @@
+[
+  {
+    "source": "openliga",
+    "data_kind": "real",
+    "accepted": 306,
+    "rejected": 0,
+    "status": "ok",
+    "snapshot_id": "b01546f95f898ffc9d3ba06174d82b312a267f5d3885d2682562ffe9ec63f01f"
+  },
+  {
+    "source": "openfootball",
+    "data_kind": "real",
+    "accepted": 306,
+    "rejected": 0,
+    "status": "ok",
+    "snapshot_id": "2c15ccdf32351187a134b1d3a8ba1ccd0cf0df0aa98c6990259b1e62752d6cea"
+  }
+]

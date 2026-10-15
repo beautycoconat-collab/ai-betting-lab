@@ -1,0 +1,18 @@
+[
+  {
+    "source": "openliga",
+    "data_kind": "real",
+    "accepted": 0,
+    "rejected": 0,
+    "status": "skipped",
+    "reason": "cached"
+  },
+  {
+    "source": "openfootball",
+    "data_kind": "real",
+    "accepted": 0,
+    "rejected": 0,
+    "status": "skipped",
+    "reason": "cached"
+  }
+]

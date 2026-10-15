@@ -1,0 +1,46 @@
+{
+  "data_kind": "real",
+  "season": "Bundesliga 2024/25",
+  "collection": [
+    {
+      "source": "openliga",
+      "data_kind": "real",
+      "accepted": 306,
+      "rejected": 0,
+      "status": "ok",
+      "snapshot_id": "b01546f95f898ffc9d3ba06174d82b312a267f5d3885d2682562ffe9ec63f01f"
+    },
+    {
+      "source": "openfootball",
+      "data_kind": "real",
+      "accepted": 306,
+      "rejected": 0,
+      "status": "ok",
+      "snapshot_id": "2c15ccdf32351187a134b1d3a8ba1ccd0cf0df0aa98c6990259b1e62752d6cea"
+    }
+  ],
+  "snapshots": [
+    {
+      "source": "openliga",
+      "url": "https://api.openligadb.de/getmatchdata/bl1/2024",
+      "observed_at": "2026-10-14T16:22:29.208952+00:00",
+      "sha256": "074caba2d87361a991b792371a668d49ea8312cf994ffb67d38d3cc114ef1282",
+      "http_status": 200
+    },
+    {
+      "source": "openfootball",
+      "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2024-25/de.1.json",
+      "observed_at": "2026-10-14T16:22:36.226864+00:00",
+      "sha256": "f473d6595e6c29ebedc08b09177aed6a6b2ff0fa8378b82f51dea469139f44c3",
+      "http_status": 200
+    }
+  ],
+  "identity_counts": {
+    "candidate": 306
+  },
+  "unresolved_teams": 0,
+  "canonical_matches_auto_approved": 0,
+  "bets_placed": 0,
+  "attribution": "OpenLigaDB (ODbL 1.0); OpenFootball (CC0 1.0)",
+  "note": "Historical data collected now; not proof that values were available before historical kickoff."
+}
