@@ -1,5 +1,13 @@
 # Aşama 0.1 devam kaydı — 15 Ekim 2026
 
+## GitHub geliştirme deposu geçişi tamamlandı
+
+Commit `82b4deb` ile Python, SQL, test, belge, sözleşme ve GitHub Actions dosyaları gerçek klasörlerinde bulunur. Yerel 198 izlenen dosyanın tamamı GitHub blob SHA değerleriyle eşleşti; eksik dosya yoktur. Kaynak arşivi ve geri yükleme dosyaları ayrıca korunur. Büyük uluslararası tarihsel dataset/tahmin dosyaları Git geçmişinde çoğaltılmadı.
+
+GitHub Actions koşusu `38750591704` başarıyla geçti: 159 Python testi çalıştı (152 geçti, 7 kontrollü atlandı), native PostgreSQL bağımsız oturum ve eşzamanlılık kontrolleri geçti, PGlite 123 kontrol geçti. Private-repo engeli kaldırıldı. Gizli bilgi taramasında bulgu yoktur. Bu geçişte hosted Supabase migration'ı uygulanmadı ve pilot başlatılmadı.
+
+Sıradaki gerçek kabul kapısı, ayrı test kullanıcısıyla hosted Supabase JWT/Auth/RLS sınamasıdır. Bunun için yalnız güvenli secret deposundaki değerler kullanılmalı; anahtarlar rapora veya kaynak koda yazılmamalıdır.
+
 ## GitHub kaynak ağacı geçişi
 
 Kaynak arşivi SHA-256 ile doğrulandı ve güvenli yollarla çıkarıldı. Python, SQL, test, belge ve iş akışı dosyaları GitHub'daki gerçek klasörlerine taşınmak üzere hazırlandı. Büyük uluslararası tahmin matrisleri ve dataset Git ağacında çoğaltılmayacak; doğrulanmış arşiv parçalarında korunur. `github.event.repository.private == false` koşulu kaldırıldı. Gerçek Supabase projesine yeni migration uygulanmadı; pilot kapalıdır.

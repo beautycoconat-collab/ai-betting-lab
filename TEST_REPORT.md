@@ -1,10 +1,18 @@
 # Aşama 0.1 test raporu — 15 Ekim 2026
 
+## GitHub geliştirme deposu doğrulaması — tamamlandı
+
+Kaynak ağacı commit `82b4deb` üzerinde gerçek klasörlerine açıldı. Yerelde üretilen 198 izlenen dosyanın GitHub blob SHA değerleri birebir karşılaştırıldı: **198/198 eşleşti, eksik 0**. Beş ek dosya doğrulanmış kaynak arşivi ve geri yükleme altyapısıdır. Büyük uluslararası tarihsel çıktıların Git ağacında ikinci kopyası oluşturulmadı; iki arşiv parçasında korunur.
+
+GitHub Actions koşusu [`38750591704`](https://github.com/beautycoconat-collab/ai-betting-lab/actions/runs/38750591704) başarıyla tamamlandı. Sonuçlar: **159 Python testi çalıştı; 152 geçti, 7 kontrollü atlandı**. Atlamaların 5'i yalnız tam tarihsel arşivde tutulan büyük kanıt dosyalarına, 2'si genel Python koşusuna DSN verilmemesine aittir. Ayrı native PostgreSQL 17 adımında bağımsız bağlantı, ACL/RLS/SECURITY DEFINER sınırları, tekil iş alma ve eşzamanlı günlük bütçe tetikleyicisi geçti. PGlite grupları **23 + 28 + 56 + 16 = 123** kontrolü geçti.
+
+`github.event.repository.private == false` koşulu kaldırılmıştır; doğrulama public ve private depolarda çalışır. Son kaynak taramasında anahtar, parola, private-key başlığı veya gömülü bağlantı bilgisi bulunmadı. Bu işlem sırasında hosted Supabase'e migration uygulanmadı ve sanal pilot başlatılmadı. Gerçek kullanıcı JWT kabul testi hâlâ açık bir sınırdır.
+
 ## GitHub Actions doğrulaması — kaynak arşivi
 
 GitHub Actions koşusu `38746160374`, commit `07f11b0` üzerinde başarıyla tamamlandı. Arşiv hash doğrulaması ve çıkarma, Python regresyonları, native PostgreSQL bağımsız oturum/güvenlik testleri ve PGlite migration kontrolleri geçti. İlk koşuda farklı platformdaki yaklaşık `1.29e-26` kayan nokta farkı, bit düzeyinde eşitlik isteyen testin taşınabilirlik hatasını ortaya çıkardı; tolerans `rtol=1e-15` olarak sınırlandırıldı ve ikinci koşu geçti.
 
-Kaynak ağacının GitHub klasörlerine açılmasından sonraki yeni koşu bu bölüme ayrıca kaydedilecektir. Hosted Supabase üzerinde yeni migration çalıştırılmadı ve gerçek kullanıcı JWT testi yapılmadı.
+Hosted Supabase üzerinde bu GitHub kaynak-ağacı geçişi sırasında yeni migration çalıştırılmadı ve gerçek kullanıcı JWT testi yapılmadı.
 
 ## Bağlantı sonrası güncelleme — 09:46 UTC / 12:46 İstanbul
 
