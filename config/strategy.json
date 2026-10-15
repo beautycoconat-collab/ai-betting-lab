@@ -1,0 +1,10 @@
+{
+ "mode":"paper_only", "strategy":"Balanced", "currency":"TRY",
+ "initial_balance_kurus":100000, "daily_stake_cap_kurus":10000,
+ "day_timezone":"Europe/Istanbul", "pilot_days":7, "pilot_started_at":null,
+ "betting_enabled":false, "allowed_markets":["1X2"], "single_bets_only":true,
+ "max_stake_per_match_kurus":1000, "max_open_exposure_kurus":10000,
+ "min_model_edge":0.03, "stake_rule":"min(quarter_Kelly,1_percent_balance,10_TL,remaining_daily_limit)",
+ "odds_max_age_seconds":900, "lock_before_kickoff_seconds":300,
+ "note":"Proposed Balanced v1; thresholds not validated. No odds or eligible champion => no bet. 100 TL is a ceiling, not a spending target."
+}

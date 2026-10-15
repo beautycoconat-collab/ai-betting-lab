@@ -1,0 +1,9 @@
+{
+  "openliga": {"status":"approved","purpose":"private research; ODbL attribution and share-alike obligations retained","license":"ODbL-1.0","reviewed_at":"2026-10-14","review_expires":"2026-11-13","requests_per_24h":4,"requests_per_31d":124,"min_interval_seconds":3600,"cache_seconds":21600,"quota_basis":"self-imposed; no numeric provider quota verified","terms_url":"https://www.openligadb.de/lizenz"},
+  "openfootball": {"status":"approved","purpose":"research","license":"CC0-1.0","reviewed_at":"2026-10-14","review_expires":"2026-11-13","requests_per_24h":4,"requests_per_31d":124,"min_interval_seconds":3600,"cache_seconds":21600,"quota_basis":"self-imposed; not a GitHub raw endpoint guarantee","terms_url":"https://github.com/openfootball/football.json/blob/master/LICENSE.md"},
+  "football-data-co-uk": {"status":"blocked","reason":"Current data page excludes automated bots/scrapers/AI data-training products; written permission required"},
+  "football-data-org": {"status":"pending_key","reason":"Free account, attribution, coverage and retention review"},
+  "the-odds-api": {"status":"pending_key","reason":"Free 500 credits/month; live odds only; account balance and billing cycle required"},
+  "api-football": {"status":"pending_rights_review","reason":"Free quota does not grant third-party publishing rights"},
+  "statsbomb": {"status":"pending_full_license_review","reason":"Research README available; full PDF terms not successfully reviewed"}
+}
