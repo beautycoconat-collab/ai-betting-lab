@@ -1,0 +1,156 @@
+[
+  {
+    "id": "coordinator",
+    "ordinal": 1,
+    "name": "Baş Koordinatör",
+    "engine": "A",
+    "inputs": "Fikstür kapsamı, bütçe, kaynak sağlığı, iş bağımlılıkları",
+    "outputs": "Kalıcı işler, öncelik planı, hata/erteleme durumu",
+    "authority": "İş planlamak ve durdurmak; olasılıkları değiştiremez",
+    "implemented": "Kalıcı DAG kuyruğu ve lease/retry temeli",
+    "llm_required": false
+  },
+  {
+    "id": "source_hunter",
+    "ordinal": 2,
+    "name": "Kaynak Avcısı",
+    "engine": "A",
+    "inputs": "Kaynak registry, lisans, kota, kategori ve lig kapsamı",
+    "outputs": "Kaynak politikası, katalog, ham snapshot, erişim raporu",
+    "authority": "Yalnız izinli kaynağa kota rezervasyonundan sonra erişmek",
+    "implemented": "Mevcut engine.Queue ve adapterler yeniden kullanılır",
+    "llm_required": false
+  },
+  {
+    "id": "data_validator",
+    "ordinal": 3,
+    "name": "Veri Doğrulayıcı",
+    "engine": "A",
+    "inputs": "Ham snapshot, kimlik haritası, hedef ve zamanlar",
+    "outputs": "Verified/unknown/conflicting/unverified kanıt ve karantina",
+    "authority": "Kanıt kaydetmek ve doğrulama talep etmek; çelişkiyi uydurarak çözemez",
+    "implemented": "Provenance, hedef ve kimlik kontrolleri; kanıt kayıt RPC",
+    "llm_required": false
+  },
+  {
+    "id": "lineup_researcher",
+    "ordinal": 4,
+    "name": "Kadro ve Taktik Araştırmacısı",
+    "engine": "A",
+    "inputs": "İzinli kadro/sakatlık/hava/teknik direktör haberleri",
+    "outputs": "Kaynak referanslı yapılandırılmış kanıt, senaryo isteği",
+    "authority": "Kanıt sunmak; gol beklentisi veya oyuncu etkisi belirleyemez",
+    "implemented": "Yalnız rol ve mesaj sözleşmesi; haber araştırması geliştirilmedi",
+    "llm_required": false
+  },
+  {
+    "id": "external_researcher",
+    "ordinal": 5,
+    "name": "Dış Tahmin Araştırmacısı",
+    "engine": "A",
+    "inputs": "İzinli dış tahmin, yayın/gözlem zamanı, upstream",
+    "outputs": "Ayrı dış tahmin kayıtları ve geçmiş performans isteği",
+    "authority": "Dış tahmini etiketlemek; bağımsızlık/başarı kanıtlanmadan ağırlık veremez",
+    "implemented": "Mevcut ayrı ingestion korunur; izinli gerçek dış tahmin yok",
+    "llm_required": false
+  },
+  {
+    "id": "team_strength",
+    "ordinal": 6,
+    "name": "Takım Gücü Analisti",
+    "engine": "B",
+    "inputs": "Zaman sıralı maçlar, rakip/saha, veri yeterliliği",
+    "outputs": "Elo ve hücum/savunma özellikleri, yeterlilik raporu",
+    "authority": "Test edilmiş sayısal algoritma çalıştırmak; gelecek verisini alamaz",
+    "implemented": "Mevcut modeller kullanılır; yeni xG/takvim modeli geliştirilmedi",
+    "llm_required": false
+  },
+  {
+    "id": "score_engine",
+    "ordinal": 7,
+    "name": "Skor Simülasyon Motoru",
+    "engine": "B",
+    "inputs": "Model sürümü, feature snapshot, fixture, hedef",
+    "outputs": "Tam skor PMF, kuyruk kütlesi, 1X2, ayrı tahmin revizyonu",
+    "authority": "Sayısal model çalıştırmak ve append-only tahmin kaydetmek",
+    "implemented": "Mevcut Elo/Poisson/DC çağrılır; revizyon köprüsü ve kayıt RPC",
+    "llm_required": false
+  },
+  {
+    "id": "market_specialist",
+    "ordinal": 8,
+    "name": "Özel Bahis Piyasaları Uzmanı",
+    "engine": "B",
+    "inputs": "Desteklenen skor modeli, piyasa ve gerekli yarı verisi",
+    "outputs": "Piyasa olasılığı veya unsupported/insufficient_data",
+    "authority": "Yalnız doğrulanmış matematiksel dönüşüm; yarı verisini uyduramaz",
+    "implemented": "Rol/sözleşme; yeni yarı ve handikap modeli yok",
+    "llm_required": false
+  },
+  {
+    "id": "synthesizer",
+    "ordinal": 9,
+    "name": "Tahmin Sentezleyici",
+    "engine": "B",
+    "inputs": "Bağımsız model çıktıları, kalibrasyon, bağımlılık, senaryolar",
+    "outputs": "Sentez dağılımı, belirsizlik ve yöntem sürümü",
+    "authority": "Yalnız geçmiş veride doğrulanmış ağırlıklar; çoğunluk oyu yok",
+    "implemented": "Yalnız sözleşme; ensemble ağırlıkları öğrenilmedi",
+    "llm_required": false
+  },
+  {
+    "id": "red_team",
+    "ordinal": 10,
+    "name": "Red Team — Şeytanın Avukatı",
+    "engine": "C",
+    "inputs": "Tahmin, kaynaklar, kadro, veri yeterliliği ve bağımlılıklar",
+    "outputs": "Kanıtlı finding ve yeniden analiz isteği",
+    "authority": "Sorun sınıflandırmak; numeric_override her zaman null",
+    "implemented": "Yapılandırılmış itiraz kabulü; otomatik futbol eleştirisi yok",
+    "llm_required": false
+  },
+  {
+    "id": "scientific_referee",
+    "ordinal": 11,
+    "name": "Bilimsel Hakem",
+    "engine": "C",
+    "inputs": "Finding, kanıt, model ve zaman bilgileri",
+    "outputs": "approved/needs_reanalysis/insufficient_evidence/rejected/abstain kararı",
+    "authority": "En çok iki inceleme; çözülmeyen durumda skip; olasılık değiştiremez",
+    "implemented": "Deterministik iki turlu kanıt kapısı; bilimsel etki ölçümü gelecekte",
+    "llm_required": false
+  },
+  {
+    "id": "odds_analyst",
+    "ordinal": 12,
+    "name": "Oran Analisti",
+    "engine": "D",
+    "inputs": "Gerçek oran snapshot, sağlayıcı, piyasa, zaman",
+    "outputs": "Marj, ima edilen olasılık, avantaj ve geçerlilik raporu",
+    "authority": "Oranı denetlemek; gerçek oran yoksa getiri üretmez",
+    "implemented": "Mevcut odds şeması korunur; yeni toplama/avantaj motoru yok",
+    "llm_required": false
+  },
+  {
+    "id": "risk_manager",
+    "ordinal": 13,
+    "name": "Risk Yöneticisi",
+    "engine": "D",
+    "inputs": "Hakem kararı, oran, belirsizlik, cüzdan, açık risk, platform kuralı",
+    "outputs": "bet/wait/skip, azami risk bütçesi, sanal kupon isteği",
+    "authority": "Sanal limitleri uygulamak; kaybı telafi için miktar büyütemez",
+    "implemented": "Paylaşılan bütçe koruması, kupon şeması, yalnız void settlement",
+    "llm_required": false
+  },
+  {
+    "id": "learning_auditor",
+    "ordinal": 14,
+    "name": "Sonuç ve Öğrenme Denetçisi",
+    "engine": "D",
+    "inputs": "Zaman sıralı sonuçlar, tahminler, sanal işlemler, deneyler",
+    "outputs": "Kalibrasyon/ablation/performance raporları, terfi önerisi",
+    "authority": "Kanıta dayalı terfi önermek; her maç sonrası keyfî model değişimi yok",
+    "implemented": "Mevcut değerlendirme korunur; terfi/ablation kayıt temeli",
+    "llm_required": false
+  }
+]

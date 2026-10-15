@@ -1,0 +1,95 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "evidence_id": {
+      "format": "uuid",
+      "title": "Evidence Id",
+      "type": "string"
+    },
+    "fixture_id": {
+      "format": "uuid",
+      "title": "Fixture Id",
+      "type": "string"
+    },
+    "snapshot_id": {
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "Snapshot Id",
+      "type": "string"
+    },
+    "source_id": {
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "Source Id",
+      "type": "string"
+    },
+    "source_url": {
+      "maxLength": 2000,
+      "pattern": "^https://",
+      "title": "Source Url",
+      "type": "string"
+    },
+    "observed_at": {
+      "format": "date-time",
+      "title": "Observed At",
+      "type": "string"
+    },
+    "published_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Published At"
+    },
+    "quality": {
+      "enum": [
+        "verified",
+        "unknown",
+        "conflicting",
+        "unverified"
+      ],
+      "title": "Quality",
+      "type": "string"
+    },
+    "score_target": {
+      "enum": [
+        "regulation90",
+        "final_including_extra_time",
+        "provider_final_unknown"
+      ],
+      "title": "Score Target",
+      "type": "string"
+    },
+    "claim": {
+      "maxLength": 2000,
+      "minLength": 1,
+      "title": "Claim",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "evidence_id",
+    "fixture_id",
+    "snapshot_id",
+    "source_id",
+    "source_url",
+    "observed_at",
+    "quality",
+    "score_target",
+    "claim"
+  ],
+  "title": "Evidence",
+  "type": "object"
+}

@@ -1,0 +1,91 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "decision_id": {
+      "format": "uuid",
+      "title": "Decision Id",
+      "type": "string"
+    },
+    "agent_run_id": {
+      "format": "uuid",
+      "title": "Agent Run Id",
+      "type": "string"
+    },
+    "fixture_id": {
+      "format": "uuid",
+      "title": "Fixture Id",
+      "type": "string"
+    },
+    "agent_role": {
+      "const": "scientific_referee",
+      "title": "Agent Role",
+      "type": "string"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "finding_id": {
+      "format": "uuid",
+      "title": "Finding Id",
+      "type": "string"
+    },
+    "round_no": {
+      "maximum": 2,
+      "minimum": 1,
+      "title": "Round No",
+      "type": "integer"
+    },
+    "status": {
+      "enum": [
+        "approved",
+        "needs_reanalysis",
+        "insufficient_evidence",
+        "rejected",
+        "abstain"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "reason": {
+      "maxLength": 2000,
+      "minLength": 1,
+      "title": "Reason",
+      "type": "string"
+    },
+    "risk_action": {
+      "enum": [
+        "wait",
+        "skip"
+      ],
+      "title": "Risk Action",
+      "type": "string"
+    },
+    "numeric_override": {
+      "title": "Numeric Override",
+      "type": "null"
+    }
+  },
+  "required": [
+    "schema_version",
+    "decision_id",
+    "agent_run_id",
+    "fixture_id",
+    "agent_role",
+    "created_at",
+    "finding_id",
+    "round_no",
+    "status",
+    "reason",
+    "risk_action",
+    "numeric_override"
+  ],
+  "title": "ReviewDecision",
+  "type": "object"
+}

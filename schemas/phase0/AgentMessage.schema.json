@@ -1,0 +1,156 @@
+{
+  "$defs": {
+    "Role": {
+      "enum": [
+        "coordinator",
+        "source_hunter",
+        "data_validator",
+        "lineup_researcher",
+        "external_researcher",
+        "team_strength",
+        "score_engine",
+        "market_specialist",
+        "synthesizer",
+        "red_team",
+        "scientific_referee",
+        "odds_analyst",
+        "risk_manager",
+        "learning_auditor"
+      ],
+      "title": "Role",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "message_id": {
+      "format": "uuid",
+      "title": "Message Id",
+      "type": "string"
+    },
+    "agent_run_id": {
+      "format": "uuid",
+      "title": "Agent Run Id",
+      "type": "string"
+    },
+    "fixture_id": {
+      "format": "uuid",
+      "title": "Fixture Id",
+      "type": "string"
+    },
+    "agent_role": {
+      "$ref": "#/$defs/Role"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "input_snapshot_ids": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 100,
+      "minItems": 1,
+      "title": "Input Snapshot Ids",
+      "type": "array"
+    },
+    "evidence_ids": {
+      "items": {
+        "format": "uuid",
+        "type": "string"
+      },
+      "maxItems": 100,
+      "minItems": 1,
+      "title": "Evidence Ids",
+      "type": "array"
+    },
+    "model_version_id": {
+      "anyOf": [
+        {
+          "format": "uuid",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Model Version Id"
+    },
+    "issue_type": {
+      "enum": [
+        "lineup_uncertainty",
+        "source_conflict",
+        "data_leakage",
+        "identity_error",
+        "low_sample",
+        "model_disagreement",
+        "overconfidence",
+        "shared_upstream",
+        "coupon_dependency",
+        "validation"
+      ],
+      "title": "Issue Type",
+      "type": "string"
+    },
+    "severity": {
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ],
+      "title": "Severity",
+      "type": "string"
+    },
+    "requested_action": {
+      "enum": [
+        "review",
+        "scenario_analysis",
+        "recalculate",
+        "quarantine",
+        "abstain"
+      ],
+      "title": "Requested Action",
+      "type": "string"
+    },
+    "status": {
+      "const": "pending_review",
+      "title": "Status",
+      "type": "string"
+    },
+    "numeric_override": {
+      "title": "Numeric Override",
+      "type": "null"
+    },
+    "note": {
+      "default": "",
+      "maxLength": 2000,
+      "title": "Note",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "message_id",
+    "agent_run_id",
+    "fixture_id",
+    "agent_role",
+    "created_at",
+    "input_snapshot_ids",
+    "evidence_ids",
+    "issue_type",
+    "severity",
+    "requested_action",
+    "status",
+    "numeric_override"
+  ],
+  "title": "AgentMessage",
+  "type": "object"
+}

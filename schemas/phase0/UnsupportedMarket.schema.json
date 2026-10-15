@@ -1,0 +1,39 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "market": {
+      "title": "Market",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "unsupported",
+        "insufficient_data"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "probability": {
+      "title": "Probability",
+      "type": "null"
+    },
+    "reason": {
+      "title": "Reason",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "market",
+    "status",
+    "probability",
+    "reason"
+  ],
+  "title": "UnsupportedMarket",
+  "type": "object"
+}
