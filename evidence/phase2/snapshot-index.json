@@ -1,0 +1,65 @@
+[
+  {
+    "id": "331c671bc05fbebc72a393b6ac88370dc173bb4563545e8447192a57db4c3900",
+    "source": "international",
+    "url": "https://codeload.github.com/martj42/international_results/zip/refs/heads/master",
+    "observed_at": "2026-10-14T16:41:13.975458+00:00",
+    "sha256": "c4ce2d659ed254a5cd1327d52b09e55e21c50fcc860e16e6b0ab8af94dc980d5",
+    "params": {},
+    "headers": {
+      "ETag": "\"44eadaf4f5def19f452dce2ed44a73fbb513dbe820cef792a27d61fbb6dced2b\"",
+      "Content-Type": "application/zip"
+    },
+    "file": "evidence/phase2/raw/international.zip",
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "8514a991b0625738b27a092346ccfad5eba85cd7c5597578df2b2862b138266a",
+    "source": "worldcup",
+    "url": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2018/worldcup.json",
+    "observed_at": "2026-10-14T16:47:48.688704+00:00",
+    "sha256": "6af380e875cc52fe12073ab7862fbe8d3e5505ee029cb84d8b5480bf6d603d11",
+    "params": {
+      "season": "2018"
+    },
+    "headers": {
+      "ETag": "\"85c46e028a99e60f6353b3ddb54eee7e7ebaecdf01c8459c9a0ec646e97b1fe1\"",
+      "Content-Type": "text/plain; charset=utf-8"
+    },
+    "file": "evidence/phase2/raw/worldcup.json",
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "2c15ccdf32351187a134b1d3a8ba1ccd0cf0df0aa98c6990259b1e62752d6cea",
+    "source": "openfootball",
+    "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2024-25/de.1.json",
+    "observed_at": "2026-10-14T16:22:36.226864+00:00",
+    "sha256": "f473d6595e6c29ebedc08b09177aed6a6b2ff0fa8378b82f51dea469139f44c3",
+    "params": {
+      "league": "de.1",
+      "season": "2024-25"
+    },
+    "headers": {
+      "ETag": "\"0159fdb5fb1b268ba1f85d3cda9b9f241eaa1808baecaf0258d06921bef7b716\"",
+      "Content-Type": "text/plain; charset=utf-8"
+    },
+    "file": "evidence/phase2/raw/openfootball.json",
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "ae1fc2339bd7bf11937c65f29293e906adfcc97a91bff774430f9060847f8333",
+    "source": "openfootball",
+    "url": "https://api.github.com/repos/openfootball/football.json/git/trees/master?recursive=1",
+    "observed_at": "2026-10-14T21:16:21.543000+00:00",
+    "sha256": "f244c63ab12ed077d0abf3fb55fb18a40f8b8e36cb68fdc090d6a72fb0b95eb4",
+    "kind": "discover",
+    "params": {},
+    "headers": {
+      "ETag": "W/\"9722d32028c6523cfca7499aa38a248a1e1a95f873da3b5bd0dcf03889d5f21a\"",
+      "Last-Modified": "Wed, 14 Oct 2026 11:06:22 GMT",
+      "Content-Type": "application/json; charset=utf-8"
+    },
+    "file": "evidence/phase2/raw/openfootball-discovery.json",
+    "license": "CC0-1.0"
+  }
+]
