@@ -1,0 +1,39 @@
+{
+  "counts": {
+    "train": 135,
+    "validation": 73,
+    "test": 98
+  },
+  "validation_selected_model": "dixon_coles",
+  "target": "regulation90",
+  "test_metrics": {
+    "baseline": {
+      "brier_1x2": 0.6928857355768134,
+      "log_loss_1x2": 1.1350261503088195,
+      "score_log_loss": 3.1794329922298115,
+      "score_brier": 0.9513271816339126,
+      "exact_score_hit_rate": 0.10204081632653061
+    },
+    "elo": {
+      "brier_1x2": 0.6613056254074762,
+      "log_loss_1x2": 1.092905150285742,
+      "score_log_loss": 3.0973508222917054,
+      "score_brier": 0.9465319743330178,
+      "exact_score_hit_rate": 0.07142857142857142
+    },
+    "poisson": {
+      "brier_1x2": 0.6713478894852694,
+      "log_loss_1x2": 1.1102697222953037,
+      "score_log_loss": 3.1029777495133546,
+      "score_brier": 0.9455983202423204,
+      "exact_score_hit_rate": 0.07142857142857142
+    },
+    "dixon_coles": {
+      "brier_1x2": 0.6663767549835987,
+      "log_loss_1x2": 1.1050767049319783,
+      "score_log_loss": 3.1133436705615893,
+      "score_brier": 0.9452151361149488,
+      "exact_score_hit_rate": 0.061224489795918366
+    }
+  }
+}

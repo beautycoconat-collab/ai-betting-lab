@@ -1,0 +1,59 @@
+{
+  "format_version": 1,
+  "model": "dixon_coles",
+  "state": {
+    "attack": {
+      "1. FC Heidenheim 1846": -0.27501312144999873,
+      "1. FC Union Berlin": -0.5613900236224544,
+      "1. FSV Mainz 05": 0.19950500221226625,
+      "Bayer 04 Leverkusen": 0.44150216873445375,
+      "Borussia Dortmund": 0.21236450250457536,
+      "Borussia Mönchengladbach": 0.0528072078876977,
+      "Eintracht Frankfurt": 0.38750217163592104,
+      "FC Augsburg": -0.31230493054730546,
+      "FC Bayern München": 0.6826709486320668,
+      "FC St. Pauli 1910": -0.6391748300211532,
+      "Holstein Kiel": -0.1713924794319481,
+      "RB Leipzig": 0.03900725206008304,
+      "SC Freiburg": -0.06089603806585195,
+      "SV Werder Bremen": 0.12183369041614414,
+      "TSG 1899 Hoffenheim": -0.14365914072040545,
+      "VfB Stuttgart": 0.21455192020065844,
+      "VfL Bochum 1848": -0.5332030008865588,
+      "VfL Wolfsburg": 0.3452887004618096
+    },
+    "defence": {
+      "1. FC Heidenheim 1846": 0.2778700588173873,
+      "1. FC Union Berlin": -0.23968450626329696,
+      "1. FSV Mainz 05": -0.17112589598706696,
+      "Bayer 04 Leverkusen": -0.06779201131527521,
+      "Borussia Dortmund": -0.0547208481303918,
+      "Borussia Mönchengladbach": -0.09911967632451436,
+      "Eintracht Frankfurt": -0.07020064137274952,
+      "FC Augsburg": 0.23776233178001274,
+      "FC Bayern München": -0.5712103131505759,
+      "FC St. Pauli 1910": -0.2806779565870087,
+      "Holstein Kiel": 0.4465405143832952,
+      "RB Leipzig": -0.15686662477157579,
+      "SC Freiburg": 0.001179212525172524,
+      "SV Werder Bremen": 0.02305862122141125,
+      "TSG 1899 Hoffenheim": 0.22811431674989746,
+      "VfB Stuttgart": 0.029741273631105906,
+      "VfL Bochum 1848": 0.2872584399054177,
+      "VfL Wolfsburg": 0.17987370488875504
+    },
+    "fit_info": {
+      "converged": true,
+      "iterations": 22,
+      "objective": 2.9877334087535616
+    },
+    "half_life_days": 730.0,
+    "home_advantage": 0.14517010341887182,
+    "mu": 0.33587865905762765,
+    "n_train": 135,
+    "rho": -0.12,
+    "ridge": 0.01,
+    "target": "regulation90",
+    "training_end": "2024-12-22"
+  }
+}
