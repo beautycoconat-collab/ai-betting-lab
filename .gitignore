@@ -1,0 +1,35 @@
+# Local environments and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+
+# Python and test caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# JavaScript dependencies
+node_modules/
+
+# Runtime state
+*.sqlite
+*.sqlite3
+data/
+reports/ci/
+
+# Large reproducible historical artifacts remain in the verified source archive.
+evidence/phase2/raw/international.zip
+reports/phase2/international/dataset.json
+reports/phase2/international/*.predictions.json
+
+# Packaging scratch files
+artifact_bundle/
+*.tmp
+

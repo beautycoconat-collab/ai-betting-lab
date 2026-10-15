@@ -1,0 +1,8 @@
+[project]
+name = "ai-betting-lab"
+version = "0.1.0"
+requires-python = ">=3.11"
+description = "Paper-only football research lab: phase 1 ingestion"
+dependencies = []
+[tool.unittest]
+start-directory = "tests"
