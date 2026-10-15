@@ -1,0 +1,27 @@
+name: Phase 1 tests
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ai-betting-lab-tests
+  cancel-in-progress: false
+jobs:
+  test:
+    # Explicit zero-paid-budget gate; set only after checking account billing settings.
+    if: vars.FREE_BUDGET_CONFIRMED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s tests -v
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci --prefix supabase/tests --ignore-scripts --no-audit --no-fund
+      - run: node supabase/tests/validate.mjs
+# No scheduled production collection: shared persistent quota state and cloud
+# account budgets must pass acceptance gates first. No secrets are needed here.

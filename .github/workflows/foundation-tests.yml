@@ -1,0 +1,29 @@
+name: Phase 0 offline foundation checks
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ai-betting-lab-foundation-tests
+  cancel-in-progress: false
+jobs:
+  test:
+    if: vars.FREE_BUDGET_CONFIRMED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r requirements-foundation.txt
+      - run: python -m unittest discover -s tests -v
+      - run: python -m unittest discover -s tests_phase2 -v
+      - run: python -m unittest discover -s tests_foundation -v
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci --prefix supabase/tests --ignore-scripts --no-audit --no-fund
+      - run: node supabase/tests/validate-foundation.mjs
+      - run: node supabase/tests/validate-legacy-after-foundation.mjs
+# No collection schedule, credentials, real bets or automatic account upgrade.

@@ -1,0 +1,28 @@
+name: Phase 2 offline tests
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ai-betting-lab-phase2-tests
+  cancel-in-progress: false
+jobs:
+  test:
+    if: vars.FREE_BUDGET_CONFIRMED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r requirements-phase2.txt
+      - run: python -m unittest discover -s tests -v
+      - run: python -m unittest discover -s tests_phase2 -v
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci --prefix supabase/tests --ignore-scripts --no-audit --no-fund
+      - run: node supabase/tests/validate.mjs
+      - run: node supabase/tests/validate-phase2.mjs
+# Offline fixtures only. No scheduled HTTP jobs, secrets, or implicit billing.
