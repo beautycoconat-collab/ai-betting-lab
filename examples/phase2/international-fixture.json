@@ -1,0 +1,9 @@
+{
+  "id": "16d1db6f192534caa5ede46aba6b9c252ec01d58e28144b706cafbec9d81dd9e",
+  "date": "2022-12-18",
+  "home": "Argentina",
+  "away": "France",
+  "neutral": true,
+  "target": "final_including_extra_time",
+  "mode": "retrospective_holdout_not_live_forecast"
+}

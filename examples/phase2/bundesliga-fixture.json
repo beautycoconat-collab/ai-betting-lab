@@ -1,0 +1,9 @@
+{
+  "id": "1e72a543483ebec771a2c093ea1604ac776addcdbd377efc833d5af1246bc8d5",
+  "date": "2025-03-01",
+  "home": "VfL Bochum 1848",
+  "away": "TSG 1899 Hoffenheim",
+  "neutral": false,
+  "target": "regulation90",
+  "mode": "retrospective_holdout_not_live_forecast"
+}
