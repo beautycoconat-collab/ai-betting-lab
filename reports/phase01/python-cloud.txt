@@ -1,0 +1,29 @@
+test_exact_limit (test_cloud.Capacity.test_exact_limit) ... ok
+test_future (test_cloud.Capacity.test_future) ... ok
+test_gate_calls_once (test_cloud.Capacity.test_gate_calls_once) ... ok
+test_gate_stops_operation (test_cloud.Capacity.test_gate_stops_operation) ... ok
+test_good (test_cloud.Capacity.test_good) ... ok
+test_invalid_metric (test_cloud.Capacity.test_invalid_metric) ... ok
+test_live_query_unknown_org (test_cloud.Capacity.test_live_query_unknown_org) ... ok
+test_missing (test_cloud.Capacity.test_missing) ... ok
+test_naive (test_cloud.Capacity.test_naive) ... ok
+test_paid (test_cloud.Capacity.test_paid) ... ok
+test_project_not_org (test_cloud.Capacity.test_project_not_org) ... ok
+test_stale (test_cloud.Capacity.test_stale) ... ok
+test_host_mismatch (test_cloud.Configuration.test_host_mismatch) ... ok
+test_hostaddr_bypass (test_cloud.Configuration.test_hostaddr_bypass) ... ok
+test_invalid_dsn_redacted (test_cloud.Configuration.test_invalid_dsn_redacted) ... ok
+test_missing_environment (test_cloud.Configuration.test_missing_environment) ... ok
+test_native_binding (test_cloud.Configuration.test_native_binding) ... ok
+test_native_reject_production_name (test_cloud.Configuration.test_native_reject_production_name) ... ok
+test_native_reject_remote (test_cloud.Configuration.test_native_reject_remote) ... ok
+test_invalid_anon_key_is_failure (test_cloud.HostedProtocol.test_invalid_anon_key_is_failure) ... ok
+test_invalid_jwt_is_failure (test_cloud.HostedProtocol.test_invalid_jwt_is_failure) ... ok
+test_successful_write_is_failure (test_cloud.HostedProtocol.test_successful_write_is_failure) ... ok
+test_unrelated_api_error_not_pass (test_cloud.HostedProtocol.test_unrelated_api_error_not_pass) ... ok
+test_valid_auth_then_denials (test_cloud.HostedProtocol.test_valid_auth_then_denials) ... ok
+
+----------------------------------------------------------------------
+Ran 24 tests in 0.069s
+
+OK

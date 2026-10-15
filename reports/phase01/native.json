@@ -1,0 +1,7 @@
+{
+  "environment": "native",
+  "status": "blocked",
+  "migrations": [],
+  "pilot_started": false,
+  "reason": "missing_test_configuration"
+}

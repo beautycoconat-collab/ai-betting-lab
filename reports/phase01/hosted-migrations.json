@@ -1,0 +1,24 @@
+{
+  "migrations": [
+    {
+      "version": "20261015093810",
+      "name": "lab_foundation_001"
+    },
+    {
+      "version": "20261015093826",
+      "name": "research_engine_002"
+    },
+    {
+      "version": "20261015093844",
+      "name": "multi_agent_foundation_003"
+    },
+    {
+      "version": "20261015093928",
+      "name": "cloud_security_004"
+    },
+    {
+      "version": "20261015094202",
+      "name": "hosted_worker_membership_005"
+    }
+  ]
+}

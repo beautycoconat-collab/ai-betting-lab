@@ -1,0 +1,41 @@
+test_audit_append_only (test_foundation.Foundation.test_audit_append_only) ... ok
+test_audit_chain (test_foundation.Foundation.test_audit_chain) ... ok
+test_dependency_waits (test_foundation.Foundation.test_dependency_waits) ... ok
+test_duplicate_message_idempotent (test_foundation.Foundation.test_duplicate_message_idempotent) ... ok
+test_evidence_target_mismatch (test_foundation.Foundation.test_evidence_target_mismatch) ... ok
+test_expired_lease_and_stale_completion (test_foundation.Foundation.test_expired_lease_and_stale_completion) ... ok
+test_extra_llm_probability_field_rejected (test_foundation.Foundation.test_extra_llm_probability_field_rejected) ... ok
+test_failed_parent_blocks_child (test_foundation.Foundation.test_failed_parent_blocks_child) ... ok
+test_forged_agent_role (test_foundation.Foundation.test_forged_agent_role) ... ok
+test_future_snapshot_feature_blocked (test_foundation.Foundation.test_future_snapshot_feature_blocked) ... ok
+test_idempotency_conflict (test_foundation.Foundation.test_idempotency_conflict) ... ok
+test_job_conflicting_key (test_foundation.Foundation.test_job_conflicting_key) ... ok
+test_job_retry_same_key (test_foundation.Foundation.test_job_retry_same_key) ... ok
+test_local_storage_limit (test_foundation.Foundation.test_local_storage_limit) ... ok
+test_max_attempts_dead_letter (test_foundation.Foundation.test_max_attempts_dead_letter) ... ok
+test_missing_evidence (test_foundation.Foundation.test_missing_evidence) ... ok
+test_missing_model_version (test_foundation.Foundation.test_missing_model_version) ... ok
+test_missing_required_field (test_foundation.Foundation.test_missing_required_field) ... ok
+test_missing_resolution_evidence (test_foundation.Foundation.test_missing_resolution_evidence) ... ok
+test_numeric_override_rejected (test_foundation.Foundation.test_numeric_override_rejected) ... ok
+test_prediction_revisions_append_only (test_foundation.Foundation.test_prediction_revisions_append_only) ... ok
+test_red_team_cannot_referee (test_foundation.Foundation.test_red_team_cannot_referee) ... ok
+test_registry_fourteen_roles (test_foundation.Foundation.test_registry_fourteen_roles) ... ok
+test_review_retry_not_extra_round (test_foundation.Foundation.test_review_retry_not_extra_round) ... ok
+test_source_quota_uses_original_ledger (test_foundation.Foundation.test_source_quota_uses_original_ledger) ... ok
+test_source_status_mapping (test_foundation.Foundation.test_source_status_mapping) ... ok
+test_two_concurrent_workers_one_claim (test_foundation.Foundation.test_two_concurrent_workers_one_claim) ... ok
+test_two_rounds_then_abstain_skip (test_foundation.Foundation.test_two_rounds_then_abstain_skip) ... ok
+test_unknown_and_conflicting_stored (test_foundation.Foundation.test_unknown_and_conflicting_stored) ... ok
+test_unknown_schema (test_foundation.Foundation.test_unknown_schema) ... ok
+test_unsupported_market_has_no_number (test_foundation.Foundation.test_unsupported_market_has_no_number) ... ok
+test_valid_message (test_foundation.Foundation.test_valid_message) ... ok
+test_wrong_fixture_evidence (test_foundation.Foundation.test_wrong_fixture_evidence) ... ok
+test_wrong_role_cannot_claim (test_foundation.Foundation.test_wrong_role_cannot_claim) ... ok
+test_daily_cap_under_twelve_parallel_transactions (test_postgres_concurrency.NativePostgres.test_daily_cap_under_twelve_parallel_transactions) ... skipped 'Native PostgreSQL DSN and disposable-database opt-in absent'
+test_independent_sessions_claim_once (test_postgres_concurrency.NativePostgres.test_independent_sessions_claim_once) ... skipped 'Native PostgreSQL DSN and disposable-database opt-in absent'
+
+----------------------------------------------------------------------
+Ran 36 tests in 0.186s
+
+OK (skipped=2)

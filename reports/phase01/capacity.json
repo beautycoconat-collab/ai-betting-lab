@@ -1,0 +1,18 @@
+{
+  "status": "blocked",
+  "measurement": null,
+  "gate": {
+    "allowed": false,
+    "action": "defer",
+    "reasons": [
+      "missing_measurement_time",
+      "free_organization_usage_unverified",
+      "missing_database_bytes",
+      "missing_storage_bytes",
+      "missing_egress_bytes",
+      "missing_connection_ratio"
+    ],
+    "automatic_upgrade": false
+  },
+  "reason": "missing_test_configuration"
+}

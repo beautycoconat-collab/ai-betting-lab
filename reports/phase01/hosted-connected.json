@@ -1,0 +1,83 @@
+{
+  "environment": "hosted_supabase_postgresql17",
+  "via": "Supabase connector",
+  "observed_at": "2026-10-15T09:46:16Z",
+  "security": [
+    {
+      "hosted_security": "passed",
+      "isolation": "temporary_grants_rolled_back",
+      "roles": 14,
+      "rls_tables": 67
+    }
+  ],
+  "capacity": [
+    {
+      "database_bytes": 14325427,
+      "connections": 12,
+      "max_connections": 60,
+      "storage_bytes": "0",
+      "auth_users": 0,
+      "balance_kurus": 100000,
+      "pilot_enabled": false,
+      "observed_at": "2026-10-15 09:46:16.48427+00"
+    }
+  ],
+  "public_auth": {
+    "settings_status": 200,
+    "anonymous_enabled": false,
+    "valid_authenticated_user": "not_tested"
+  },
+  "anonymous_api_denials": [
+    {
+      "table": "predictions",
+      "status": 406,
+      "code": "PGRST106"
+    },
+    {
+      "table": "review_decisions",
+      "status": 406,
+      "code": "PGRST106"
+    },
+    {
+      "table": "paper_wallet",
+      "status": 406,
+      "code": "PGRST106"
+    }
+  ],
+  "budget": [
+    {
+      "synthetic_stake_kurus": 10000,
+      "balance_kurus": 100000,
+      "betting_enabled": false,
+      "pilot_start": null,
+      "ledger_rows": 1
+    }
+  ],
+  "worker_sessions": [
+    [
+      {
+        "backend_pid": 13649,
+        "finished_at": "2026-10-15 09:44:35.066093+00",
+        "claimed": 1
+      }
+    ],
+    [
+      {
+        "backend_pid": 13652,
+        "finished_at": "2026-10-15 09:44:40.045538+00",
+        "claimed": 0
+      }
+    ]
+  ],
+  "concurrency": "not_proven_connector_serializes_requests",
+  "github": "AI Betting Lab repository not visible; unrelated repositories untouched",
+  "pilot_started": false,
+  "organization_plan": "free",
+  "organization_egress": "unknown",
+  "advisors": {
+    "error": 0,
+    "warning": 0,
+    "info_rls_no_policy": 63,
+    "note": "Intentional deny by default on private lab schema; no permissive policy added."
+  }
+}

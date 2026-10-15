@@ -1,0 +1,676 @@
+{
+  "files": [
+    {
+      "file": ".env.example",
+      "unchanged": true
+    },
+    {
+      "file": ".github/workflows/foundation-tests.yml",
+      "unchanged": true
+    },
+    {
+      "file": ".github/workflows/phase2-tests.yml",
+      "unchanged": true
+    },
+    {
+      "file": ".github/workflows/test.yml",
+      "unchanged": true
+    },
+    {
+      "file": ".gitignore",
+      "unchanged": true
+    },
+    {
+      "file": "AGENT_ROLES.md",
+      "unchanged": true
+    },
+    {
+      "file": "ARCHITECTURE.md",
+      "unchanged": true
+    },
+    {
+      "file": "CONTINUE.md",
+      "unchanged": false
+    },
+    {
+      "file": "DATABASE_SCHEMA.md",
+      "unchanged": true
+    },
+    {
+      "file": "DEPLOYMENT.md",
+      "unchanged": true
+    },
+    {
+      "file": "MESSAGE_PROTOCOL.md",
+      "unchanged": true
+    },
+    {
+      "file": "NEXT_PHASE.md",
+      "unchanged": true
+    },
+    {
+      "file": "PHASE2.md",
+      "unchanged": true
+    },
+    {
+      "file": "README.md",
+      "unchanged": true
+    },
+    {
+      "file": "RUN_PHASE0.md",
+      "unchanged": true
+    },
+    {
+      "file": "TEST_REPORT.md",
+      "unchanged": false
+    },
+    {
+      "file": "betting_lab/__init__.py",
+      "unchanged": true
+    },
+    {
+      "file": "betting_lab/__main__.py",
+      "unchanged": true
+    },
+    {
+      "file": "betting_lab/adapters/__init__.py",
+      "unchanged": true
+    },
+    {
+      "file": "betting_lab/adapters/base.py",
+      "unchanged": true
+    },
+    {
+      "file": "betting_lab/adapters/openfootball.py",
+      "unchanged": true
+    },
+    {
+      "file": "betting_lab/adapters/openliga.py",
+      "unchanged": true
+    },
+    {
+      "file": "betting_lab/collector.py",
+      "unchanged": true
+    },
+    {
+      "file": "betting_lab/domain.py",
+      "unchanged": true
+    },
+    {
+      "file": "betting_lab/identity.py",
+      "unchanged": true
+    },
+    {
+      "file": "betting_lab/store.py",
+      "unchanged": true
+    },
+    {
+      "file": "config/aliases.json",
+      "unchanged": true
+    },
+    {
+      "file": "config/source_registry_v2.json",
+      "unchanged": true
+    },
+    {
+      "file": "config/sources.json",
+      "unchanged": true
+    },
+    {
+      "file": "config/strategy.json",
+      "unchanged": true
+    },
+    {
+      "file": "docs/acceptance.md",
+      "unchanged": true
+    },
+    {
+      "file": "docs/architecture.md",
+      "unchanged": true
+    },
+    {
+      "file": "docs/database.md",
+      "unchanged": true
+    },
+    {
+      "file": "docs/phase2/acceptance.md",
+      "unchanged": true
+    },
+    {
+      "file": "docs/phase2/architecture.md",
+      "unchanged": true
+    },
+    {
+      "file": "docs/phase2/database.md",
+      "unchanged": true
+    },
+    {
+      "file": "docs/phase2/models.md",
+      "unchanged": true
+    },
+    {
+      "file": "docs/phase2/results.md",
+      "unchanged": true
+    },
+    {
+      "file": "docs/phase2/sources.md",
+      "unchanged": true
+    },
+    {
+      "file": "docs/sources.md",
+      "unchanged": true
+    },
+    {
+      "file": "engine/__init__.py",
+      "unchanged": true
+    },
+    {
+      "file": "engine/__main__.py",
+      "unchanged": true
+    },
+    {
+      "file": "engine/adapters.py",
+      "unchanged": true
+    },
+    {
+      "file": "engine/bootstrap.py",
+      "unchanged": true
+    },
+    {
+      "file": "engine/dataset.py",
+      "unchanged": true
+    },
+    {
+      "file": "engine/evaluate.py",
+      "unchanged": true
+    },
+    {
+      "file": "engine/external.py",
+      "unchanged": true
+    },
+    {
+      "file": "engine/identity.py",
+      "unchanged": true
+    },
+    {
+      "file": "engine/import_phase1.py",
+      "unchanged": true
+    },
+    {
+      "file": "engine/models.py",
+      "unchanged": true
+    },
+    {
+      "file": "engine/normalization.py",
+      "unchanged": true
+    },
+    {
+      "file": "engine/predict.py",
+      "unchanged": true
+    },
+    {
+      "file": "engine/queue.py",
+      "unchanged": true
+    },
+    {
+      "file": "evidence/phase2/NOTICE.md",
+      "unchanged": true
+    },
+    {
+      "file": "evidence/phase2/quota-state.json",
+      "unchanged": true
+    },
+    {
+      "file": "evidence/phase2/raw/international.zip",
+      "unchanged": true
+    },
+    {
+      "file": "evidence/phase2/raw/openfootball-discovery.json",
+      "unchanged": true
+    },
+    {
+      "file": "evidence/phase2/raw/openfootball.json",
+      "unchanged": true
+    },
+    {
+      "file": "evidence/phase2/raw/worldcup.json",
+      "unchanged": true
+    },
+    {
+      "file": "evidence/phase2/snapshot-index.json",
+      "unchanged": true
+    },
+    {
+      "file": "examples/phase2/bundesliga-actual-result.json",
+      "unchanged": true
+    },
+    {
+      "file": "examples/phase2/bundesliga-fixture.json",
+      "unchanged": true
+    },
+    {
+      "file": "examples/phase2/bundesliga-prediction.json",
+      "unchanged": true
+    },
+    {
+      "file": "examples/phase2/international-actual-result.json",
+      "unchanged": true
+    },
+    {
+      "file": "examples/phase2/international-fixture.json",
+      "unchanged": true
+    },
+    {
+      "file": "examples/phase2/international-prediction.json",
+      "unchanged": true
+    },
+    {
+      "file": "foundation/__init__.py",
+      "unchanged": true
+    },
+    {
+      "file": "foundation/contracts.py",
+      "unchanged": true
+    },
+    {
+      "file": "foundation/demo.py",
+      "unchanged": true
+    },
+    {
+      "file": "foundation/export.py",
+      "unchanged": true
+    },
+    {
+      "file": "foundation/roles.py",
+      "unchanged": true
+    },
+    {
+      "file": "foundation/runtime.py",
+      "unchanged": true
+    },
+    {
+      "file": "pyproject.toml",
+      "unchanged": true
+    },
+    {
+      "file": "reports/cache-repeat.json",
+      "unchanged": true
+    },
+    {
+      "file": "reports/live-collection.json",
+      "unchanged": true
+    },
+    {
+      "file": "reports/package-manifest.json",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase0/audit-export.json",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase0/audit-sha256.txt",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase0/baseline-integrity.json",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase0/demo-run.txt",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase0/demo.json",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase0/module-inventory.json",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase0/postgres-compatibility.txt",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase0/postgres-foundation.txt",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase0/postgres-phase1.txt",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase0/postgres-phase2.txt",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase0/python-foundation.txt",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase0/python-phase1.txt",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase0/python-phase2.txt",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase2/bundesliga/baseline.model.json",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase2/bundesliga/baseline.predictions.json",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase2/bundesliga/dataset.json",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase2/bundesliga/dixon_coles.model.json",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase2/bundesliga/dixon_coles.predictions.json",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase2/bundesliga/elo.model.json",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase2/bundesliga/elo.predictions.json",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase2/bundesliga/evaluation.json",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase2/bundesliga/poisson.model.json",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase2/bundesliga/poisson.predictions.json",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase2/bundesliga/summary.json",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase2/bundesliga/test-outcomes.json",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase2/bundesliga-run.txt",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase2/cached-reparse.json",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase2/clean-extract-phase1-tests.txt",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase2/clean-extract-phase2-tests.txt",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase2/collection-additional.json",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase2/collection-initial.json",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase2/discovery-live.json",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase2/discovery-summary.json",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase2/international/baseline.model.json",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase2/international/baseline.predictions.json",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase2/international/dataset.json",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase2/international/dixon_coles.model.json",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase2/international/dixon_coles.predictions.json",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase2/international/elo.model.json",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase2/international/elo.predictions.json",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase2/international/evaluation.json",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase2/international/poisson.model.json",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase2/international/poisson.predictions.json",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase2/international/summary.json",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase2/international/test-outcomes.json",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase2/model-run.txt",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase2/openfootball-plan.json",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase2/openliga-plan.json",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase2/package-manifest.json",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase2/phase1-cache-reuse.json",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase2/phase1-postgres.txt",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase2/phase1-preservation.json",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase2/phase1-regression.txt",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase2/phase2-postgres.txt",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase2/planned-collection-status.json",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase2/python-tests.txt",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase2/queue-status.json",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase2/release-check.json",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase2/retraining-reproducibility.json",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase2/source-research.json",
+      "unchanged": true
+    },
+    {
+      "file": "reports/python-tests.txt",
+      "unchanged": true
+    },
+    {
+      "file": "reports/real-data-evidence.json",
+      "unchanged": true
+    },
+    {
+      "file": "reports/sql-tests.txt",
+      "unchanged": true
+    },
+    {
+      "file": "requirements-foundation.txt",
+      "unchanged": true
+    },
+    {
+      "file": "requirements-phase2.txt",
+      "unchanged": true
+    },
+    {
+      "file": "schemas/phase0/AgentMessage.schema.json",
+      "unchanged": true
+    },
+    {
+      "file": "schemas/phase0/Evidence.schema.json",
+      "unchanged": true
+    },
+    {
+      "file": "schemas/phase0/JobRequest.schema.json",
+      "unchanged": true
+    },
+    {
+      "file": "schemas/phase0/ReviewDecision.schema.json",
+      "unchanged": true
+    },
+    {
+      "file": "schemas/phase0/UnsupportedMarket.schema.json",
+      "unchanged": true
+    },
+    {
+      "file": "schemas/phase0/agent-roles.json",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/import_supabase.py",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/package_foundation.py",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/phase0_report.py",
+      "unchanged": true
+    },
+    {
+      "file": "supabase/migrations/001_lab.sql",
+      "unchanged": true
+    },
+    {
+      "file": "supabase/migrations/002_research_engine.sql",
+      "unchanged": true
+    },
+    {
+      "file": "supabase/migrations/003_multi_agent_foundation.sql",
+      "unchanged": true
+    },
+    {
+      "file": "supabase/tests/package-lock.json",
+      "unchanged": true
+    },
+    {
+      "file": "supabase/tests/package.json",
+      "unchanged": true
+    },
+    {
+      "file": "supabase/tests/validate-foundation.mjs",
+      "unchanged": true
+    },
+    {
+      "file": "supabase/tests/validate-legacy-after-foundation.mjs",
+      "unchanged": true
+    },
+    {
+      "file": "supabase/tests/validate-phase2.mjs",
+      "unchanged": true
+    },
+    {
+      "file": "supabase/tests/validate.mjs",
+      "unchanged": true
+    },
+    {
+      "file": "tests/test_ingestion.py",
+      "unchanged": true
+    },
+    {
+      "file": "tests_foundation/test_foundation.py",
+      "unchanged": true
+    },
+    {
+      "file": "tests_foundation/test_postgres_concurrency.py",
+      "unchanged": true
+    },
+    {
+      "file": "tests_phase2/test_adapters.py",
+      "unchanged": true
+    },
+    {
+      "file": "tests_phase2/test_models.py",
+      "unchanged": true
+    },
+    {
+      "file": "tests_phase2/test_queue.py",
+      "unchanged": true
+    },
+    {
+      "file": "tests_phase2/test_real_artifacts.py",
+      "unchanged": true
+    },
+    {
+      "file": "reports/phase0/release-manifest.json",
+      "unchanged": true
+    }
+  ],
+  "changed_documents": [
+    "CONTINUE.md",
+    "TEST_REPORT.md"
+  ]
+}
