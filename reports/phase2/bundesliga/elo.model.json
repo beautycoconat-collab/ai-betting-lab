@@ -1,0 +1,41 @@
+{
+  "format_version": 1,
+  "model": "elo",
+  "state": {
+    "coefficients": [
+      0.42493899804848034,
+      0.12627071554294195,
+      1.3643603358727503
+    ],
+    "fit_info": {
+      "converged": true,
+      "iterations": 7,
+      "objective": 1.592483410387232
+    },
+    "home_advantage": 60.0,
+    "k": 20.0,
+    "n_train": 135,
+    "ratings": {
+      "1. FC Heidenheim 1846": 1428.1560538011086,
+      "1. FC Union Berlin": 1468.2779462943613,
+      "1. FSV Mainz 05": 1531.483357970708,
+      "Bayer 04 Leverkusen": 1566.4165021664571,
+      "Borussia Dortmund": 1525.8934943000163,
+      "Borussia Mönchengladbach": 1518.20381963335,
+      "Eintracht Frankfurt": 1531.1456168026168,
+      "FC Augsburg": 1472.4582533237076,
+      "FC Bayern München": 1581.4561359336763,
+      "FC St. Pauli 1910": 1465.040056031625,
+      "Holstein Kiel": 1426.196085123239,
+      "RB Leipzig": 1530.82064419253,
+      "SC Freiburg": 1518.7520595307958,
+      "SV Werder Bremen": 1526.244444352728,
+      "TSG 1899 Hoffenheim": 1466.131974513817,
+      "VfB Stuttgart": 1511.6058444135106,
+      "VfL Bochum 1848": 1430.5202735044295,
+      "VfL Wolfsburg": 1501.1974381113232
+    },
+    "target": "regulation90",
+    "training_end": "2024-12-22"
+  }
+}
