@@ -1,0 +1,38 @@
+test_both_reject_wrong_envelope (test_ingestion.AdapterTests.test_both_reject_wrong_envelope) ... ok
+test_openfootball_boolean_score_rejected (test_ingestion.AdapterTests.test_openfootball_boolean_score_rejected) ... ok
+test_openfootball_identity_survives_reschedule (test_ingestion.AdapterTests.test_openfootball_identity_survives_reschedule) ... ok
+test_openfootball_missing_score (test_ingestion.AdapterTests.test_openfootball_missing_score) ... ok
+test_openfootball_no_invented_kickoff (test_ingestion.AdapterTests.test_openfootball_no_invented_kickoff) ... ok
+test_openfootball_same_team_rejected (test_ingestion.AdapterTests.test_openfootball_same_team_rejected) ... ok
+test_openfootball_score (test_ingestion.AdapterTests.test_openfootball_score) ... ok
+test_openliga_fulltime_not_halftime (test_ingestion.AdapterTests.test_openliga_fulltime_not_halftime) ... ok
+test_openliga_missing_fulltime (test_ingestion.AdapterTests.test_openliga_missing_fulltime) ... ok
+test_openliga_negative_goals (test_ingestion.AdapterTests.test_openliga_negative_goals) ... ok
+test_openliga_no_partial_live_score (test_ingestion.AdapterTests.test_openliga_no_partial_live_score) ... ok
+test_openliga_timezone_required (test_ingestion.AdapterTests.test_openliga_timezone_required) ... ok
+test_openliga_unknown_timezone_preserved (test_ingestion.AdapterTests.test_openliga_unknown_timezone_preserved) ... ok
+test_openliga_wrong_season (test_ingestion.AdapterTests.test_openliga_wrong_season) ... ok
+test_bad_json (test_ingestion.CollectorTests.test_bad_json) ... ok
+test_collect_and_export (test_ingestion.CollectorTests.test_collect_and_export) ... ok
+test_disabled_does_not_fetch (test_ingestion.CollectorTests.test_disabled_does_not_fetch) ... ok
+test_duplicate_row_quarantine (test_ingestion.CollectorTests.test_duplicate_row_quarantine) ... ok
+test_empty_data_not_success (test_ingestion.CollectorTests.test_empty_data_not_success) ... ok
+test_expired_review_stops (test_ingestion.CollectorTests.test_expired_review_stops) ... ok
+test_http_429_circuit_breaker (test_ingestion.CollectorTests.test_http_429_circuit_breaker) ... ok
+test_new_receipt_appends_same_raw_hash_once (test_ingestion.CollectorTests.test_new_receipt_appends_same_raw_hash_once) ... ok
+test_parallel_reservations_cannot_exceed_limit (test_ingestion.CollectorTests.test_parallel_reservations_cannot_exceed_limit) ... ok
+test_partial_row_quarantine (test_ingestion.CollectorTests.test_partial_row_quarantine) ... ok
+test_quota_counts_failed_attempt (test_ingestion.CollectorTests.test_quota_counts_failed_attempt) ... ok
+test_raw_hash_reproducible (test_ingestion.CollectorTests.test_raw_hash_reproducible) ... ok
+test_retry_is_cached (test_ingestion.CollectorTests.test_retry_is_cached) ... ok
+test_storage_budget_stops (test_ingestion.CollectorTests.test_storage_budget_stops) ... ok
+test_timestamp_after_receipt (test_ingestion.CollectorTests.test_timestamp_after_receipt) ... ok
+test_conflicting_scores_block (test_ingestion.IdentityTests.test_conflicting_scores_block) ... ok
+test_explicit_candidate_requires_review (test_ingestion.IdentityTests.test_explicit_candidate_requires_review) ... ok
+test_home_away_not_swapped (test_ingestion.IdentityTests.test_home_away_not_swapped) ... ok
+test_no_guessing (test_ingestion.IdentityTests.test_no_guessing) ... ok
+
+----------------------------------------------------------------------
+Ran 33 tests in 0.051s
+
+OK

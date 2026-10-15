@@ -1,0 +1,16 @@
+[
+  {
+    "job_id": "dd01be5d5ee6d1076f75cc278b4352d39139ed20f1c7a11f4d7702234cb05c59",
+    "source": "fjelstul",
+    "accepted": 1248,
+    "rejected": 0,
+    "status": "done"
+  },
+  {
+    "job_id": "db8ffaccbb7ba1ec07704289ad74ed0d842cc9ef15bc8261a53ac93409258e5c",
+    "source": "worldcup",
+    "accepted": 64,
+    "rejected": 0,
+    "status": "done"
+  }
+]

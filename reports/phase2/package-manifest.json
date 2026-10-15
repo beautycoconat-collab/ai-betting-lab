@@ -1,0 +1,616 @@
+{
+  "format": 1,
+  "excludes_self": true,
+  "files": [
+    {
+      "path": ".env.example",
+      "bytes": 280,
+      "sha256": "ba8e6e03fd4a3070dfe6707424a6dc49476c5b5cffa7d9f88b3c0efb96e96c7f"
+    },
+    {
+      "path": ".github/workflows/phase2-tests.yml",
+      "bytes": 915,
+      "sha256": "cf17517d156db2964895fc4f488e23456682ea1ece8c2bcefa2130a890a31a23"
+    },
+    {
+      "path": ".github/workflows/test.yml",
+      "bytes": 891,
+      "sha256": "9bc5aa717596e7a551afe174e0efac098a8f89e25e2adf97c1bd3f76460ba131"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 72,
+      "sha256": "556ce204e3e2085d9ed1bf71c3f2e3e60aada8e16e4d7032c555dd6610fc3015"
+    },
+    {
+      "path": "PHASE2.md",
+      "bytes": 10111,
+      "sha256": "c450a2dc6e236dc031c1453cbe2b3daace1eef7530e43a612114466800a5a3f9"
+    },
+    {
+      "path": "README.md",
+      "bytes": 6835,
+      "sha256": "5910c9da8679ff08721d853c9d8b36a68365bba103a3d17f0dabad74c5f47f48"
+    },
+    {
+      "path": "betting_lab/__init__.py",
+      "bytes": 79,
+      "sha256": "9591a663bbb65fecd8e173e62093e5cadd2151d76eea3800562885ba5a05a767"
+    },
+    {
+      "path": "betting_lab/__main__.py",
+      "bytes": 1678,
+      "sha256": "250d6d164f7cb0587f7560d4bc8fa70ad98e84770a0ecce52270fc905f2caf46"
+    },
+    {
+      "path": "betting_lab/adapters/__init__.py",
+      "bytes": 138,
+      "sha256": "99245cbec5c0f7d2cc00ed9e0070fc4790f4d01c9e38c0270c5892815de19306"
+    },
+    {
+      "path": "betting_lab/adapters/base.py",
+      "bytes": 323,
+      "sha256": "e8190acc30d72b4722d5804b6b6dc3ad11a80a3b94666d081e3081c2702f3798"
+    },
+    {
+      "path": "betting_lab/adapters/openfootball.py",
+      "bytes": 1274,
+      "sha256": "cdb236179907a665846e2adbebf946e806fe96cd333b76568ec313520c1a9a56"
+    },
+    {
+      "path": "betting_lab/adapters/openliga.py",
+      "bytes": 1978,
+      "sha256": "31c8d400343346a83904130ace0c90f2d2e3dab0d233bac7d3eab534379f89b8"
+    },
+    {
+      "path": "betting_lab/collector.py",
+      "bytes": 3677,
+      "sha256": "081a2781db965347d71adc22338b237dc95da4929e1000db0d8da1b584249450"
+    },
+    {
+      "path": "betting_lab/domain.py",
+      "bytes": 2070,
+      "sha256": "0994a48c77b174cca00347c9ac7490db58310263432a24becc7f332beaefb839"
+    },
+    {
+      "path": "betting_lab/identity.py",
+      "bytes": 1331,
+      "sha256": "28158a89e1f0b6903af65ad406af2250ab20d2c00294f51c4caf8b98b6a68b8a"
+    },
+    {
+      "path": "betting_lab/store.py",
+      "bytes": 4837,
+      "sha256": "85bc2fa97075eb774178c6ab1dd9ac3049ce75b304b86a9c1bde4dc13a68be10"
+    },
+    {
+      "path": "config/aliases.json",
+      "bytes": 1861,
+      "sha256": "a2f3ded7bc9067d0b163ede7411d299589ddf1a3f47605a3e741b94443b65910"
+    },
+    {
+      "path": "config/source_registry_v2.json",
+      "bytes": 20833,
+      "sha256": "967ec8114a7ab29f5ede5d7e9ad673cf8d49f940ad01e58904a808ab58d55fcf"
+    },
+    {
+      "path": "config/sources.json",
+      "bytes": 1466,
+      "sha256": "d08cfd630d410abf5548b82005745c211af7827ff0f31b3055fbfd1b1258debd"
+    },
+    {
+      "path": "config/strategy.json",
+      "bytes": 664,
+      "sha256": "dae49ffed2a26a239a34f4d1737c58f3b7f11e2fea9bf0c677e6090caf759d09"
+    },
+    {
+      "path": "docs/acceptance.md",
+      "bytes": 5593,
+      "sha256": "d866597ef98cebb6fe5543d6ab7fdbfe8b5e229c13c9016d5ce4abc3b2d9f777"
+    },
+    {
+      "path": "docs/architecture.md",
+      "bytes": 10206,
+      "sha256": "96f976c1fce9571762be45a0f616c5e249f7d11861dfd58b534fcc295f76557f"
+    },
+    {
+      "path": "docs/database.md",
+      "bytes": 5948,
+      "sha256": "16f27b97488e5d0b2bbcfbf4878ffc80f0238d5d6e468976982aacee2f83eda9"
+    },
+    {
+      "path": "docs/phase2/acceptance.md",
+      "bytes": 3035,
+      "sha256": "ccfaf9ef62596e783c9e1d081d89ad57283ab67ddc85b2b064005b6abe76a149"
+    },
+    {
+      "path": "docs/phase2/architecture.md",
+      "bytes": 4734,
+      "sha256": "953039e383f82fa428e64973aab24c44248d6e83cec0dad85e98f89e383b74a8"
+    },
+    {
+      "path": "docs/phase2/database.md",
+      "bytes": 3196,
+      "sha256": "5ff6cc36d9f55ea484384dc5149a5ed76ea7d89ac6c3bcb9c153caa8005108a9"
+    },
+    {
+      "path": "docs/phase2/models.md",
+      "bytes": 4385,
+      "sha256": "48b45bccf0ba0b110551583064c1c208c217e91ffd2f05439439d65822c1f9b8"
+    },
+    {
+      "path": "docs/phase2/results.md",
+      "bytes": 3370,
+      "sha256": "ebc84a8ecc58e2a921ca64c01931af46b25db786a1df79c2b4d2bfead06af863"
+    },
+    {
+      "path": "docs/phase2/sources.md",
+      "bytes": 10551,
+      "sha256": "046d1a46cda20cce1e94dc4b79cf46f24274050bcc9f11967f277ec924d778d8"
+    },
+    {
+      "path": "docs/sources.md",
+      "bytes": 5849,
+      "sha256": "164ae04f509c5c8ef9f28bb1779d3282c980818537e11504c8396c4733748bcd"
+    },
+    {
+      "path": "engine/__init__.py",
+      "bytes": 80,
+      "sha256": "f96a4bb78e1fd596b3b0fc96f1221e2bf8940661ea45d415f86badeb4c895ae2"
+    },
+    {
+      "path": "engine/__main__.py",
+      "bytes": 1793,
+      "sha256": "bd6a0112e6a0c2d78b322aff45e6d5c407b4eb16d9f8955218659b2241d89c14"
+    },
+    {
+      "path": "engine/adapters.py",
+      "bytes": 11271,
+      "sha256": "450580cae4761a2cae81d00e4875dee59b865569446abf02827240a07348bd65"
+    },
+    {
+      "path": "engine/bootstrap.py",
+      "bytes": 2650,
+      "sha256": "994f8b2f63ab22bc594df49fdc9140032e0ab54c351323f0d9fe452e44a1fe62"
+    },
+    {
+      "path": "engine/dataset.py",
+      "bytes": 2861,
+      "sha256": "43ffbd059778ff4e6938f695cd22010887b2c3f5cd26f3c70ea27c26a385d535"
+    },
+    {
+      "path": "engine/evaluate.py",
+      "bytes": 6065,
+      "sha256": "0505e8072fe36f298b53e4aa818bf38f9a74812bfbea2f74ede49824d59d8727"
+    },
+    {
+      "path": "engine/external.py",
+      "bytes": 2738,
+      "sha256": "dda55825c55776a81b7629d7c7286ac101519a89950443e6a24f6dc7857ab9fc"
+    },
+    {
+      "path": "engine/identity.py",
+      "bytes": 1073,
+      "sha256": "40c4f2be7ee9aaee1a36ff167b868f240615f74057124ccf9233ec6c524c39e1"
+    },
+    {
+      "path": "engine/import_phase1.py",
+      "bytes": 1556,
+      "sha256": "fe290427de4e773503f5a70b2af063624de3358583b7c2eab0712f40d210c63b"
+    },
+    {
+      "path": "engine/models.py",
+      "bytes": 9998,
+      "sha256": "c91605aab0f1f71c4fca3e5d43edba4ec9cb9eb12d30fac2175fc69d83eee7aa"
+    },
+    {
+      "path": "engine/normalization.py",
+      "bytes": 2632,
+      "sha256": "d4da9aac0943332c6e6fe5760856743a6a341ee805b47a2975f4f6e54cf33053"
+    },
+    {
+      "path": "engine/predict.py",
+      "bytes": 1393,
+      "sha256": "4c937555c3e36279857df4bf7ae90ae5d214de1a5db25ccd8351fb27e264d911"
+    },
+    {
+      "path": "engine/queue.py",
+      "bytes": 9376,
+      "sha256": "a7dd789024679d51c04c4417cfb458db1ca9fccfc8ea6528bb2ff87ef85caf4e"
+    },
+    {
+      "path": "evidence/phase2/NOTICE.md",
+      "bytes": 2203,
+      "sha256": "3a313dc4c767ea1ad197ed4fa72b70349d12c8e36f0055a726a07f7a90e6456d"
+    },
+    {
+      "path": "evidence/phase2/quota-state.json",
+      "bytes": 761,
+      "sha256": "56d7de3d185a3c1015d6ce14b0413ec52d02b49a56e6572ad3e837394f6c62ec"
+    },
+    {
+      "path": "evidence/phase2/raw/international.zip",
+      "bytes": 1300320,
+      "sha256": "c4ce2d659ed254a5cd1327d52b09e55e21c50fcc860e16e6b0ab8af94dc980d5"
+    },
+    {
+      "path": "evidence/phase2/raw/openfootball-discovery.json",
+      "bytes": 74163,
+      "sha256": "f244c63ab12ed077d0abf3fb55fb18a40f8b8e36cb68fdc090d6a72fb0b95eb4"
+    },
+    {
+      "path": "evidence/phase2/raw/openfootball.json",
+      "bytes": 88232,
+      "sha256": "f473d6595e6c29ebedc08b09177aed6a6b2ff0fa8378b82f51dea469139f44c3"
+    },
+    {
+      "path": "evidence/phase2/raw/worldcup.json",
+      "bytes": 25333,
+      "sha256": "6af380e875cc52fe12073ab7862fbe8d3e5505ee029cb84d8b5480bf6d603d11"
+    },
+    {
+      "path": "evidence/phase2/snapshot-index.json",
+      "bytes": 2600,
+      "sha256": "2a8e5fbfe57edc7900fa6a9ec878e63d93c3b69f958c8ab4506e0d3458b0366b"
+    },
+    {
+      "path": "examples/phase2/bundesliga-actual-result.json",
+      "bytes": 387,
+      "sha256": "2c81f66fea3cdd4f61782070ec3cf42748c4e4a905366604cd18cc53f962231e"
+    },
+    {
+      "path": "examples/phase2/bundesliga-fixture.json",
+      "bytes": 265,
+      "sha256": "c763ff47d68913c74fcc9b564b5447ef4d65d2e0c3e972b0ebcfa55e1fd5eb96"
+    },
+    {
+      "path": "examples/phase2/bundesliga-prediction.json",
+      "bytes": 15382,
+      "sha256": "1f7d620900d16a2e5d296ad7be1d4c79fe0699d833b109cbac2110fd7f6c7a2b"
+    },
+    {
+      "path": "examples/phase2/international-actual-result.json",
+      "bytes": 381,
+      "sha256": "6faf6e3e3b3bf911dd5279fe9ddc75c0fffd611e1d49e948e2a3ad061651c1fe"
+    },
+    {
+      "path": "examples/phase2/international-fixture.json",
+      "bytes": 259,
+      "sha256": "e89a8776afda09e5018e427ad4d17534fb4557f87a20ee1a3560113500b060cc"
+    },
+    {
+      "path": "examples/phase2/international-prediction.json",
+      "bytes": 15394,
+      "sha256": "68142e98ff3d2f24fc177a451465536962b85fb3484800ba771d3be139204f28"
+    },
+    {
+      "path": "pyproject.toml",
+      "bytes": 207,
+      "sha256": "c1e03617f551906c7606472b2231bdd675486cfc00c675e13bbd0277abf30146"
+    },
+    {
+      "path": "reports/cache-repeat.json",
+      "bytes": 299,
+      "sha256": "19dbb98c76851c2becf34668faddc2bb0eb7e5fd2edc9e6b7f7d0a62a7c32423"
+    },
+    {
+      "path": "reports/live-collection.json",
+      "bytes": 419,
+      "sha256": "3840ceed2be54e4d4b329833f69d3f89dd2d79935cba41a39dec5fdf4a2312d5"
+    },
+    {
+      "path": "reports/package-manifest.json",
+      "bytes": 3200,
+      "sha256": "1d9cd1922289e88efc90cd0bebeeaad37ac481fc7f502b4e391c98029aa93904"
+    },
+    {
+      "path": "reports/phase2/bundesliga/baseline.model.json",
+      "bytes": 295,
+      "sha256": "a0fe279f07bbb31e4b30823f2bd0b04d28f5396c1245d719ee52875bc0b29d6c"
+    },
+    {
+      "path": "reports/phase2/bundesliga/baseline.predictions.json",
+      "bytes": 1050486,
+      "sha256": "6d52555e29c7c5b53da4d8ca933a4b25c6ab3ab7e7172e1798156a761587f848"
+    },
+    {
+      "path": "reports/phase2/bundesliga/dataset.json",
+      "bytes": 212127,
+      "sha256": "df2fc989105e623a120e28c09b9688b00aec2c3f5422d4b4f4d44fd54863985a"
+    },
+    {
+      "path": "reports/phase2/bundesliga/dixon_coles.model.json",
+      "bytes": 2151,
+      "sha256": "bec70c84a22da37cd9da47c78904350d16f1c0897f058686c9054f64e93956ef"
+    },
+    {
+      "path": "reports/phase2/bundesliga/dixon_coles.predictions.json",
+      "bytes": 1052149,
+      "sha256": "8cc88877078708ab1bdf65eb1f50a78bb5e1d263fee98dd73f42a2c0fe119278"
+    },
+    {
+      "path": "reports/phase2/bundesliga/elo.model.json",
+      "bytes": 1249,
+      "sha256": "6bce2c7183c9d4d30f65c4d4189377ef5e43ec9cb7a422bc6d9f4cefccf0c5f6"
+    },
+    {
+      "path": "reports/phase2/bundesliga/elo.predictions.json",
+      "bytes": 1050775,
+      "sha256": "6e71f34a3d5abe3cab3ad4843463fe2087d7f4a95ffefe9325887a866298385a"
+    },
+    {
+      "path": "reports/phase2/bundesliga/evaluation.json",
+      "bytes": 96780,
+      "sha256": "f0d89fabc871bfca09da35d106aa921bff80eb4f155ddf1d5d7cfdb45ff8535b"
+    },
+    {
+      "path": "reports/phase2/bundesliga/poisson.model.json",
+      "bytes": 2145,
+      "sha256": "34ed4a454d634ede6565cfc3708d449d112ea78cecc2d85b684cad6ae6b4b5f1"
+    },
+    {
+      "path": "reports/phase2/bundesliga/poisson.predictions.json",
+      "bytes": 1051540,
+      "sha256": "4de1b2e55bc84f028b41570b1c63af79d85ed8c0ab3a69b739ba3021e346908e"
+    },
+    {
+      "path": "reports/phase2/bundesliga/summary.json",
+      "bytes": 1135,
+      "sha256": "cd48a38f51742ad084ac617820c55ccbd4bdaf6db6fd0cefb80e110fa763a986"
+    },
+    {
+      "path": "reports/phase2/bundesliga/test-outcomes.json",
+      "bytes": 39888,
+      "sha256": "dd1ce7475a493952e32c4ba52cf3422683bcbc4dcc853efa1a70f3a7d45946f9"
+    },
+    {
+      "path": "reports/phase2/bundesliga-run.txt",
+      "bytes": 1136,
+      "sha256": "089263e21dcf0c7ce9cca5080ee0969253e099aff27bd639c9c9fccafeb77140"
+    },
+    {
+      "path": "reports/phase2/cached-reparse.json",
+      "bytes": 403,
+      "sha256": "135f034f68934223d2e51163f04cd097cf6496721c541b2523dc35fab870c9f0"
+    },
+    {
+      "path": "reports/phase2/clean-extract-phase1-tests.txt",
+      "bytes": 3420,
+      "sha256": "63023f3e533fbf008a4d42704aa7bf8a37ea825938d3435cbe813b8c9e740bb4"
+    },
+    {
+      "path": "reports/phase2/clean-extract-phase2-tests.txt",
+      "bytes": 6259,
+      "sha256": "c58f7786e4cf08ea8ac2c6bab6faed833619dae053a6cea2aa039eb92e5a6a4c"
+    },
+    {
+      "path": "reports/phase2/collection-additional.json",
+      "bytes": 359,
+      "sha256": "f227e915b0e13b2155e5c357b6d08f5ee27523ef77298c5429c0c0c8145dbf48"
+    },
+    {
+      "path": "reports/phase2/collection-initial.json",
+      "bytes": 723,
+      "sha256": "4bf98d1e8f01aaabce5bb7eef0d14c1ebe37fb373f16e46b1218dc727d35f932"
+    },
+    {
+      "path": "reports/phase2/discovery-live.json",
+      "bytes": 339,
+      "sha256": "0a1f5f53daaaeb534ec024e1b2da36fb06225a54dfccc62275cab14885987e15"
+    },
+    {
+      "path": "reports/phase2/discovery-summary.json",
+      "bytes": 1585,
+      "sha256": "35cb16c55d28f48cc2a313b3defc9e4e71d3a93d82acf9c2caeaa569e27237ff"
+    },
+    {
+      "path": "reports/phase2/international/baseline.model.json",
+      "bytes": 310,
+      "sha256": "55115532f8b78cc0ad15562eecbea4c8aad7bc6f04fde583b4cdbc977e7abc7a"
+    },
+    {
+      "path": "reports/phase2/international/baseline.predictions.json",
+      "bytes": 21842779,
+      "sha256": "77392c4ed5a13d2eaa6dbc69a20dd7d9a29e90c516ba53fd94ad1fa31822bd1a"
+    },
+    {
+      "path": "reports/phase2/international/dataset.json",
+      "bytes": 9282058,
+      "sha256": "0a28d2d4a4b93ad9e05e8b75079558baa57a353746d951569a93bde2ccfff842"
+    },
+    {
+      "path": "reports/phase2/international/dixon_coles.model.json",
+      "bytes": 24638,
+      "sha256": "3cbdded64e6370575cb1938826d58adb2d6ada4830e768069b16f4a550b5a64b"
+    },
+    {
+      "path": "reports/phase2/international/dixon_coles.predictions.json",
+      "bytes": 21890691,
+      "sha256": "76e6b128445fd79c5ddf839abb14a98cc182e119cac0aad688f6bf91d79f612a"
+    },
+    {
+      "path": "reports/phase2/international/elo.model.json",
+      "bytes": 12216,
+      "sha256": "4295ed3ab0be0e7ce5c6eb88968b45b7ed09bd5fe4782650ff69a7bf2bd4e6c8"
+    },
+    {
+      "path": "reports/phase2/international/elo.predictions.json",
+      "bytes": 21832764,
+      "sha256": "2c2eeb666b8ef1e9ead6370eed5ecd236e4f084ffb09835e2853dde73fab6e03"
+    },
+    {
+      "path": "reports/phase2/international/evaluation.json",
+      "bytes": 1098578,
+      "sha256": "71e4cd679c9a93a2e9a8d3ba54648e304c39fda4aace86458c0e631896326ccb"
+    },
+    {
+      "path": "reports/phase2/international/poisson.model.json",
+      "bytes": 24645,
+      "sha256": "5ffaba7bad6c7178f8b05b197f3f46f358b8ea3751735979a6f326c86ac29abe"
+    },
+    {
+      "path": "reports/phase2/international/poisson.predictions.json",
+      "bytes": 21846349,
+      "sha256": "52df98535d7545252133cb0c5408dc2aedbb3bb73d74a30f5e3cad7513fa26a4"
+    },
+    {
+      "path": "reports/phase2/international/summary.json",
+      "bytes": 1152,
+      "sha256": "de3f0b4ad43f7c9773440e54f0c359c29f02c828748e41d1835fd1bb48d19389"
+    },
+    {
+      "path": "reports/phase2/international/test-outcomes.json",
+      "bytes": 815643,
+      "sha256": "910ccfa24a14e24b8ff0fb54e40ba85a53e581f5b8b20eb5b87b0876ae3cdf26"
+    },
+    {
+      "path": "reports/phase2/model-run.txt",
+      "bytes": 1153,
+      "sha256": "29fb47aba6313d679f0db16a94d388d96480c289c7e51fe2c2f37ba5eabc11aa"
+    },
+    {
+      "path": "reports/phase2/openfootball-plan.json",
+      "bytes": 245,
+      "sha256": "131dc2e9d3bfff4daeb2f731028c13247ccfc552b44c452ad9a9f14079a343f7"
+    },
+    {
+      "path": "reports/phase2/openliga-plan.json",
+      "bytes": 449,
+      "sha256": "0e0ea02e28c4ed572090a38f1cfb850f7587002ef4f050c96c4c73938dacbafe"
+    },
+    {
+      "path": "reports/phase2/phase1-cache-reuse.json",
+      "bytes": 843,
+      "sha256": "29b168c8fe9ce535eb5d7ab8452e1bac169b034511819929d29ce5932cb7b87b"
+    },
+    {
+      "path": "reports/phase2/phase1-postgres.txt",
+      "bytes": 835,
+      "sha256": "a55f240506ea3d5f96dcc97d65a2bbdb6dda542500c2508c192aa2ba701c5606"
+    },
+    {
+      "path": "reports/phase2/phase1-preservation.json",
+      "bytes": 5675,
+      "sha256": "a84d7aa081886903841504d53f5c0fa68ae3244cf00232164a9b6011183179f3"
+    },
+    {
+      "path": "reports/phase2/phase1-regression.txt",
+      "bytes": 3420,
+      "sha256": "69cc20e0e4326ee58b1f32ff0e40e01f8764fa0618fa1803bc39fb08cc30f251"
+    },
+    {
+      "path": "reports/phase2/phase2-postgres.txt",
+      "bytes": 1094,
+      "sha256": "dee2ef209e904b168f24e3feb47dba647a4ac411deb16622a3f46c9a0b8ec135"
+    },
+    {
+      "path": "reports/phase2/planned-collection-status.json",
+      "bytes": 1243,
+      "sha256": "f0ab9c53a558228822ee626c0d03bc9dac07919a8277ee6804a2855c73e4feb7"
+    },
+    {
+      "path": "reports/phase2/python-tests.txt",
+      "bytes": 6259,
+      "sha256": "06d6a7322bfcb1b7fd16a67bd72bf6ebfc0fac046208b40aaa4c398d9a092b9e"
+    },
+    {
+      "path": "reports/phase2/queue-status.json",
+      "bytes": 6252,
+      "sha256": "1c6989b2dca609f36762b5f71eb0d6cec8c0ffbdb4d90afdcd3612badfc57d3a"
+    },
+    {
+      "path": "reports/phase2/release-check.json",
+      "bytes": 257,
+      "sha256": "512f422ee63151955771e8f842c8f5a5ed11b52bdb4511da8ae058f04307db54"
+    },
+    {
+      "path": "reports/phase2/retraining-reproducibility.json",
+      "bytes": 1444,
+      "sha256": "fc29a65843b8ea4882e773040b9a0ac27445eb9262e0e993052aa67ff15cec15"
+    },
+    {
+      "path": "reports/phase2/source-research.json",
+      "bytes": 17352,
+      "sha256": "f2090d47ab0a2a6c439b2770187d55e47636495d61c4e2d4b676be2188e14a14"
+    },
+    {
+      "path": "reports/python-tests.txt",
+      "bytes": 3420,
+      "sha256": "e7c04b0085ff3a4eb1bc99deb54d0fd2dc3b1f8a5fce295cb5cc1bd2fa3f5afb"
+    },
+    {
+      "path": "reports/real-data-evidence.json",
+      "bytes": 1442,
+      "sha256": "18cca4dc8e3a7da4f72783c19b28a76f9cfaaedd1af2484342f89594bab87ef3"
+    },
+    {
+      "path": "reports/sql-tests.txt",
+      "bytes": 835,
+      "sha256": "a55f240506ea3d5f96dcc97d65a2bbdb6dda542500c2508c192aa2ba701c5606"
+    },
+    {
+      "path": "requirements-phase2.txt",
+      "bytes": 27,
+      "sha256": "1668a3152e33680d94637b13421c15e68bd97cd8701f7f555c691f5bc5c0b9f3"
+    },
+    {
+      "path": "scripts/import_supabase.py",
+      "bytes": 3263,
+      "sha256": "2d5b0ba60a3a25afe0b837f871d38a231a58343995184f9569f75c1580b5d8f4"
+    },
+    {
+      "path": "supabase/migrations/001_lab.sql",
+      "bytes": 12893,
+      "sha256": "d10e21ec761a7a94527009a319abd4b07b9510f03d17b3e0fab62fae443bffee"
+    },
+    {
+      "path": "supabase/migrations/002_research_engine.sql",
+      "bytes": 9181,
+      "sha256": "c5885b7bde7a3cbcc4e24bbf81bf4b2f35dfc6cffd2a61107fc88a2f768ef280"
+    },
+    {
+      "path": "supabase/tests/package-lock.json",
+      "bytes": 573,
+      "sha256": "d739f72dbe4217ba47e93a677d900ec5c9a57524668a65f635779be448ee33af"
+    },
+    {
+      "path": "supabase/tests/package.json",
+      "bytes": 85,
+      "sha256": "8662accfa7cf43f8d8eede6070d9dda8867cf82e6f288f453df1365b34e90a01"
+    },
+    {
+      "path": "supabase/tests/validate-phase2.mjs",
+      "bytes": 6953,
+      "sha256": "6929ebd8c55514475e8e1c94e0c18f60c0f2600080e839f64b8aeb5e347b5aca"
+    },
+    {
+      "path": "supabase/tests/validate.mjs",
+      "bytes": 6862,
+      "sha256": "e75939e428ae6ee401a4b892255b246cdb598b23003806e1737b59fa8144862a"
+    },
+    {
+      "path": "tests/test_ingestion.py",
+      "bytes": 7931,
+      "sha256": "ff69f15b9e955d07a40ff4a0463093a1797e100c75dcec3b8089d946b86ee7f3"
+    },
+    {
+      "path": "tests_phase2/test_adapters.py",
+      "bytes": 5185,
+      "sha256": "ec7ffcab4b32e6c642a1ec9f2bc66be7c6d652ba748dc4db951864695b511ea0"
+    },
+    {
+      "path": "tests_phase2/test_models.py",
+      "bytes": 4971,
+      "sha256": "56612b7b629b5b6ce07ede2692857b7b1ad908939510353542dec5a9a99703fd"
+    },
+    {
+      "path": "tests_phase2/test_queue.py",
+      "bytes": 6861,
+      "sha256": "7359081f317e62bda35dd8ae9827e8106dc44daf484a42cfaa3742e5076b2198"
+    },
+    {
+      "path": "tests_phase2/test_real_artifacts.py",
+      "bytes": 2957,
+      "sha256": "f2424dfe13e2563cb28860fde9a911ee299702ede12f78efdf51307cf76029d2"
+    }
+  ]
+}
