@@ -1,0 +1,317 @@
+[
+  {
+    "file": "betting_lab/__init__.py",
+    "description": "AI Betting Lab: phase 1, real data ingestion only.",
+    "imports": []
+  },
+  {
+    "file": "betting_lab/__main__.py",
+    "description": null,
+    "imports": [
+      "argparse",
+      "betting_lab.adapters",
+      "betting_lab.collector",
+      "betting_lab.identity",
+      "betting_lab.store",
+      "json",
+      "pathlib"
+    ]
+  },
+  {
+    "file": "betting_lab/adapters/__init__.py",
+    "description": null,
+    "imports": [
+      ".openfootball",
+      ".openliga"
+    ]
+  },
+  {
+    "file": "betting_lab/adapters/base.py",
+    "description": null,
+    "imports": [
+      "betting_lab.domain",
+      "typing"
+    ]
+  },
+  {
+    "file": "betting_lab/adapters/openfootball.py",
+    "description": null,
+    "imports": [
+      "betting_lab.domain"
+    ]
+  },
+  {
+    "file": "betting_lab/adapters/openliga.py",
+    "description": null,
+    "imports": [
+      "betting_lab.domain",
+      "datetime",
+      "zoneinfo"
+    ]
+  },
+  {
+    "file": "betting_lab/collector.py",
+    "description": null,
+    "imports": [
+      "betting_lab.adapters",
+      "betting_lab.domain",
+      "betting_lab.store",
+      "datetime",
+      "email.utils",
+      "json",
+      "urllib.error",
+      "urllib.request"
+    ]
+  },
+  {
+    "file": "betting_lab/domain.py",
+    "description": null,
+    "imports": [
+      "dataclasses",
+      "datetime",
+      "hashlib",
+      "json"
+    ]
+  },
+  {
+    "file": "betting_lab/identity.py",
+    "description": "Only explicit aliases. No fuzzy auto-merge; ambiguity blocks matching.",
+    "imports": [
+      "betting_lab.domain"
+    ]
+  },
+  {
+    "file": "betting_lab/store.py",
+    "description": null,
+    "imports": [
+      "betting_lab.domain",
+      "datetime",
+      "json",
+      "pathlib",
+      "sqlite3",
+      "zlib"
+    ]
+  },
+  {
+    "file": "engine/__init__.py",
+    "description": "Phase 2 isolated extension; phase 1 modules stay byte-for-byte unchanged.",
+    "imports": []
+  },
+  {
+    "file": "engine/__main__.py",
+    "description": null,
+    "imports": [
+      ".queue",
+      "argparse",
+      "json",
+      "pathlib"
+    ]
+  },
+  {
+    "file": "engine/adapters.py",
+    "description": "Central adapter contract. Pure normalization and discovery, no network side effects.",
+    "imports": [
+      "betting_lab.domain",
+      "csv",
+      "dataclasses",
+      "datetime",
+      "io",
+      "json",
+      "re",
+      "typing",
+      "zipfile"
+    ]
+  },
+  {
+    "file": "engine/bootstrap.py",
+    "description": "Restore shipped CC0 evidence offline and MERGE request counters, never reset them.",
+    "imports": [
+      ".adapters",
+      ".normalization",
+      ".queue",
+      "argparse",
+      "betting_lab.domain",
+      "json",
+      "pathlib",
+      "zlib"
+    ]
+  },
+  {
+    "file": "engine/dataset.py",
+    "description": "Deduplication, lineage and explicitly retrospective time splits.",
+    "imports": [
+      "betting_lab.domain",
+      "collections",
+      "hashlib",
+      "json"
+    ]
+  },
+  {
+    "file": "engine/evaluate.py",
+    "description": null,
+    "imports": [
+      ".dataset",
+      ".models",
+      ".queue",
+      "argparse",
+      "datetime",
+      "hashlib",
+      "json",
+      "numpy",
+      "pathlib",
+      "platform",
+      "scipy"
+    ]
+  },
+  {
+    "file": "engine/external.py",
+    "description": "Permission-gated external forecasts; isolated from labels and internal models.",
+    "imports": [
+      "betting_lab.domain",
+      "datetime",
+      "json",
+      "math",
+      "re"
+    ]
+  },
+  {
+    "file": "engine/identity.py",
+    "description": "Conservative, reviewed cross-source identities. No fuzzy automatic merge.",
+    "imports": [
+      "collections"
+    ]
+  },
+  {
+    "file": "engine/import_phase1.py",
+    "description": "Reuse Phase 1 raw snapshots without requests, altered clocks or reset budgets.",
+    "imports": [
+      ".normalization",
+      ".queue",
+      "argparse",
+      "betting_lab.domain",
+      "json",
+      "re",
+      "zlib"
+    ]
+  },
+  {
+    "file": "engine/models.py",
+    "description": "Numerical score models. Infinite-support PMF, explicit display tail, no LLM.",
+    "imports": [
+      "datetime",
+      "itertools",
+      "json",
+      "math",
+      "numpy",
+      "pathlib",
+      "scipy.optimize",
+      "scipy.special",
+      "scipy.stats"
+    ]
+  },
+  {
+    "file": "engine/normalization.py",
+    "description": "Pure parsing, whole-conflict quarantine, and auditable cached replay (no HTTP).",
+    "imports": [
+      ".adapters",
+      "betting_lab.domain",
+      "hashlib",
+      "json",
+      "pathlib",
+      "zlib"
+    ]
+  },
+  {
+    "file": "engine/predict.py",
+    "description": "Saved-model inference. Input fixture must not contain score labels.",
+    "imports": [
+      ".models",
+      "argparse",
+      "datetime",
+      "json",
+      "pathlib"
+    ]
+  },
+  {
+    "file": "engine/queue.py",
+    "description": "Persistent source-isolated queue; uses unchanged phase-1 request budget ledger.",
+    "imports": [
+      ".adapters",
+      ".bootstrap",
+      ".normalization",
+      "betting_lab.collector",
+      "betting_lab.domain",
+      "betting_lab.store",
+      "datetime",
+      "email.utils",
+      "json",
+      "pathlib",
+      "urllib.error",
+      "uuid",
+      "zipfile",
+      "zlib"
+    ]
+  },
+  {
+    "file": "foundation/__init__.py",
+    "description": "Phase 0 deterministic role, message and workflow foundation.",
+    "imports": []
+  },
+  {
+    "file": "foundation/contracts.py",
+    "description": "Strict wire contracts. Syntax validation never substitutes for evidence checks.",
+    "imports": [
+      "datetime",
+      "enum",
+      "pydantic",
+      "typing",
+      "uuid"
+    ]
+  },
+  {
+    "file": "foundation/demo.py",
+    "description": "Explicit SYNTHETIC, offline protocol demo. No real news, odds or bets.",
+    "imports": [
+      ".runtime",
+      "argparse",
+      "json",
+      "pathlib",
+      "uuid"
+    ]
+  },
+  {
+    "file": "foundation/export.py",
+    "description": "Export versioned schemas, role registry, and an integrity checkpoint offline.",
+    "imports": [
+      ".contracts",
+      ".roles",
+      ".runtime",
+      "argparse",
+      "hashlib",
+      "json",
+      "pathlib"
+    ]
+  },
+  {
+    "file": "foundation/roles.py",
+    "description": "Role registry describes the target architecture, not fourteen implemented agents.",
+    "imports": [
+      ".contracts"
+    ]
+  },
+  {
+    "file": "foundation/runtime.py",
+    "description": "Local deterministic foundation. SQLite file access is a trusted-process boundary.\n\nProduction authorization is implemented by PostgreSQL roles in migration 003.\nThe source Queue and its quota ledger are reused, never copied or reset.",
+    "imports": [
+      ".contracts",
+      "contextlib",
+      "datetime",
+      "engine.predict",
+      "engine.queue",
+      "hashlib",
+      "json",
+      "pydantic",
+      "uuid"
+    ]
+  }
+]

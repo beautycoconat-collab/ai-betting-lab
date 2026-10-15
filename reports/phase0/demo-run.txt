@@ -1,0 +1,59 @@
+{
+  "data_kind": "synthetic",
+  "message": {
+    "schema_version": "1.0",
+    "message_id": "dd761084-5c91-4ce9-96f9-d4db3658f3e5",
+    "agent_run_id": "0248c435-cda0-48f9-9353-e446b0499c53",
+    "fixture_id": "e832f179-cc36-45b0-b846-2c81f36e494b",
+    "agent_role": "red_team",
+    "created_at": "2026-10-15T00:00:00+00:00",
+    "input_snapshot_ids": [
+      "91d5803f5a2d5eb4a42077d0b7368c39e03931f95e7c99d4f9b9e0e68a981703"
+    ],
+    "evidence_ids": [
+      "38c407a5-5785-4638-a8a0-a4e6f802c9f3"
+    ],
+    "model_version_id": null,
+    "issue_type": "lineup_uncertainty",
+    "severity": "critical",
+    "requested_action": "scenario_analysis",
+    "status": "pending_review",
+    "numeric_override": null,
+    "note": "SYNTHETIC protocol example"
+  },
+  "decisions": [
+    {
+      "schema_version": "1.0",
+      "decision_id": "d8c5bc24-1d7d-4530-8187-9228d346fc16",
+      "agent_run_id": "d01ce03e-822e-4d2d-b9b1-dc62c23d4afa",
+      "fixture_id": "e832f179-cc36-45b0-b846-2c81f36e494b",
+      "agent_role": "scientific_referee",
+      "created_at": "2026-10-15T00:00:00Z",
+      "finding_id": "dd761084-5c91-4ce9-96f9-d4db3658f3e5",
+      "round_no": 1,
+      "status": "needs_reanalysis",
+      "reason": "unresolved_evidence",
+      "risk_action": "wait",
+      "numeric_override": null
+    },
+    {
+      "schema_version": "1.0",
+      "decision_id": "78e8f110-54af-4c01-b2f5-8528f6fb8a41",
+      "agent_run_id": "d01ce03e-822e-4d2d-b9b1-dc62c23d4afa",
+      "fixture_id": "e832f179-cc36-45b0-b846-2c81f36e494b",
+      "agent_role": "scientific_referee",
+      "created_at": "2026-10-15T00:00:00Z",
+      "finding_id": "dd761084-5c91-4ce9-96f9-d4db3658f3e5",
+      "round_no": 2,
+      "status": "abstain",
+      "reason": "unresolved_evidence",
+      "risk_action": "skip",
+      "numeric_override": null
+    }
+  ],
+  "job_id": "52ee61ab-c4f4-40ee-9e0e-079397284db3",
+  "audit_chain_valid": true,
+  "final_risk_action": "skip",
+  "probabilities_modified": false,
+  "network_requests": 0
+}

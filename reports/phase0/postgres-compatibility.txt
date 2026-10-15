@@ -1,0 +1,53 @@
+PASS migration applies
+PASS initial balance 1000 TRY and pilot disabled
+PASS disabled pilot refuses stake
+PASS all tables have RLS
+PASS browser cannot modify wallet
+PASS browser cannot execute staking RPC
+PASS ledger is append only
+PASS ledger deletion denied
+PASS atomic stake and ledger
+PASS idempotent retry no second debit
+PASS idempotency conflicting payload
+PASS negative stake
+PASS over per match cap
+PASS kickoff passed blocks bet
+PASS odds from different match
+PASS exact 100 TRY daily cap accepted
+PASS 101 TRY day rejected
+PASS failed transaction does not debit
+PASS void does not replenish daily allowance
+PASS Istanbul budget day from server clock
+PASS ledger reconciles with wallet
+PASS second champion not allowed
+PASS seven day pilot expiration
+TOTAL 23 PostgreSQL checks passed. Concurrent hosted sessions NOT tested.
+PASS additive migrations create 29 tables
+PASS all tables RLS enabled
+PASS wallet remains 1000 TRY, pilot disabled
+PASS browser cannot enqueue
+PASS browser cannot claim
+PASS browser cannot read source health
+PASS duplicate job key refused
+PASS claim sets expiring lease
+PASS leased task not reclaimed early
+PASS incorrect lease cannot complete
+PASS expired lease cannot complete
+PASS expired job gets new token
+PASS current token completes once
+PASS completed token cannot be replayed
+PASS running status requires lease
+PASS bad split boundaries refused
+PASS valid normalized prediction accepted
+PASS prediction cannot misstate training cutoff
+PASS prediction cannot precede training
+PASS score mass enforced
+PASS negative score probability refused
+PASS outcome mass enforced
+PASS score predictions immutable
+PASS model run immutable
+PASS historical forecast stored as unverified
+PASS unvalidated external weight forced zero
+PASS future publication refused
+PASS external forecasts immutable
+TOTAL 28 Phase 2 PostgreSQL checks passed. Hosted Supabase and concurrent network sessions NOT tested.

@@ -1,0 +1,89 @@
+{
+  "algorithm": "SHA-256",
+  "row_count": 10,
+  "last_hash": "b3df21c9561572edf3ff4016a2b18c4031b2c483a436ffb2973a0495d55ce7c9",
+  "export_sha256": "4b4b789e62893b3c1fa85a143cc9d8db10b6b3a9a169393c5146b152ea29c1c0",
+  "events": [
+    {
+      "seq": 1,
+      "at": "2026-10-15T00:00:00+00:00",
+      "event": "fixture_registered",
+      "body": "{\"id\":\"e832f179-cc36-45b0-b846-2c81f36e494b\",\"target\":\"regulation90\"}",
+      "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "entry_hash": "36a355f9a3558baa6f124672e3f8cf4e44bfc4aec0dc0ba6d42360e1c1ce5e51"
+    },
+    {
+      "seq": 2,
+      "at": "2026-10-15T00:00:00+00:00",
+      "event": "evidence_added",
+      "body": "{\"claim\":\"SYNTHETIC: lineup evidence unavailable; not a real injury claim\",\"evidence_id\":\"38c407a5-5785-4638-a8a0-a4e6f802c9f3\",\"fixture_id\":\"e832f179-cc36-45b0-b846-2c81f36e494b\",\"observed_at\":\"2026-10-15T00:00:00Z\",\"published_at\":null,\"quality\":\"unknown\",\"schema_version\":\"1.0\",\"score_target\":\"regulation90\",\"snapshot_id\":\"91d5803f5a2d5eb4a42077d0b7368c39e03931f95e7c99d4f9b9e0e68a981703\",\"source_id\":\"openfootball\",\"source_url\":\"https://raw.githubusercontent.com/openfootball/football.json/master/2024-25/de.1.json\"}",
+      "previous_hash": "36a355f9a3558baa6f124672e3f8cf4e44bfc4aec0dc0ba6d42360e1c1ce5e51",
+      "entry_hash": "016d43fc5aade21aecdf8ee0fd702800a2e6edeec98d7d59b1eb748f63c538b7"
+    },
+    {
+      "seq": 3,
+      "at": "2026-10-15T00:00:00+00:00",
+      "event": "run_started",
+      "body": "{\"id\":\"0248c435-cda0-48f9-9353-e446b0499c53\",\"role\":\"red_team\"}",
+      "previous_hash": "016d43fc5aade21aecdf8ee0fd702800a2e6edeec98d7d59b1eb748f63c538b7",
+      "entry_hash": "fe1d1f9a525ed7bbea61fab6f447b8173d333ba655bdb1a502cdd91f79b92415"
+    },
+    {
+      "seq": 4,
+      "at": "2026-10-15T00:00:00+00:00",
+      "event": "run_started",
+      "body": "{\"id\":\"d01ce03e-822e-4d2d-b9b1-dc62c23d4afa\",\"role\":\"scientific_referee\"}",
+      "previous_hash": "fe1d1f9a525ed7bbea61fab6f447b8173d333ba655bdb1a502cdd91f79b92415",
+      "entry_hash": "9d987c36a2dd953ff072e994d73ad21c81f78827a1dfc8ff4d13a6d99efaabba"
+    },
+    {
+      "seq": 5,
+      "at": "2026-10-15T00:00:00+00:00",
+      "event": "message_accepted",
+      "body": "{\"agent_role\":\"red_team\",\"agent_run_id\":\"0248c435-cda0-48f9-9353-e446b0499c53\",\"created_at\":\"2026-10-15T00:00:00Z\",\"evidence_ids\":[\"38c407a5-5785-4638-a8a0-a4e6f802c9f3\"],\"fixture_id\":\"e832f179-cc36-45b0-b846-2c81f36e494b\",\"input_snapshot_ids\":[\"91d5803f5a2d5eb4a42077d0b7368c39e03931f95e7c99d4f9b9e0e68a981703\"],\"issue_type\":\"lineup_uncertainty\",\"message_id\":\"dd761084-5c91-4ce9-96f9-d4db3658f3e5\",\"model_version_id\":null,\"note\":\"SYNTHETIC protocol example\",\"numeric_override\":null,\"requested_action\":\"scenario_analysis\",\"schema_version\":\"1.0\",\"severity\":\"critical\",\"status\":\"pending_review\"}",
+      "previous_hash": "9d987c36a2dd953ff072e994d73ad21c81f78827a1dfc8ff4d13a6d99efaabba",
+      "entry_hash": "c4f93c052fa6731879875491e4c426b5c802ed6a2645d31e6e76286f660b700c"
+    },
+    {
+      "seq": 6,
+      "at": "2026-10-15T00:00:00+00:00",
+      "event": "review_decided",
+      "body": "{\"fixture\":\"e832f179-cc36-45b0-b846-2c81f36e494b\",\"id\":\"d8c5bc24-1d7d-4530-8187-9228d346fc16\",\"risk_action\":\"wait\",\"round\":1,\"status\":\"needs_reanalysis\"}",
+      "previous_hash": "c4f93c052fa6731879875491e4c426b5c802ed6a2645d31e6e76286f660b700c",
+      "entry_hash": "b1eae02c9b5908abfe12c150d42ac94872fc3673830f51cfec12faa94d53297a"
+    },
+    {
+      "seq": 7,
+      "at": "2026-10-15T00:00:00+00:00",
+      "event": "review_decided",
+      "body": "{\"fixture\":\"e832f179-cc36-45b0-b846-2c81f36e494b\",\"id\":\"78e8f110-54af-4c01-b2f5-8528f6fb8a41\",\"risk_action\":\"skip\",\"round\":2,\"status\":\"abstain\"}",
+      "previous_hash": "b1eae02c9b5908abfe12c150d42ac94872fc3673830f51cfec12faa94d53297a",
+      "entry_hash": "f1da16f62ef11b6ced8ae3ae5009580d5442fc8bf72b181688a75db9a7c7e292"
+    },
+    {
+      "seq": 8,
+      "at": "2026-10-15T00:00:00+00:00",
+      "event": "task_enqueued",
+      "body": "{\"id\":\"52ee61ab-c4f4-40ee-9e0e-079397284db3\",\"request\":{\"fixture_id\":\"e832f179-cc36-45b0-b846-2c81f36e494b\",\"idempotency_key\":\"demo-reanalysis-e832f179-cc36-45b0-b846-2c81f36e494b\",\"kind\":\"reanalysis\",\"max_attempts\":3,\"schema_version\":\"1.0\",\"timeout_seconds\":300}}",
+      "previous_hash": "f1da16f62ef11b6ced8ae3ae5009580d5442fc8bf72b181688a75db9a7c7e292",
+      "entry_hash": "149384d7cd833cb720ba237f5322662cf8025725f9cf5845a4d98853e02e64fe"
+    },
+    {
+      "seq": 9,
+      "at": "2026-10-15T00:00:00+00:00",
+      "event": "task_claimed",
+      "body": "{\"id\":\"52ee61ab-c4f4-40ee-9e0e-079397284db3\",\"token\":\"6ed955df-e949-4c92-92ba-9c25ea575e25\",\"worker\":\"offline-worker\"}",
+      "previous_hash": "149384d7cd833cb720ba237f5322662cf8025725f9cf5845a4d98853e02e64fe",
+      "entry_hash": "b569c8ec8a878fbc47004ba39e668a82e245e2cc73231ce10eabd72a0d8589dd"
+    },
+    {
+      "seq": 10,
+      "at": "2026-10-15T00:00:00+00:00",
+      "event": "task_finished",
+      "body": "{\"error\":\"scenario_model_not_implemented\",\"id\":\"52ee61ab-c4f4-40ee-9e0e-079397284db3\",\"status\":\"pending\"}",
+      "previous_hash": "b569c8ec8a878fbc47004ba39e668a82e245e2cc73231ce10eabd72a0d8589dd",
+      "entry_hash": "b3df21c9561572edf3ff4016a2b18c4031b2c483a436ffb2973a0495d55ce7c9"
+    }
+  ],
+  "notice": "Keep an independent copy. A database/file administrator can rewrite local records and hashes."
+}
