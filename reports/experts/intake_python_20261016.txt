@@ -259,6 +259,13 @@ test_round_three_rejected (test_experts.ReviewTests.test_round_three_rejected) .
 test_shared_upstream_flag (test_experts.ReviewTests.test_shared_upstream_flag) ... ok
 test_two_round_abstain (test_experts.ReviewTests.test_two_round_abstain) ... ok
 test_unknown_evidence_rejected (test_experts.ReviewTests.test_unknown_evidence_rejected) ... ok
+test_duplicate_intervals_rejected (test_goal_radar.RadarTests.test_duplicate_intervals_rejected) ... ok
+test_future_and_training_overlap_rejected (test_goal_radar.RadarTests.test_future_and_training_overlap_rejected) ... ok
+test_future_labels_rejected (test_goal_radar.RadarTests.test_future_labels_rejected) ... ok
+test_live_always_blocked (test_goal_radar.RadarTests.test_live_always_blocked) ... ok
+test_replay_metrics_and_future_label (test_goal_radar.RadarTests.test_replay_metrics_and_future_label) ... ok
+test_replay_probability_tail_and_bounds (test_goal_radar.RadarTests.test_replay_probability_tail_and_bounds) ... ok
+test_stale_and_unmodelled_cards_abstain (test_goal_radar.RadarTests.test_stale_and_unmodelled_cards_abstain) ... ok
 test_real_preserved_source_hash_and_season (test_multiseason_snapshot.SnapshotTests.test_real_preserved_source_hash_and_season) ... ok
 test_tampered_raw_snapshot_rejected (test_multiseason_snapshot.SnapshotTests.test_tampered_raw_snapshot_rejected) ... ok
 test_duplicate_conflict_rejected_and_append_only (test_outcome_journal.ForwardOutcomeTests.test_duplicate_conflict_rejected_and_append_only) ... ok
@@ -372,6 +379,6 @@ test_team_total_markets_visible_without_prospectively_placing_bet (test_workflow
 test_workflow_retry_does_not_add_review_rounds (test_workflow.WorkflowTests.test_workflow_retry_does_not_add_review_rounds) ... ok
 
 ----------------------------------------------------------------------
-Ran 372 tests in 89.709s
+Ran 379 tests in 55.441s
 
 OK (skipped=2)
