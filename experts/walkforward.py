@@ -31,6 +31,8 @@ def evaluate(rows, folds, target='regulation90'):
         used.update(r['id'] for r in test)
         distributions.extend(current)
         labels.extend(outcomes)
+    seasons = sorted({str(r.get('season','unknown')) for r in rows})
     return {'mode': 'retrospective', 'folds': reports, 'unique_test_matches': len(used),
+            'seasons': seasons,
             'pooled_ensemble': LearningAuditor().evaluate(distributions, labels),
-            'limitation': 'single-season reconstructed archive; no live available-at-the-time guarantee'}
+            'limitation': 'reconstructed historical observations; no live available-at-the-time guarantee'}

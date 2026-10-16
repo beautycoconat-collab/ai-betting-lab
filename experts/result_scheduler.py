@@ -178,19 +178,10 @@ class ResultScheduler:
         now = aware(self.runtime.clock())
         out = {}
         for day in days:
-            if type(day) is not int or day < 1 or day > 3650:
-                raise ValueError('invalid_performance_window')
-            since = now - timedelta(days=day)
-            recent = [x for x in self.runtime.db.execute('''SELECT p.captured_at,g.recorded_at,g.brier,g.log_loss
-                    FROM lab_locked_predictions p LEFT JOIN lab_prediction_grades g
-                      ON g.prediction_id=p.prediction_id''')
-                    if since <= aware(x['captured_at']) <= now]
-            graded = [x for x in recent if x['recorded_at'] and since <= aware(x['recorded_at']) <= now]
-            n = len(graded)
-            out[str(day)] = {'locked_predictions':len(recent),'graded_predictions':n,
-                'pending_predictions':len(recent)-n,
-                'brier':sum(x['brier'] for x in graded)/n if n else None,
-                'log_loss':sum(x['log_loss'] for x in graded)/n if n else None,
-                'roi':None,'clv':None,'sample_warning':'small_sample' if n<30 else None}
+            report = self.versions.performance(day)
+            n = report['graded_predictions']
+            out[str(day)] = report | {
+                'pending_predictions':report['locked_predictions']-n,
+                'sample_warning':'small_sample' if n<30 else None}
         return {'schema_version':'1.0','as_of':now.isoformat(),'windows':out,
                 'live_pilot':False,'scope':'local_locked_predictions_only'}
