@@ -1,3 +1,22 @@
+# Current checkpoint — 2026-10-16
+
+Delivery update: browser commits 453240f (dispatcher) and d3e45a8 (nine tests)
+verified by git fetch and zero diff for those files. Terminal push remains
+unconfigured; authenticated browser is approved. Next increment adds bounded,
+immutable task input storage; 11 dispatcher tests pass. Full regression:
+232 run, 225 passed, 7 skipped. No hosted migration or pilot activation.
+
+Final tests: 230 run, 223 passed, 7 skipped. Code commit fb8d494.
+Push blocked by absent HTTPS Git credentials (could not read Username).
+Do not claim remote delivery. A Git bundle preserves changes.
+
+Read MASTER_PROGRESS.md first. New files: experts/dispatcher.py and
+tests_experts/test_dispatcher.py. Runtime queue reused; no existing migration
+changed. Actual DataValidator callable bound; other handlers remain unbound.
+Next command: `python -m scripts.ci_python`. Then implement immutable input
+storage and source-job linkage. Do not call this a live end-to-end worker.
+Git remote tree at 5b54b79 matched local tracked tree; histories safely merged.
+
 # Uzman geliştirme devam kaydı — 15 Ekim 2026
 
 Aktif dal: `feature/expert-engines`; taban: `31b30d5105abb1368839014c9a15b211fd7ce1f5`.

@@ -50,3 +50,15 @@ node supabase/tests/validate-cloud.mjs
 Benchmark yalnız depoda bulunan 306 gerçek Bundesliga maçını kullanır. Testlerde `example.invalid`, A/B takımları ve sabit UUID kullanılan kayıtlar açıkça sentetiktir. Gerçek maçların eksik başlama saatleri doldurulmaz. Arşiv 2026'da gözlemlendiği için 2025 tahminleri retrospective olarak etiketlenir.
 
 İleriye dönük kullanım; veri erişim zamanı, doğrulanmış kaynaklar, JWT/Auth/RLS kabulü, belirsizlik ve yürütücü entegrasyonu tamamlanmadan açılmamalıdır.
+# 2026-10-16 increment
+
+Latest: bounded immutable task inputs and late-binding rejection added;
+11 dispatcher tests pass, full suite 225 pass / 7 skip. Existing limitations
+remain: all expert handlers and live collection acceptance are not complete.
+
+Roles 01/03: PARTIAL. Local Dispatcher invokes registered handlers and the
+existing DataValidator, persists output and task completion atomically, fences
+expired/cancelled workers, blocks missing handlers/dependency outputs. Nine
+synthetic local acceptance tests passed. No live source or hosted worker
+acceptance claimed. Other roles retain their prior status below.
+

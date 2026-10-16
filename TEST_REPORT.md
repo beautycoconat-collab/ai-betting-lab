@@ -144,3 +144,18 @@ Native PostgreSQL sunucusu/DSN yoktu; kurulum işletim sistemi izin engeline tak
 ## Koruma ve tekrar üretim
 
 scripts/phase0_report.py kullanıcı ZIP'indeki 123 dosyanın değişmediğini bayt karşılaştırmasıyla doğruladı. SHA-256 kayıtları baseline-integrity.json, import envanteri module-inventory.json içindedir. 001/002 korunmuş, 003 eklenmiştir. Çalıştırma komutları RUN_PHASE0.md içindedir.
+# 2026-10-16 local dispatcher verification
+
+Latest immutable-input increment: 232 tests in 15.334s; 225 passed, 7 skipped.
+Dispatcher-specific: 11 passed. Remote browser delivery of preceding increment
+verified at 453240f/d3e45a8. Earlier terminal push failure is historical.
+
+Final full regression: 230 tests, 223 passed, 7 controlled skips (21.072s).
+Git push failed: no HTTPS Git authentication available. Remote PR unchanged.
+
+Initial full run failed six configuration tests because psycopg was missing.
+Installed pinned requirements-cloud.txt; subsequent full run: 228 tests,
+221 passed, 7 skipped. Two further boundary tests added; dispatcher suite 9/9
+passed. Full final regression pending. No new native/PGlite/hosted results
+claimed; historical results below remain historical.
+
