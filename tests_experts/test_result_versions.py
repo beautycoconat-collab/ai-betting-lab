@@ -60,6 +60,8 @@ class RevisionTests(unittest.TestCase):
         self.assertEqual(sum(b['count'] for b in perf['calibration']),3)
         self.assertIsNone(perf['roi'])
         self.assertIsNone(perf['coverage'])
+        # The public scheduler/CLI report must use the reviewed revision too.
+        self.assertAlmostEqual(self.scheduler.performance_windows()['windows']['7']['log_loss'],perf['log_loss'])
 
     def test_same_snapshot_idempotent(self):
         first,sid = self.observe((2,1))
