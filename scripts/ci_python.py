@@ -4,7 +4,7 @@ from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
 suite=unittest.TestSuite()
-for folder in ('tests','tests_phase2','tests_foundation','tests_cloud','tests_experts'):
+for folder in ('tests','tests_phase2','tests_foundation','tests_cloud','tests_experts','tests_dashboard'):
     discovered=unittest.TestLoader().discover(str(ROOT/folder),top_level_dir=str(ROOT/folder))
     def add(node):
         if isinstance(node,unittest.TestSuite):
