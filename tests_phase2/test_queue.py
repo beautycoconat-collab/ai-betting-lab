@@ -9,7 +9,7 @@ from engine.external import ingest
 NOW='2026-10-14T10:00:00+00:00'
 PARAMS={'league':'eng.1','season':'2023-24'}
 BODY=json.dumps({'matches':[{'date':'2023-08-01','team1':'A','team2':'B','score':{'ft':[2,1]}}]}).encode()
-def registry():return {'openfootball':{'status':'approved','review_expires':'2026-11-13','requests_per_24h':4,'requests_per_31d':124,'min_interval_seconds':3600},'blocked':{'status':'pending','review_expires':'2026-11-13'}}
+def registry():return {'openfootball':{'status':'approved','license':'CC0-1.0','terms_url':'https://example.invalid/terms','reviewed_at':'2026-10-01','review_expires':'2026-11-13','requests_per_24h':4,'requests_per_31d':124,'min_interval_seconds':3600},'blocked':{'status':'pending','review_expires':'2026-11-13'}}
 class QueueTests(unittest.TestCase):
  def setUp(self):self.tmp=tempfile.TemporaryDirectory();self.q=Queue(Path(self.tmp.name)/'db.sqlite',registry())
  def tearDown(self):self.q.close();self.tmp.cleanup()
@@ -55,6 +55,63 @@ class QueueTests(unittest.TestCase):
   self.enqueue()
   with patch('pathlib.Path.stat',return_value=Mock(st_size=40_000_001)):
    self.assertEqual(self.work(lambda u:self.fail('no request'))['reason'],'local_storage_budget')
+ def test_daily_cycles_do_not_repeat_prior_jobs(self):
+  first=self.q.enqueue('openfootball','collect',PARAMS,NOW,cycle='2026-10-14')
+  self.assertEqual(first,self.q.enqueue('openfootball','collect',PARAMS,NOW,cycle='2026-10-14'))
+  second=self.q.enqueue('openfootball','collect',PARAMS,'2026-10-15T10:00:00+00:00',cycle='2026-10-15')
+  self.assertNotEqual(first,second)
+  with self.assertRaises(ValueError):
+   self.q.enqueue('openfootball','collect',PARAMS,NOW,cycle='not-a-date')
+ def test_cached_reuse_links_new_job_without_cloning_snapshot(self):
+  first=self.q.enqueue('openfootball','collect',PARAMS,NOW,cycle='2026-10-14')
+  self.assertEqual(self.work()['status'],'done')
+  second=self.q.enqueue('openfootball','collect',PARAMS,'2026-10-14T12:00:00+00:00',cycle='2026-10-15')
+  r=self.work(lambda u:self.fail('cache must skip HTTP'),now='2026-10-14T12:00:00+00:00')
+  self.assertEqual(r['status'],'cached')
+  self.assertEqual(self.q.db.execute('SELECT count(*) FROM v2_snapshots').fetchone()[0],1)
+  self.assertEqual(self.q.db.execute('SELECT count(*) FROM v2_job_snapshots').fetchone()[0],2)
+  self.assertEqual(self.q.db.execute('SELECT count(*) FROM requests').fetchone()[0],1)
+ def test_unreviewed_permission_blocks_fetch(self):
+  self.enqueue();self.q.registry['openfootball'].pop('license')
+  r=self.work(lambda u:self.fail('source has no verified license'))
+  self.assertEqual((r['status'],r['reason']),('blocked','source_permission_unverified'))
+  self.assertEqual(self.q.db.execute('select count(*) from requests').fetchone()[0],0)
+ def test_future_review_date_blocks_fetch(self):
+  self.enqueue();self.q.registry['openfootball']['reviewed_at']='2026-10-15'
+  r=self.work(lambda u:self.fail('future review must block'))
+  self.assertEqual(r['reason'],'source_permission_unverified')
+ def test_stale_http_worker_cannot_publish(self):
+  self.enqueue()
+  clock={'now':NOW}
+  def fetcher(url):
+   clock['now']='2026-10-14T10:06:00+00:00'
+   self.assertIsNotNone(self.q.claim(clock['now']))
+   return BODY,{}
+  r=self.q.work_one(fetcher,lambda:clock['now'])
+  self.assertEqual(r['status'],'lease_lost')
+  self.assertEqual(self.q.db.execute('select count(*) from v2_snapshots').fetchone()[0],0)
+  self.assertEqual(self.q.db.execute('select count(*) from v2_results').fetchone()[0],0)
+  self.assertEqual(self.q.db.execute('select status from v2_jobs').fetchone()[0],'running')
+ def test_expired_worker_cannot_publish_even_without_reclaim(self):
+  self.enqueue();ticks=iter([NOW,'2026-10-14T10:06:00+00:00'])
+  r=self.q.work_one(lambda u:(BODY,{}),lambda:next(ticks))
+  self.assertEqual(r['status'],'lease_lost')
+  self.assertEqual(self.q.db.execute('select count(*) from v2_snapshots').fetchone()[0],0)
+ def test_reclaimed_worker_during_decode_cannot_publish_normalized_results(self):
+  self.enqueue()
+  clock={'now':NOW}
+  from unittest.mock import patch
+  from engine.adapters import ADAPTERS
+  original=ADAPTERS['openfootball'].decode
+  def decode(*args):
+   clock['now']='2026-10-14T10:06:00+00:00'
+   self.assertIsNotNone(self.q.claim(clock['now']))
+   return original(*args)
+  with patch.object(ADAPTERS['openfootball'],'decode',side_effect=decode):
+   r=self.q.work_one(lambda u:(BODY,{}),lambda:clock['now'])
+  self.assertEqual(r['status'],'lease_lost')
+  self.assertEqual(self.q.db.execute('select count(*) from v2_results').fetchone()[0],0)
+  self.assertEqual(self.q.db.execute('select status from v2_jobs').fetchone()[0],'running')
 class ExternalTests(unittest.TestCase):
  def setUp(self):self.db=sqlite3.connect(':memory:');self.reg={'x':{'status':'approved','external_predictions_allowed':True,'review_expires':'2026-11-13'}};self.payload={'match_ref':'test-1','score_selection':'1-0','kickoff_at':'2026-10-15T10:00:00+00:00','source_url':'https://example.invalid/test'}
  def tearDown(self):self.db.close()

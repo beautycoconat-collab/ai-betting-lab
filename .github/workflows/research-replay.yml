@@ -1,0 +1,29 @@
+name: Manual offline research replay
+# No schedule: production acceptance and hosted identity gates are still open.
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: offline-research-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r requirements-cloud.txt
+      - name: Offline model and worker acceptance
+        run: python -m unittest discover -s tests_experts -q
+      - name: Reproduce two-season research
+        run: python -m experts.multiseason --out reports/ci/multiseason.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: offline-research-summary
+          path: reports/ci/multiseason.json
+          retention-days: 3
+# No source fetch, Supabase secrets, deployment, portfolio or paid runner.

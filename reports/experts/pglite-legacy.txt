@@ -1,0 +1,24 @@
+PASS migration applies
+PASS initial balance 1000 TRY and pilot disabled
+PASS disabled pilot refuses stake
+PASS all tables have RLS
+PASS browser cannot modify wallet
+PASS browser cannot execute staking RPC
+PASS ledger is append only
+PASS ledger deletion denied
+PASS atomic stake and ledger
+PASS idempotent retry no second debit
+PASS idempotency conflicting payload
+PASS negative stake
+PASS over per match cap
+PASS kickoff passed blocks bet
+PASS odds from different match
+PASS exact 100 TRY daily cap accepted
+PASS 101 TRY day rejected
+PASS failed transaction does not debit
+PASS void does not replenish daily allowance
+PASS Istanbul budget day from server clock
+PASS ledger reconciles with wallet
+PASS second champion not allowed
+PASS seven day pilot expiration
+TOTAL 23 PostgreSQL checks passed. Concurrent hosted sessions NOT tested.

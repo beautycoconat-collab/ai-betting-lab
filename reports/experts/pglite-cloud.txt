@@ -1,0 +1,17 @@
+PASS migration 001_lab.sql
+PASS migration 002_research_engine.sql
+PASS migration 003_multi_agent_foundation.sql
+PASS migration 004_cloud_security.sql
+PASS migration 005_hosted_worker_membership.sql
+PASS definer search_path includes pg_temp last
+PASS anon no schema access
+PASS anon no definer execution
+PASS authenticated no schema access
+PASS authenticated no definer execution
+PASS service_role no schema access
+PASS service_role no definer execution
+PASS RLS hides wallet even with temporary ACL
+PASS RLS denies update with temporary ACL
+PASS wallet unchanged
+PASS pilot stays disabled
+TOTAL 16 Phase 0.1 PGlite checks passed; hosted/native NOT tested.

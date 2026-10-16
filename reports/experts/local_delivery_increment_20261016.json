@@ -1,0 +1,125 @@
+{
+  "project": "AI Betting Lab",
+  "base_git_commit": "dd8c67fadd9e92487c534c0e4afa3e205a04e393",
+  "delivery_status": "LOCAL_ONLY; NO GITHUB PUSH",
+  "modified_files": [
+    {
+      "path": "CONTINUE.md",
+      "sha256": "17b962ea1feb8e48fe97e50795d74de9f7198e83f6eda2aa600dbb08ba61494e",
+      "size": 15460,
+      "kind": "changed"
+    },
+    {
+      "path": "EXPERT_PROGRESS.md",
+      "sha256": "75192d1ac18e3ed8f10ff89ac19f9ba6e36718157b09756cbe0e78c4b3d352e2",
+      "size": 10286,
+      "kind": "changed"
+    },
+    {
+      "path": "IMPLEMENTATION_HANDOFF_20261016.md",
+      "sha256": "6fdeb87bb8c4a52246c7a56b9b1a11661f485e45b6fcba9223b2e89c6a0f4d7e",
+      "size": 7169,
+      "kind": "changed"
+    },
+    {
+      "path": "MASTER_PROGRESS.md",
+      "sha256": "90a099dbed40c18f5d2055f1185df1414e03c4c58a7beb002565fe0ce162ad92",
+      "size": 6771,
+      "kind": "changed"
+    },
+    {
+      "path": "TEST_REPORT.md",
+      "sha256": "0f7e97b12e6dc3082ba6948e1db4a7b4cb3c5377e9a4acda90e1877d8fb0a859",
+      "size": 20491,
+      "kind": "changed"
+    },
+    {
+      "path": "docs/collection_pipeline.md",
+      "sha256": "9d8a83ca465a614a8a221029155884f3ab99fbe2a507b4c859c3c0d7e7c9ac10",
+      "size": 2921,
+      "kind": "new_or_restored"
+    },
+    {
+      "path": "engine/queue.py",
+      "sha256": "313fca20ceeb82161e99b70354e1c17d958a458648bc16eda95ca4809e862478",
+      "size": 12557,
+      "kind": "changed"
+    },
+    {
+      "path": "experts/collection_pipeline.py",
+      "sha256": "2e3c3127b50145592633244e99c68d72e833eb7b088b8193805aa96206d58ab9",
+      "size": 3912,
+      "kind": "new_or_restored"
+    },
+    {
+      "path": "experts/research.py",
+      "sha256": "f4324bdd2b2c0a5bb2bc894bef9d15d370bbc279392ba089bb8fe0b4a54a1f30",
+      "size": 7396,
+      "kind": "changed"
+    },
+    {
+      "path": "foundation/demo.py",
+      "sha256": "f488ce571f0a1f24daa692b99d2184ab0ee3e4dcb9750adde221568487e4220b",
+      "size": 3062,
+      "kind": "changed"
+    },
+    {
+      "path": "tests_experts/test_collection_pipeline.py",
+      "sha256": "3a52e49db0c7bb41a3f0144a5126cb744d11e61705d35a2722db08140200a4a1",
+      "size": 5730,
+      "kind": "new_or_restored"
+    },
+    {
+      "path": "tests_phase2/test_queue.py",
+      "sha256": "528914ec4c4e9023e2beedeb1db3a9655c7356f5661f5c5cc99b7e039239dc17",
+      "size": 10404,
+      "kind": "changed"
+    }
+  ],
+  "restored_large_test_artifacts": [
+    {
+      "path": "evidence/phase2/raw/international.zip",
+      "sha256": "c4ce2d659ed254a5cd1327d52b09e55e21c50fcc860e16e6b0ab8af94dc980d5",
+      "size": 1300320,
+      "kind": "new_or_restored"
+    },
+    {
+      "path": "reports/phase2/international/baseline.predictions.json",
+      "sha256": "77392c4ed5a13d2eaa6dbc69a20dd7d9a29e90c516ba53fd94ad1fa31822bd1a",
+      "size": 21842779,
+      "kind": "new_or_restored"
+    },
+    {
+      "path": "reports/phase2/international/dataset.json",
+      "sha256": "0a28d2d4a4b93ad9e05e8b75079558baa57a353746d951569a93bde2ccfff842",
+      "size": 9282058,
+      "kind": "new_or_restored"
+    },
+    {
+      "path": "reports/phase2/international/dixon_coles.predictions.json",
+      "sha256": "76e6b128445fd79c5ddf839abb14a98cc182e119cac0aad688f6bf91d79f612a",
+      "size": 21890691,
+      "kind": "new_or_restored"
+    },
+    {
+      "path": "reports/phase2/international/elo.predictions.json",
+      "sha256": "2c2eeb666b8ef1e9ead6370eed5ecd236e4f084ffb09835e2853dde73fab6e03",
+      "size": 21832764,
+      "kind": "new_or_restored"
+    },
+    {
+      "path": "reports/phase2/international/poisson.predictions.json",
+      "sha256": "52df98535d7545252133cb0c5408dc2aedbb3bb73d74a30f5e3cad7513fa26a4",
+      "size": 21846349,
+      "kind": "new_or_restored"
+    }
+  ],
+  "test_results": {
+    "experts": "122 passed",
+    "foundation": "34 passed 2 skipped",
+    "phase2_selected": "72 passed",
+    "queue_bridge": "49 passed",
+    "full_prediction_replay": "NOT_VERIFIED: timed out",
+    "hosted_postgres": "NOT_RUN"
+  }
+}

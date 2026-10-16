@@ -45,6 +45,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Dashboard publication and JavaScript checks
+        run: |
+          node --check public/app.js
+          node scripts/check_dashboard.mjs
       - name: PGlite migration and security checks
         run: |
           npm ci --prefix supabase/tests --ignore-scripts --no-audit --no-fund

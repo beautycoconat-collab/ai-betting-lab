@@ -1,0 +1,57 @@
+PASS all three migrations apply
+PASS all lab tables have RLS
+PASS initial wallet and pilot unchanged
+PASS 50 TRY is disabled unverified assumption
+PASS browser cannot read raw evidence
+PASS browser cannot modify wallet
+PASS browser cannot create prediction
+PASS browser cannot call message RPC
+PASS valid agent message accepted
+PASS message retry idempotent
+PASS changed payload conflicts
+PASS missing required JSON field
+PASS wrong schema version
+PASS numeric override refused
+PASS unknown probability field refused
+PASS nonexistent evidence refused
+PASS forged score-engine role refused
+PASS Red Team cannot directly insert probabilities
+PASS Red Team cannot call prediction RPC
+PASS one stored message
+PASS review retry idempotent
+PASS third review refused
+PASS second unresolved critical review abstains and skips
+PASS review immutable
+PASS unknown/conflicting evidence supported
+PASS first quota reservation accepted
+PASS quota exhaustion safely returns false
+PASS job enqueue retry same ID
+PASS job payload conflict
+PASS first worker claims job
+PASS second claim gets no leased job or blocked child
+PASS wrong token cannot finish
+PASS current token finishes
+PASS dependency becomes eligible
+PASS expired lease retried with new token
+PASS score worker cannot update history
+PASS score worker cannot modify wallet
+PASS V1 V2 stored separately
+PASS even ordinary owner update is append-only
+PASS numeric model inconsistency refused
+PASS score targets cannot mix
+PASS future features rejected
+PASS dashboard can read distributions
+PASS dashboard cannot alter prediction
+PASS pilot remains closed
+PASS unverified rule not automatically enabled
+PASS below configurable minimum refused
+PASS coupon retry no second debit
+PASS over 100 TRY combined daily budget refused
+PASS exact 100 TRY spent and 900 TRY balance
+PASS same coupon settlement idempotent
+PASS different key cannot settle coupon twice
+PASS refund does not replenish daily cap
+PASS wallet ledger reconciles after refund
+PASS settlement immutable
+PASS PUBLIC cannot execute critical functions
+TOTAL 56 Phase 0 PostgreSQL checks passed. Parallel PostgreSQL sessions and hosted Supabase Auth NOT tested.
