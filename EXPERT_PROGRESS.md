@@ -180,3 +180,9 @@ gerçek canlı doğruluk veya kalibrasyon kanıtı yok. Elle çalıştırılan o
 replay workflow hazır; günlük üretim veya sanal portföy etkin değil.
 Son tam yerel regresyon 379 run/377 pass/2 native skip.
 
+
+### Dashboard projection (2026-10-16)
+The actual baseline/Elo/Poisson/DC artifacts now feed 18 historical match details
+and supported MarketSpecialist markets. 14 roles are visible but no_run is not
+success. Red Team/referee show missing decisions explicitly. Portfolio/CLV/ROI
+remain BLOCKED pending verified records. UI PARTIAL until browser + hosted acceptance.

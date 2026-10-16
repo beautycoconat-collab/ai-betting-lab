@@ -233,3 +233,15 @@ diğer açık işler MASTER_PROGRESS başında. Yeni prompt beklemeden o listede
 commit SHA'ları yerel commitlerden farklıdır; force push kullanma. Bekleyen
 değişiklik varsa bundle/ZIP checkpoint'ten koru; eski 001–005 migration'a dokunma.
 
+
+## Dashboard continuation — 2026-10-16
+Files: public/{index.html,app.css,app.js,data/dashboard.json}, api/dashboard.py,
+dashboard/export.py, tests_dashboard/test_dashboard.py, scripts/check_dashboard.mjs,
+vercel.json, DASHBOARD.md. Existing engines and migrations unchanged.
+Run: python -m dashboard.export; node scripts/check_dashboard.mjs;
+python -m unittest discover -s tests_dashboard -v; python -m scripts.ci_python.
+The exporter reads actual archived model artifacts; daily fixture and hosted
+expert/portfolio projection are not yet connected. No fake rows or balances.
+Next: evidence-backed publication contract + authenticated read-only cloud
+projection, browser QA when supported, Vercel preview deployment acceptance.
+Do not enable pilot; do not apply hosted migration or merge main without approval.

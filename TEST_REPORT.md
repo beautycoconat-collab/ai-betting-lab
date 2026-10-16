@@ -285,3 +285,21 @@ Son log reports/experts/intake_python_20261016.txt içindedir.
 PGlite 123; native PR CI 38936533233 başarıyla tamamlandı. Hosted JWT/RLS
 bağlantısı sınanmadı. Son radar dahil uzak PR CI ayrıca raporlanmalıdır.
 
+
+## Dashboard increment — 2026-10-16
+- `python -m unittest discover -s tests_dashboard -v`: 10/10 passed (4.385s).
+- `python -m scripts.ci_python`: 389 executed; 387 passed, 2 native tests
+  skipped without DSN (72.609s). Raw sanitized log:
+  reports/experts/dashboard_python_20261016.txt.
+- `node --check public/app.js`: passed.
+- `node scripts/check_dashboard.mjs`: passed, 18 real retrospective fixtures,
+  14 roles, 1X2 mass checks, pilot/execution disabled.
+- `git diff --check`: passed.
+- New dashboard tests cover archive/live separation, all four existing models,
+  market complementarity/unsupported half, fixture lookup, bad schema/date,
+  read-only DB projection, no implicit database creation, reproducibility and
+  public field allowlist. No hosted database write performed.
+- Browser visual/mobile interaction QA NOT RUN (managed control-browser skill
+  unavailable). Vercel deployment/build NOT RUN. No claim of live data acceptance.
+- PGlite/native prior green run remains separate evidence; this increment changes
+  no SQL migration. Hosted JWT/Auth/RLS and portfolio acceptance remain BLOCKED.

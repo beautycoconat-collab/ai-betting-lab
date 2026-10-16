@@ -191,3 +191,10 @@ dashboard; sanal portföy muhasebesi ve sürümlü risk politikalarının tam ak
 canlı champion/challenger ve rollback; pilot kapıları. Hiçbiri FULL sayılmaz.
 Tüm görevler için mevcut ana yetki geçerli; bunlar için yeni prompt gerekmez.
 
+
+## Dashboard increment — 2026-10-16
+PARTIAL: Vercel static dashboard + builtin Python read-only API, current model
+artifact exporter, 18 real retrospective fixtures, model/score/market detail,
+14 role evidence states, audit empty states, historical metric/calibration charts.
+Daily published fixtures and hosted portfolio are BLOCKED; no invented live data.
+See DASHBOARD.md. No deploy, hosted write, migration or pilot activation.

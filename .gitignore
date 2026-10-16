@@ -33,3 +33,7 @@ reports/phase2/international/*.predictions.json
 artifact_bundle/
 *.tmp
 
+
+# Intentionally public, bounded dashboard projection (not runtime data).
+!public/data/
+!public/data/dashboard.json
