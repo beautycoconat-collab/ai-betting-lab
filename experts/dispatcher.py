@@ -22,6 +22,12 @@ class Dispatcher:
             raise ValueError('unknown_handler_kind')
         self.runtime, self.handlers = runtime, dict(handlers)
         runtime.db.executescript('''
+        CREATE TABLE IF NOT EXISTS expert_task_inputs(
+          task_id TEXT PRIMARY KEY REFERENCES f_tasks(id), body TEXT NOT NULL);
+        CREATE TRIGGER IF NOT EXISTS expert_input_update BEFORE UPDATE ON expert_task_inputs
+          BEGIN SELECT RAISE(ABORT,'append_only'); END;
+        CREATE TRIGGER IF NOT EXISTS expert_input_delete BEFORE DELETE ON expert_task_inputs
+          BEGIN SELECT RAISE(ABORT,'append_only'); END;
         CREATE TABLE IF NOT EXISTS expert_task_outputs(
           task_id TEXT PRIMARY KEY REFERENCES f_tasks(id),
           lease_token TEXT NOT NULL, body TEXT NOT NULL);
@@ -30,6 +36,35 @@ class Dispatcher:
         CREATE TRIGGER IF NOT EXISTS expert_output_delete BEFORE DELETE ON expert_task_outputs
           BEGIN SELECT RAISE(ABORT,'append_only'); END;
         ''')
+
+    def bind_input(self, task_id, payload):
+        """Persist a bounded JSON input before any worker can claim this task.
+
+        Callers supply only public research data, never credentials. Changes
+        require a new job idempotency key, not an overwrite.
+        """
+        body = canonical(payload)
+        if len(body.encode()) > 65536:
+            raise ValueError('input_storage_limit')
+        with self.runtime.transaction():
+            old = self.runtime.db.execute('SELECT body FROM expert_task_inputs WHERE task_id=?', (task_id,)).fetchone()
+            if old:
+                if old[0] != body:
+                    raise ValueError('input_revision_conflict')
+                return
+            task = self.runtime.db.execute('SELECT status,attempts FROM f_tasks WHERE id=?', (task_id,)).fetchone()
+            if not task or task['status'] != 'pending' or task['attempts']:
+                raise ValueError('input_binding_too_late')
+            self.runtime.db.execute('INSERT INTO expert_task_inputs VALUES(?,?)', (task_id, body))
+            self.runtime.audit('expert_input_bound', {'task_id': task_id})
+
+    def load_input(self, job):
+        import json
+        row = self.runtime.db.execute('''SELECT i.body FROM expert_task_inputs i
+            JOIN f_tasks t ON t.id=i.task_id WHERE t.request_key=?''', (job.idempotency_key,)).fetchone()
+        if not row:
+            raise ValueError('task_input_missing')
+        return json.loads(row[0])
 
     def work_one(self, worker_id, role):
         r = self.runtime
