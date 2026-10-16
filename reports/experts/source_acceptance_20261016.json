@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "kind": "real_network_source_acceptance_retrospective",
+  "source": "openfootball",
+  "source_url": "https://raw.githubusercontent.com/openfootball/football.json/master/2025-26/de.1.json",
+  "observed_at": "2026-10-16T16:51:00.091480+00:00",
+  "published_at": null,
+  "snapshot_id": "c42977568f3be0e50d33e7e06de55e2de73e472bb6307456b1bb217344c7e7f6",
+  "raw_sha256": "17d0999db6281e6365823acdbce41a4f01dd469eac63e1f897e4e47c02906672",
+  "parser_sha256": "86909440749aa37e4cdfb1a1e413b0e059c4a01a4d7d64b92cf488f6eb86e25b",
+  "first_parse": {"accepted": 294, "rejected": 12},
+  "offline_replay": {"accepted": 306, "rejected": 0, "network_requests": 0},
+  "new_network_requests": 1,
+  "policy": "CC0; existing internal per-source quota retained",
+  "forward_predictions_graded": 0,
+  "pilot_enabled": false,
+  "openliga_live_acceptance": "BLOCKED: licence page text not verified this session"
+}

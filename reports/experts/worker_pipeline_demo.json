@@ -1,0 +1,23 @@
+{
+  "mode": "synthetic_evidence_retrospective_models",
+  "source_data": "306 archived Bundesliga results; NOT kickoff-time verified",
+  "evidence": "synthetic, not a real football news/lineup source",
+  "tasks": {
+    "validate": "done",
+    "model": "done",
+    "red_team": "done",
+    "referee": "done"
+  },
+  "audit_chain_valid": true,
+  "publishing_enabled": false,
+  "review": {
+    "numeric_override": null,
+    "reasons": [],
+    "risk_action": "wait",
+    "round_no": 1,
+    "schema_version": "1.0",
+    "status": "approved"
+  },
+  "rounds": 1,
+  "no_portfolio_or_bets": true
+}

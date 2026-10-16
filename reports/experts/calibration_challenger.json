@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0",
+  "mode": "retrospective_challenger_only",
+  "method": "temperature_scaling_multiclass",
+  "temperature": 1.2699205293932976,
+  "calibration_n": 73,
+  "test_n": 98,
+  "calibration_last_date": "2025-02-28",
+  "test_first_date": "2025-03-01",
+  "calibration_sha256": "6d5e7850153b5f99362167ce724d188b3a00d925d1e9f81b8316a2a396b3ad26",
+  "test_sha256": "dd33f277111ebfe2a7cd5981be3d7e2b86937c1db92fce7e95d77d5bcd4d8d18",
+  "baseline": {
+    "n": 98,
+    "log_loss_1x2": 1.1102697222953037,
+    "brier_1x2": 0.6713478894852694
+  },
+  "challenger": {
+    "n": 98,
+    "log_loss_1x2": 1.0787089163735462,
+    "brier_1x2": 0.6516894357217423
+  },
+  "paired_uncertainty": {
+    "block_length_days": 5,
+    "resamples": 2000,
+    "unique_fixture_dates": 29,
+    "metrics": {
+      "log_loss_1x2": {
+        "challenger_minus_baseline": -0.031560805921757334,
+        "paired_block_bootstrap_95ci": [
+          -0.07342988099499241,
+          -0.0017397879041886764
+        ],
+        "difference_sign_established": true
+      },
+      "brier_1x2": {
+        "challenger_minus_baseline": -0.019658453763526915,
+        "paired_block_bootstrap_95ci": [
+          -0.039497749258248505,
+          -0.0022470144623320475
+        ],
+        "difference_sign_established": true
+      }
+    },
+    "note": "single-season retrospective; intervals are exploratory"
+  },
+  "calibration_training_log_loss": 0.9797237520135827,
+  "not_auto_promoted": true,
+  "scope": "1X2 only; does not transform or override goal-score matrices",
+  "evidence_limit": "retrospective archive, not point-in-time live operational validation",
+  "dataset_sha256": "075827db50403e3b2d4dcfdc3dd38de9c0d3b61c8add689f875577cfaa98d797",
+  "train_before": "2025-01-01T00:00:00+00:00",
+  "model": "poisson",
+  "model_training_matches": 135,
+  "caveats": [
+    "Archive observed in 2026, forecasts reconstructed for 2025; NOT live odds or forward predictions.",
+    "Source archive single Bundesliga season; may not generalize.",
+    "Calibration fits on chronologically separated January/February forecasts; tested on March onward.",
+    "Model was trained only on scores before January 2025.",
+    "No forward pilot, no automatic model promotion, no betting profitability inference."
+  ]
+}
