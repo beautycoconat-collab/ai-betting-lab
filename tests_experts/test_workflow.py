@@ -21,6 +21,15 @@ class WorkflowTests(LocalCase):
         self.assertEqual(output['markets']['half1']['status'], 'insufficient_data')
         self.assertTrue(self.runtime.verify_audit())
 
+    def test_team_total_markets_visible_without_prospectively_placing_bet(self):
+        output = self.lab().run(fixture(), NOW, [], {})
+        for key in ('over_2.5', 'under_2.5', 'home_over_1.5', 'away_over_1.5'):
+            self.assertEqual(output['markets'][key]['status'], 'supported')
+        self.assertAlmostEqual(
+            output['markets']['home_over_1.5']['win']
+            + output['markets']['home_over_1.5']['lose'], 1, places=9)
+        self.assertFalse(output['execution_enabled'])
+
     def test_workflow_retry_does_not_add_review_rounds(self):
         lab = self.lab()
         a = lab.run(fixture(), NOW, [], {})
