@@ -144,7 +144,8 @@ class MarketSpecialist:
             return {'status': 'insufficient_data', 'probability': None}
         if market == '1X2':
             return {'status': 'supported', 'probabilities': distribution.outcome().tolist()}
-        if market not in ('over', 'under', 'btts', 'home_handicap'):
+        if market not in ('over', 'under', 'btts', 'home_handicap',
+                          'home_over', 'home_under', 'away_over', 'away_under'):
             return {'status': 'unsupported', 'probability': None}
         grid, tail = distribution.grid(100)
         h, a = np.indices(grid.shape)
@@ -153,8 +154,12 @@ class MarketSpecialist:
                     'absolute_error_bound': tail}
         if line is None or not math.isfinite(line) or line*2 != int(line*2) or abs(line) > 20:
             raise ValueError('unsupported_line')
-        margin = h-a+line if market == 'home_handicap' else h+a-line
-        if market == 'under':
+        margin = (h-a+line if market == 'home_handicap' else
+                  h if market.startswith('home_') else
+                  a if market.startswith('away_') else h+a)
+        if market != 'home_handicap':
+            margin = margin-line
+        if market in ('under', 'home_under', 'away_under'):
             margin = -margin
         return {'status': 'supported', 'win': float(grid[margin > 0].sum()),
                 'push': float(grid[margin == 0].sum()), 'lose': float(grid[margin < 0].sum()),

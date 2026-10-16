@@ -77,7 +77,15 @@ class ResearchLab:
             'fixture': f.model_dump(mode='json'), 'validation': validation.model_dump(mode='json'),
             'lineup': lineup.model_dump(mode='json'), 'models': forecasts, 'ensemble': mixture.export(),
             'ensemble_validation': self.synthesizer.report(),
-            'markets': {m: MarketSpecialist().calculate(mixture, m) for m in ('1X2', 'btts', 'half1')},
+            'markets': {
+                '1X2': MarketSpecialist().calculate(mixture, '1X2'),
+                'btts': MarketSpecialist().calculate(mixture, 'btts'),
+                'over_2.5': MarketSpecialist().calculate(mixture, 'over', 2.5),
+                'under_2.5': MarketSpecialist().calculate(mixture, 'under', 2.5),
+                'home_over_1.5': MarketSpecialist().calculate(mixture, 'home_over', 1.5),
+                'away_over_1.5': MarketSpecialist().calculate(mixture, 'away_over', 1.5),
+                'half1': MarketSpecialist().calculate(mixture, 'half1'),
+            },
             'findings': [x.model_dump(mode='json') for x in findings], 'reviews': reviews,
             'odds': odds_report, 'risk_preview': risk.model_dump(mode='json'),
             'risk_state_origin': 'reference preview, not a wallet balance', 'execution_enabled': False}

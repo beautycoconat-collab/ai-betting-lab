@@ -69,10 +69,10 @@ class SourceHunter:
             'quota_basis': p.get('quota_basis'), 'review_expires': p.get('review_expires')}
             for sid, p in self.queue.registry.items()}
 
-    def schedule(self, source, kind, params, at):
+    def schedule(self, source, kind, params, at, cycle=None):
         if self.inspect(at).get(source, {}).get('status') != 'ready':
             raise ValueError('source_not_approved_or_no_adapter')
-        return self.queue.enqueue(source, kind, params, now=aware(at).isoformat())
+        return self.queue.enqueue(source, kind, params, now=aware(at).isoformat(), cycle=cycle)
 
     def collect_one(self, **kwargs):
         return self.queue.work_one(**kwargs)
