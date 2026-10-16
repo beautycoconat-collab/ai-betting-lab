@@ -58,7 +58,14 @@ class OpenFootball:
         if isinstance(payload.get('rounds'),list):return [dict(m,round=r['name']) for r in payload['rounds'] for m in r['matches']]
         raise ValueError('unsupported_envelope')
     def parse(self,r,p):
-        h,a=name(r['team1']),name(r['team2']); ft=r.get('score',{}).get('ft')
+        h,a=name(r['team1']),name(r['team2']); score=r.get('score')
+        # Both provider JSON encodings occur in the same domestic-league feed.
+        # The two-element legacy array is the full-time score; never infer a
+        # score from time, round, half-time or missing fields.
+        if score is None:ft=None
+        elif isinstance(score,list):ft=score
+        elif isinstance(score,dict):ft=score.get('ft')
+        else:raise ValueError('bad_score_envelope')
         if ft is not None and (not isinstance(ft,list) or len(ft)!=2):raise ValueError('bad_score')
         hg,ag=(goals(ft[0]),goals(ft[1])) if ft is not None else (None,None)
         return Result('openfootball',digest([p['league'],p['season'],h,a,r.get('round') or r['date']]),p['league'],p['season'],r['date'],h,a,hg,ag,'regulation90',False)
