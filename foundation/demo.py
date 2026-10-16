@@ -5,7 +5,7 @@ from uuid import uuid4
 from .runtime import Runtime
 
 NOW='2026-10-15T00:00:00+00:00'
-POLICY={'openfootball':{'status':'approved','review_expires':'2026-11-13','requests_per_24h':4,'requests_per_31d':124,'min_interval_seconds':3600}}
+POLICY={'openfootball':{'status':'approved','license':'CC0-1.0','terms_url':'https://github.com/openfootball/football.json/blob/master/LICENSE.md','reviewed_at':'2026-10-01','review_expires':'2026-11-13','requests_per_24h':4,'requests_per_31d':124,'min_interval_seconds':3600}}
 
 def setup(runtime):
     fid=str(uuid4());runtime.fixture(fid,'2026-10-16T18:00:00+00:00','regulation90','SYNTHETIC A','SYNTHETIC B')
