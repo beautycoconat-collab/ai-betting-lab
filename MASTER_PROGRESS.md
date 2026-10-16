@@ -155,3 +155,21 @@ GitHub API create_blob 403 döndü; önceden onaylı tarayıcıyla küçük dosy
 feature/expert-engines dalına aktarılıyor. Nihai uzak SHA teslimde doğrulanacak.
 Pilot ve cron kapalı; Supabase'e yazma veya ücretli hizmet yok.
 
+# İki sezonlu walk-forward ve CI — 2026-10-16
+
+Son tam kaynak koşusu 372 test/370 pass/2 skip (89.709s); son pencere düzeltmesi dahil.
+
+Görev 2 PARTIAL ilerledi: 2024–25 ve 2025–26, toplam 612 gerçek Bundesliga maçı;
+331 farklı test maçı. Train/validation/test: 135/73/98, 306/73/104, 379/104/129.
+Ensemble/baseline skor Log Loss: 3.071025/3.179433, 3.142827/3.262383,
+3.035263/3.130691. Tek lig, retrospektif; yeni sezon takımları için fallback
+model davranışı dahil; canlı başarı veya otomatik terfi kanıtı değildir.
+Ham ikinci sezon JSON'u SHA-256 doğrulamasıyla korunur; çevrimdışı tekrar komutu:
+`python -m experts.multiseason --out reports/experts/multiseason_20261016.json`.
+
+Tam test: 372 run, 370 pass, 2 native skip. Son scheduler pencere düzeltmesi
+sonrası hedefli sonuç/CLI testleri 21 pass. Güncel performans pencereleri artık
+onaylanmış sonuç düzeltmesini kullanır; eski grade'ler audit olarak korunur.
+PR CI koşusu 38936533233, job 117093518310: Python, native PostgreSQL ve PGlite
+adımları başarıyla geçti (6b0407c ağacı). Son çok sezon artışının CI'ı ayrıca izlenecek.
+

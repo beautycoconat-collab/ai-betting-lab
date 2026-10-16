@@ -211,3 +211,15 @@ devre dışı günlük araştırma ve dashboard. Pilot açma. Supabase migration
 ayrı kullanıcı onayından sonra uygulanabilir. Yeni prompt beklemek gerekmez.
 Komutlar: python -m scripts.ci_python; python -m unittest tests_experts.test_result_versions -v.
 
+# Son ek — iki sezon 2026-10-16
+
+Son kaynak ağacında tam test 372/370 pass/2 skip (89.709s); pencere düzeltmesi dahil.
+
+experts/multiseason.py eklendi; 612 gerçek maç/331 ayrı test maçı. Kaynak dosyası
+evidence/phase2/raw/openfootball-2025-26.json ve metadata SHA ile tekrar üretilebilir.
+`python -m experts.multiseason --out reports/experts/multiseason_20261016.json`.
+Tam regresyon 372/370 pass/2 skip; son scheduler correction-to-window düzeltmesi
+için 21 hedef test geçti. PR CI 38936533233 Python/native/PGlite başarılı.
+Son artışı GitHub'a aktar ve uzak blob eşleşmesini doğrula; sonra MASTER_PROGRESS
+açık işleri sırasıyla sürdür. Yeni migration uygulanmadı, hosted JWT hâlâ açık.
+

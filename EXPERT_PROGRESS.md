@@ -163,3 +163,12 @@ Uzman 02/03 PARTIAL: OpenFootball gerçek ağ formatı replay doğrulaması 306/
 Diğer uzmanların daha önceki PARTIAL/BLOCKED sınırları devam eder.
 Test: 370 run/368 pass/2 skip, PGlite 123 pass. Canlı pilot/hosted kabul yok.
 
+# Uzman 09/14 — 2026-10-16 ek doğrulama
+
+İki sezonlu walk-forward (612 gerçek Bundesliga maçı, 331 farklı test maçı)
+çalıştı; üç dönem de baseline'a karşı raporlandı. Uzman 09 hâlâ PARTIAL: tek lig,
+canlı model veya kârlılık kabulü değil. Uzman 14 PARTIAL: scheduler/CLI pencereleri
+son onaylı skor revizyonundan hesaplanıyor, eski grade'ler silinmiyor.
+Yeni fixture/abstain denominator ve fiyat kanıtı yoksa ilgili alanlar null kalır.
+372 full test/370 pass/2 skip; son pencere düzeltmesine 21 hedef test pass.
+

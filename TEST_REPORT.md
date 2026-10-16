@@ -263,3 +263,17 @@ claimed; historical results below remain historical.
   hosted PostgreSQL eşzamanlılığı yerine sunulmaz.
 - 001–005 aynı; Supabase'e migration/yetki/kullanıcı/cüzdan yazması yapılmadı.
 
+# Ek kabul — 2026-10-16 çok sezon ve native CI
+
+Son kaynak ağacı tekrar koşusu: 372 test / 370 başarılı / 2 native skip,
+89.709 saniye. Son scheduler pencere düzeltmesi bu tam koşuya dahildir.
+
+`python -m scripts.ci_python`: 372 run / 370 pass / 2 native skip, 48.444s.
+Son scheduler metrik revizyonu sonrası sonuç/scheduler/CLI: 21 pass.
+`experts.multiseason`: iki sezon 612 gerçek maç, 331 farklı test maçı; üç fold
+train/validation/test 135/73/98, 306/73/104, 379/104/129. Ham snapshot hash ve
+eşsiz kimlik testleri geçti. Skor Log Loss kıyasları reports/experts/multiseason_20261016.json.
+PR CI 38936533233 / job 117093518310 (6b0407c): Python regressions, Native PostgreSQL
+independent connections, PGlite migration/security adımlarının hepsi success.
+Hosted Supabase/JWT bununla doğrulanmış sayılmaz; bu oturumda hosted yazma yok.
+
