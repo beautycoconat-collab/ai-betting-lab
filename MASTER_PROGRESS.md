@@ -173,3 +173,21 @@ onaylanmış sonuç düzeltmesini kullanır; eski grade'ler audit olarak korunur
 PR CI koşusu 38936533233, job 117093518310: Python, native PostgreSQL ve PGlite
 adımları başarıyla geçti (6b0407c ağacı). Son çok sezon artışının CI'ı ayrıca izlenecek.
 
+# Son checkpoint — radar replay ve kapalı otomasyon
+
+Son yerel kaynak ağacı: 379 test / 377 başarılı / 2 native PostgreSQL skip,
+55.441s. Radarın 7 sentetik sınır testi dahil. PGlite 123 kontrol aynı migration
+ağacında geçti. Önceki native PR CI 38936533233 success; son uzak ağaç ayrı kontrol edilir.
+
+Görev 6 artık PARTIAL (yalnız radar tarihsel replay çekirdeği); canlı radar
+BLOCKED: olay kaynağı, kanıt doğrulaması ve gerçek kalibrasyon yok. Model homojen
+Poisson baseline, taktik/baskı/şut iddiası yok. Canlı çağrı her zaman BLOCKED.
+Görev 5 PARTIAL: research-replay.yml yalnız workflow_dispatch; cron, fetch,
+hosted secrets, deploy ve portföy yürütmesi yok.
+
+Açık ana işler: 14 rolün hosted dispatcher/JWT/RLS kabulü; gerçek yayın-zamanı
+kanıtları ve izinli kadro/dış tahmin/oran; bağımsız Red Team ablation;
+dashboard; sanal portföy muhasebesi ve sürümlü risk politikalarının tam akışı;
+canlı champion/challenger ve rollback; pilot kapıları. Hiçbiri FULL sayılmaz.
+Tüm görevler için mevcut ana yetki geçerli; bunlar için yeni prompt gerekmez.
+

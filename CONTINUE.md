@@ -223,3 +223,13 @@ için 21 hedef test geçti. PR CI 38936533233 Python/native/PGlite başarılı.
 Son artışı GitHub'a aktar ve uzak blob eşleşmesini doğrula; sonra MASTER_PROGRESS
 açık işleri sırasıyla sürdür. Yeni migration uygulanmadı, hosted JWT hâlâ açık.
 
+# En yeni checkpoint — 2026-10-16
+
+Son test 379/377 pass/2 native skip (55.441s). Radar replay +7 sentetik test,
+canlı BLOCKED. Manuel offline workflow .github/workflows/research-replay.yml
+hazır, schedule yok. docs/goal_radar_replay.md sınırlar. Görev 6 PARTIAL oldu;
+diğer açık işler MASTER_PROGRESS başında. Yeni prompt beklemeden o listeden sürdür.
+Önce son remote SHA'yı fetch et ve Git ağaçlarını karşılaştır. Browser upload
+commit SHA'ları yerel commitlerden farklıdır; force push kullanma. Bekleyen
+değişiklik varsa bundle/ZIP checkpoint'ten koru; eski 001–005 migration'a dokunma.
+

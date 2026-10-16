@@ -277,3 +277,11 @@ PR CI 38936533233 / job 117093518310 (6b0407c): Python regressions, Native Postg
 independent connections, PGlite migration/security adımlarının hepsi success.
 Hosted Supabase/JWT bununla doğrulanmış sayılmaz; bu oturumda hosted yazma yok.
 
+# Nihai yerel kaynak ağacı — radar replay dahil
+
+`python -m scripts.ci_python`: 379 test / 377 başarılı / 2 native skip,
+55.441s. Yedi yeni radar testi sentetik replay sınamalarıdır; canlı başarı değildir.
+Son log reports/experts/intake_python_20261016.txt içindedir.
+PGlite 123; native PR CI 38936533233 başarıyla tamamlandı. Hosted JWT/RLS
+bağlantısı sınanmadı. Son radar dahil uzak PR CI ayrıca raporlanmalıdır.
+

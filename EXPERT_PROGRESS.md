@@ -172,3 +172,11 @@ son onaylı skor revizyonundan hesaplanıyor, eski grade'ler silinmiyor.
 Yeni fixture/abstain denominator ve fiyat kanıtı yoksa ilgili alanlar null kalır.
 372 full test/370 pass/2 skip; son pencere düzeltmesine 21 hedef test pass.
 
+# Son ek — radar ve otomasyon
+
+14 uzman hâlâ belirtilen PARTIAL/BLOCKED sınırlarındadır. Ayrı Canlı Gol Radarı
+modülü PARTIAL tarihsel replay / BLOCKED canlı. Yedi sentetik kabul testi geçti;
+gerçek canlı doğruluk veya kalibrasyon kanıtı yok. Elle çalıştırılan offline
+replay workflow hazır; günlük üretim veya sanal portföy etkin değil.
+Son tam yerel regresyon 379 run/377 pass/2 native skip.
+
