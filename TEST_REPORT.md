@@ -1,3 +1,29 @@
+## 2026-10-19 — Gerçek fikstür ve koşullu model bağlantısı
+
+**Durum: PARTIAL.** OpenLigaDB Bundesliga 2026/27 kaynağı gerçek ağ erişimiyle toplandı: 306 normalize kayıt, 0 ret. 19 Ekim için bu ligde maç yok; sonraki 7 günde 9 maç var. Başka ligler kapsanmış sayılmaz. Beş maçta tam takım adı/eğitim eşleşmesi var; dört maç `insufficient_data`. Sağlayıcı neutral bilgisini vermediğinden her uygun maç için iki ayrı venue senaryosu hesaplandı; bunlar birleştirilmiş nihai tahmin değildir. 612 gerçek tarihsel maç, kronolojik eğitim/doğrulama ayrımı kullanıldı. Güncel sezon eksikleri ve eski eğitim kesimi görünür.
+
+Mevcut UI korunarak tarih düğmeleri, senaryo seçimi, Elo/Poisson/Dixon–Coles/baseline/ensemble olasılıkları, skorlar, piyasalar ve gerçek deterministik rol analizleri bağlandı. Kadro, dış tahmin, oran ve gerçekleşmiş öğrenme için veri yok; risk yürütmesi kapalı. Red Team ve iki tur Hakem gerçek kodla çalıştı; eksik kadro kanıtı nedeniyle abstain/skip. Bu, 14 uzmanın FULL olduğu anlamına gelmez.
+
+Yalnız `oswpkwwbjwyktuqcakhr` test projesindeki mevcut tablolara kontrollü, idempotent DML uygulandı: 1 gerçek kaynak snapshot metadata kaydı, 9 maç, 50 koşullu challenger model çıktısı, 10 araştırma audit kaydı, 90 rol yürütme bağlamı. Tüm maç sayısı 21; eski 12 maç korundu. İçe aktarma önce rollback ile, sonra commit ve aynı veriyi yeniden oynatma ile doğrulandı. Olasılık kütlesi ve maç öncesi cutoff SQL kontrolleri geçti. Model kod hash'i ile model durum hash'i ayrı tutuluyor. `prediction_runs` champion sayısı 0. Bu doğrulama yönetici MCP SQL erişimidir; hosted JWT/Auth/RLS veya düşük yetkili worker kabulü değildir. Migration, yetki ve cüzdan değişmedi.
+
+Yerel tam test: `python -m scripts.ci_python` → 410 test, 403 başarılı, 7 kontrollü atlama. Node sözdizimi/veri/UI smoke testleri ayrı yürütüldü; gerçek tarayıcı veya mobil layout kabulü sayılmaz. Yeni PGlite/native/hosted Auth testi çalıştırılmış sayılmaz.
+
+Sıradaki somut işler: GitHub branch/PR teslimatını doğrula; Vercel proje oturumu/preview yayın kabulü; düşük yetkili hosted bağlantı ve JWT/RLS kabulü; devamlı kaynak kota deposu ve otomatik artifact yayınını kabul ettikten sonra zamanlayıcıyı etkinleştir. Pilot ve portföy açılmayacak. Eksik kadro/oran adapterleri, bağımsız ablation ve ileriye dönük performans hâlâ PARTIAL/BLOCKED.
+
+Komutlar:
+```sh
+python -m scripts.ci_python
+node --check public/app.js
+node scripts/check_dashboard.mjs
+node scripts/test_dashboard_ui.mjs
+# Kota geçmişi bulunan mevcut SQLite ile; yeni boş DB ile kota sıfırlamayın:
+python -m dashboard.daily --database data/dashboard-live.sqlite --collect
+```
+
+GitHub Actions workflow yalnız manuel ve `LAB_RESEARCH_ACCEPTED` kapılıdır; cron yok. İlk çalıştırma korunmuş quota cache olmadan güvenle durur. Hosted okuma `LAB_DASHBOARD_HOSTED=true` ile isteğe bağlıdır; `cloudcheck.config` proje/verify-full TLS/CA doğrulaması gerekir. Bağlantı sırları yalnız sunucu ortamında sağlanmalı. API model eğitmez; işçi üretilmiş projection'ı okur. Statik veri 24 saat sonra güncel fikstür olarak gösterilmez.
+
+---
+
 # 2026-10-16 — Manuel sonuç planlayıcısı ve 14. uzman pencereleri (YEREL, GITHUB'A GÖNDERİLMEDİ)
 
 **Görev 4 PARTIAL, Görev 5 PARTIAL:** `experts/result_scheduler.py` ve `scripts/result_cycle.py` eklendi. Önceden maç başlamadan kilitlenmiş, model/hakem kanıtı olan bir tahmin için izinli kaynakta idempotent günlük veri toplama görevi oluşturur. Kaynak işi `kickoff+120min` öncesi çalışmaz; mevcut `engine.queue` kota ve lease güvenliği kullanılır. Ham snapshot doğrulaması `OutcomeJournal` tarafından yapılır; eski önbellek, yanlış yerel/sağlayıcı kimliği, belirsiz veya eksik final reddedilir. Yeni tarihli bir görevle tekrar kontrol mümkündür, skor/provenance düzeltmesi manuel incelemeye alınır; hiçbiri eski skoru değiştirmez.
