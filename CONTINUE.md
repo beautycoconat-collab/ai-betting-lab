@@ -1,3 +1,11 @@
+## Vercel yayın denemesi — 2026-10-19
+
+Kullanıcı dashboard önizlemesi ve eklenti başarısızsa tarayıcı üzerinden çalışma için onay verdi. Vercel MCP create_project 403 verdi; CLI kurulu değil. Tarayıcıda proje oluştu: `beautycoconat-8169s-projects/ai-betting-lab`. Vercel GitHub bağlantısı `bengbengg0` hesabında olduğundan asıl kaynak repo içe aktarılamadı; herhangi bir yeni GitHub yetkisi verilmedi. İncelenmiş kaynaklardan 40 dosyalık, yaklaşık 701 KB deployment paketi yüklendi; veritabanı sırrı yok.
+
+İlk deployment `4KHVYAxrCNWGWhohxe7hiYVYApmP` ERROR: PYTHON_ENTRYPOINT_NOT_FOUND. Build günlüğünün işaret ettiği `[tool.vercel] entrypoint = "api.dashboard:handler"` pyproject.toml'a eklendi. Dashboard Python regresyonu 31/31 geçti. Düzeltilen paket mevcut projeye yüklendi, fakat son ekran açıkça **New Production Deployment / Deploy to Production** diyor. Önizleme onayını üretim onayı saymadan bu düğmeden önce duruldu. Başarılı yayın veya API/browser kabulü henüz yok. Yeni migration, portföy, pilot, cron veya başka proje değişikliği yok.
+
+Devam: Kullanıcı bu yalnız-okunur dashboard için Production dağıtımını onaylarsa mevcut hazır Vercel ekranından sürdür; veya GitHub bağlantısına yalnız bu repo erişimi kullanıcı tarafından sağlandıktan sonra feature dalı Preview dağıtımını seç. Build/HTTP/API/etkileşim kabulünü gerçekten çalıştır; giriş noktası düzeltmesini hosted build başarılı olmadan tamamlandı sayma.
+
 ## GitHub teslimat doğrulaması — 2026-10-19
 
 Uzak `feature/expert-engines` commit **9bd15a79917159e6d79fd115f2fa5a6433d3e16b**, yerel test edilmiş ağaca `git diff --exit-code` ile eşit doğrulandı. PR #1 bu sekiz yeni commit'i içeriyor ve açıklaması güncellendi. Git CLI kimlik erişimi yoktu; önceden yetkilendirilmiş GitHub tarayıcı yüklemesi kullanıldı. Yerel Git bundle checkpoint mevcut.
