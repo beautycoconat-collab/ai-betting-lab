@@ -8,7 +8,7 @@ checks its dependency output and fingerprint instead of trusting task names.
 from .contracts import Fixture, Claim, AuditContext, Finding
 from .dispatcher import Dispatcher, TaskOutput
 from .research import aware, DataValidator
-from .football import digest
+from .football import digest, MarketSpecialist
 from .review import RedTeam, ScientificReferee
 import numpy as np
 
@@ -141,7 +141,20 @@ class ResearchWorkerPipeline:
         model_versions = self.engine.versions
         prediction_id = digest([str(fixture.id), fingerprint, model_versions,
                                 self.synthesizer.report()])
+        from dashboard.contracts import summarize
+        display = {name: summarize(p['distribution'], p['training_end'], model_versions[name])
+                   for name, p in forecasts.items()}
+        display['ensemble'] = summarize(mixture.export(),
+            max(m.training_end for m in self.engine.models.values()),
+            digest([model_versions, self.synthesizer.report()]))
+        display_markets = {'btts': MarketSpecialist().calculate(mixture, 'btts'),
+            'half1': MarketSpecialist().calculate(mixture, 'half1')}
+        for kind in ('over', 'under', 'home_over', 'away_over'):
+            for line in (0.5, 1.5, 2.5, 3.5, 4.5, 5.5):
+                display_markets[f'{kind}_{line}'] = MarketSpecialist().calculate(mixture, kind, line)
         return TaskOutput(schema_version='1.0', status='ready', data=dict(
+            display_schema_version='1.0', models=display,
+            markets=display_markets, market_model='ensemble',
             stage='model', input_hash=fingerprint, prediction_id=prediction_id,
             probabilities=probabilities,
             model_spread=float(np.ptp(model_probs, axis=0).max()),
