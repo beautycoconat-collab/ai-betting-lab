@@ -26,7 +26,7 @@ def artifact(path, root):
     return {'path': str(path.relative_to(root)), 'sha256': hashlib.sha256(raw).hexdigest()}
 
 
-def build(root=ROOT, database=None, now=None):
+def build(root=ROOT, database=None, now=None, include_research=False):
     root = Path(root)
     now = now or datetime.now(timezone.utc)
     if now.tzinfo is None:
@@ -37,6 +37,7 @@ def build(root=ROOT, database=None, now=None):
         'portfolio': {'status': 'blocked', 'balance': None, 'roi': None, 'clv': None,
                       'reason': 'İleriye dönük portföy bağlantısı ve güvenlik kabulü tamamlanmadı.'},
         'roles': [{k: r[k] for k in ('id', 'ordinal', 'name', 'engine')} | {'status': 'no_run'} for r in registry()],
+        'research': {'status':'not_requested','records':[], 'rejected_records':0},
         'provenance': [], 'warnings': ['Pilot kapalı. Panel salt okunur.',
             'Arşiv tahminleri bugün yeniden hesaplanan tarihsel araştırmadır; canlı başarı değildir.']}
     folder = root / 'reports/phase2/bundesliga'
@@ -88,6 +89,9 @@ def build(root=ROOT, database=None, now=None):
                         'roles': [], 'findings': [], 'reviews': [], 'review_status': 'no_record',
                         'reliability': 'Fikstür kaydı mevcut; yayımlanabilir tahmin ve kaynak doğrulaması yok.'})
             # Only fixture identity is projected. Audit/free-text payloads need an explicit publication contract.
+            if include_research:
+                from dashboard.research_feed import read_research
+                output['research'] = read_research(db, now)
             output['connection'] = 'local_readonly_projection'
         finally:
             db.close()
@@ -96,9 +100,9 @@ def build(root=ROOT, database=None, now=None):
 
 def main():
     p = argparse.ArgumentParser()
-    p.add_argument('--database'); p.add_argument('--out', default='public/data/dashboard.json')
+    p.add_argument('--include-research', action='store_true', help='Explicitly opt in to public research display; no raw input bodies.'); p.add_argument('--database'); p.add_argument('--out', default='public/data/dashboard.json')
     a = p.parse_args()
-    data = build(database=a.database)
+    data = build(database=a.database, include_research=a.include_research)
     path = Path(a.out); path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(data, ensure_ascii=False, allow_nan=False, separators=(',', ':'))+'\n')
     print(json.dumps({'output': str(path), 'fixtures': len(data['fixtures']), 'historical': len(data['history'])}))
