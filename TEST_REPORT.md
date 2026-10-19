@@ -1,3 +1,15 @@
+## Vercel dashboard yayın kabulü — 2026-10-19
+
+**Dashboard yayında:** https://ai-betting-lab.vercel.app/ . Kullanıcının üretim dağıtımı için devam onayından sonra `6yD5cZV4npcW6Epat3uThRnvRTm4` READY oldu. Vercel proje ID: `prj_5bVfIsnlr2SKOurNjyUlgczkFxDc`; takım `beautycoconat-8169s-projects`. Vercel Drop ile 40 kaynak dosyası yüklendi; GitHub otomatik bağlantısı kurulmadı. Paket GitHub `a580320` sürümünün runtime dosyalarını ve doğrulanmış JSON'unu içerir. Paket SHA-256: `0dbc62f601b796fc26f7b2926c78da7898b4363aee6facc23e8f9beeae23d3b3`.
+
+Gerçek hosted HTTP kabulü: 19/23/24/25 Ekim sorguları 200 ve sırasıyla 0/1/6/2 maç; hatalı tarih 400, olmayan fixture 404. Statik JSON yerel kaynak dosyasıyla byte-byte eşit. Detay API iki koşullu senaryoyu aynen döndürüyor, tüm model 1X2 kütleleri geçerli. API `no-store`; yürütme false. Kanıt: `reports/experts/vercel_http_20261019.json`.
+
+Tarayıcıda gerçek uygulama açıldı: 23 Ekim seçimi → Stuttgart/Mönchengladbach kartı → saha senaryosu → ensemble olasılıkları/skorlar/piyasalar → Poisson model değişimi → gerçek Red Team/Hakem needs_reanalysis ve abstain/skip kararları. 14 rolün eksik veri/blocked durumları görünür. Bu gerçek masaüstü tarayıcı kabulüdür; mobil cihaz kabulü yapılmadı. Tarayıcı logundaki görülen hatalar Chrome uzantısına ait, uygulama hatası olarak sayılmadı.
+
+**Açık sınırlar:** Yayın, işçinin oluşturduğu doğrulanmış kaynak snapshot'ını okuyor. Vercel hosted DB credential bağlantısı ve JWT/RLS kabulü tamamlanmadı; Supabase canlı okuması etkin değil. Sürekli günlük veri/yeniden yayın otomasyonu etkin değil. Kaynak snapshot'ı 24 saati geçince güncel fikstür gösterimi güvenle kapanır; ertesi gün kendiliğinden yenilenmiş gibi sunulmaz. Diğer ligler, dört eşleşmeyen maç için tahmin, gerçek oran/CLV/ROI ve tüm 14 rolün canlı araştırması tamamlanmadı. Pilot, portföy ve cron kapalı; migration veya yetki değişikliği yok.
+
+Sıradaki iş: yalnız bu repoya Git bağlantısı veya kontrollü artifact dağıtım hattı; kota durumunu koruyarak günlük yenileme; hosted en az yetki/JWT kabulü; güncel sezon eğitim kapsamı ve kesin saha kanıtı. Üretim dashboard yayını bu güvenlik kapılarının geçtiği anlamına gelmez.
+
 ## Vercel yayın denemesi — 2026-10-19
 
 Kullanıcı dashboard önizlemesi ve eklenti başarısızsa tarayıcı üzerinden çalışma için onay verdi. Vercel MCP create_project 403 verdi; CLI kurulu değil. Tarayıcıda proje oluştu: `beautycoconat-8169s-projects/ai-betting-lab`. Vercel GitHub bağlantısı `bengbengg0` hesabında olduğundan asıl kaynak repo içe aktarılamadı; herhangi bir yeni GitHub yetkisi verilmedi. İncelenmiş kaynaklardan 40 dosyalık, yaklaşık 701 KB deployment paketi yüklendi; veritabanı sırrı yok.
