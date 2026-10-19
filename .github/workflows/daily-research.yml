@@ -1,0 +1,34 @@
+name: Prepared daily fixture research (execution gated)
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: daily-research
+  cancel-in-progress: false
+jobs:
+  research:
+    if: vars.LAB_RESEARCH_ACCEPTED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements-cloud.txt
+      - uses: actions/cache@v4
+        with:
+          path: data/dashboard-live.sqlite
+          key: source-budget-${{ github.run_id }}
+          restore-keys: source-budget-
+      - name: Require persistent source quota state
+        run: test -s data/dashboard-live.sqlite
+      - run: python -m dashboard.daily --collect
+      - uses: actions/upload-artifact@v4
+        with:
+          name: real-research-projection
+          path: public/data/dashboard.json
+          retention-days: 3
+# Prepared schedule: '30 4 * * *' UTC. Intentionally NOT enabled.
+# Seed source quota state before first run. No cloud writes, portfolio, deploy or pilot.
