@@ -22,6 +22,8 @@ from experts.contracts import AuditContext
 from experts.review import RedTeam, ScientificReferee
 from dashboard.contracts import summarize
 from dashboard.export import build as archive_projection
+from dashboard.daily_health import summary as daily_health_summary
+from dashboard.daily_quality import report as daily_quality_report
 
 ROOT=Path(__file__).resolve().parents[1]
 
@@ -165,6 +167,8 @@ def run(db_path,collect=False,now=None,days=7):
         from hashlib import sha256
         code_sha=sha256(b''.join((ROOT/p).read_bytes() for p in ('engine/models.py','experts/football.py','dashboard/daily.py'))).hexdigest()
         output.update(engine_code_sha256=code_sha,fixtures=matches,connection='verified_source_worker',collection=collection,
+            daily_automation=daily_health_summary(q.db, now),
+            daily_quality=daily_quality_report(matches, now, collection),
             fixture_scope='OpenLigaDB Bundesliga only; other leagues are not yet enabled',rejected_rows=rejected,
             source_attribution='OpenLigaDB contributors · ODbL 1.0 · https://www.openligadb.de/lizenz')
         return output
