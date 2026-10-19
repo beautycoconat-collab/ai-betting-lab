@@ -303,3 +303,21 @@ bağlantısı sınanmadı. Son radar dahil uzak PR CI ayrıca raporlanmalıdır.
   unavailable). Vercel deployment/build NOT RUN. No claim of live data acceptance.
 - PGlite/native prior green run remains separate evidence; this increment changes
   no SQL migration. Hosted JWT/Auth/RLS and portfolio acceptance remain BLOCKED.
+
+## 2026-10-19 — persisted worker dashboard bridge
+- Dashboard suite: 19 tests passed (2.934s); nine new worker/feed integration
+  cases use synthetic evidence with real archived numerical models, not live news.
+- Final complete Python run, pinned requirements-cloud.txt installed: 398 tests,
+  391 passed / 7 controlled skips (32.349s). Five skips need the separate large
+  international archive, two need native PostgreSQL DSN. Raw report:
+  reports/experts/dashboard_worker_regression_20261019.txt.
+- First full attempt hit six environment errors due absent psycopg; resolved by
+  installing the existing requirements, then final suite passed. No dependency
+  pin was changed. No cloud or native DB test is claimed from this local run.
+- Node render/interaction smoke checks passed (archive, research empty/detail,
+  HTML escaping, referee/risk, model switch, selected-date API, unsafe feed).
+  This uses a minimal Node harness, NOT browser/layout/mobile verification.
+- `node --check public/app.js`, existing publication checks, compileall and
+  git diff --check passed. No new migration, hosted write or pilot activation.
+- Prior remote native/PGlite green run 38941420495 remains separate evidence;
+  new CI execution is to be verified at the new remote head.

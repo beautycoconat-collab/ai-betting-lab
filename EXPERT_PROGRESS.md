@@ -186,3 +186,10 @@ The actual baseline/Elo/Poisson/DC artifacts now feed 18 historical match detail
 and supported MarketSpecialist markets. 14 roles are visible but no_run is not
 success. Red Team/referee show missing decisions explicitly. Portfolio/CLV/ROI
 remain BLOCKED pending verified records. UI PARTIAL until browser + hosted acceptance.
+
+### 2026-10-19 — persisted research display
+Score engine now persists bounded display summaries and ensemble-derived markets.
+The dashboard validates the complete validator/model/red-team/referee DAG and
+immutable input hashes before projection. Only these four roles receive done
+states for those records. Research mode is never upgraded to live verified data.
+Legacy worker records are supported without inventing missing score distributions.

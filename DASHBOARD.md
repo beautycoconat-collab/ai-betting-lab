@@ -64,3 +64,33 @@ sağlar; hiçbir tahmin/cüzdan yazma veya pilot etkinleştirme yolu yoktur.
 Sonraki adım: gerçek günlük fikstür/tahmin için kanıtlı, sürümlü yayın
 sözleşmesi; read-only hosted projection ve JWT kabulü; ardından Vercel
 preview deploy onayı ve mobil/tarayıcı kabulü. Sahte veriyle boşluk doldurulmaz.
+
+## Worker köprüsü — 2026-10-19
+
+Kalıcı `ResearchWorkerPipeline` model çıktısı artık sınırlı skor özeti, model
+sürümleri ve ensemble piyasa dönüşümlerini içerir. Büyük grid ve ham haberler
+worker display alanına kopyalanmaz. Eski çıktılar geriye dönük değiştirilmez.
+Yeni `dashboard/contracts.py` sürüm/olasılık/top-skor sözleşmesini doğrular.
+
+```sh
+python -m dashboard.export --database /absolute/research.sqlite --include-research
+node scripts/test_dashboard_ui.mjs
+```
+
+`--include-research` bilinçli public projeksiyon seçimidir; varsayılan kapalıdır.
+`dashboard/research_feed.py` dört gerçek task output kaydını, DAG kenarlarını,
+sabit girdileri, fixture/cutoff ve model sürümünü karşılaştırır. Okuma `mode=ro`.
+Uyumsuz kayıt karantinaya ayrılır; hata metni veya ham input yayına konmaz.
+Yalnız dört yürütülen rol `done` olur; diğer 10 rol için başarı uydurulmaz.
+
+Panelde ayrı **Worker analizleri** sekmesi bulunur. Her kayıt `recorded_research`
+ve `local_record_unverified` etiketlidir. Bunlar günün doğrulanmış maçları,
+maç öncesi kilitli tahminler, canlı başarı veya portföy kararları sayılmaz.
+Red Team kanıt kimlikleri/isteği ve hakem tur/risk kararı gösterilir. Eski worker
+çıktısında skor özeti yoksa yeni dağılım uydurulmaz. Varsayılan public JSON'a
+sentetik worker verisi eklenmedi. Günlük tarih seçimi API'ye tarih parametresi
+ile gider. Hosted bağlantı, browser/mobile QA ve Vercel deploy hâlâ BLOCKED.
+
+Yeni köprü entegrasyon testleri sentetik kanıt + gerçek arşiv modelleri kullanır;
+canlı kaynak başarı iddiası değildir. Node testleri HTML üretim/olay akışı smoke
+kontrolüdür, gerçek tarayıcı layout testi değildir. Pilot kapalı kalır.

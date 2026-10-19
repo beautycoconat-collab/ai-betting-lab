@@ -245,3 +245,18 @@ expert/portfolio projection are not yet connected. No fake rows or balances.
 Next: evidence-backed publication contract + authenticated read-only cloud
 projection, browser QA when supported, Vercel preview deployment acceptance.
 Do not enable pilot; do not apply hosted migration or merge main without approval.
+
+## En yeni devam noktası — 2026-10-19
+Worker → dashboard köprüsü: dashboard/contracts.py, research_feed.py;
+experts/worker_pipeline.py artık sınırlı skor ve piyasa özeti yazar.
+dashboard.export --include-research opt-in; SQLite yalnız read-only açılır.
+Public research ayrı etiketlidir, pilot/portföy/günlük canlı doğrulaması değildir.
+UI: Worker analizleri, kanıt referansları, hakem tur/risk, tarihli API isteği.
+Komutlar: python -m unittest discover -s tests_dashboard -v;
+node scripts/test_dashboard_ui.mjs; node scripts/check_dashboard.mjs.
+Sentetik worker test verisini public/data/dashboard.json'a ekleme.
+Sıradaki iş: izinli güncel fikstür yayın sözleşmesi ve gerçek kaynak kabulü;
+hosted read-only Auth/JWT/RLS; erişim varsa Vercel preview ve mobil QA.
+001–005 migration, hosted veriler ve main değişmedi; pilot hâlâ kapalı.
+Yerel son doğrulama: 398 toplam / 391 passed / 7 controlled skips (32.349s).
+Node render smoke geçti; gerçek browser QA geçmedi diye raporlanmayacak.

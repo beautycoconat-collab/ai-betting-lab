@@ -198,3 +198,10 @@ artifact exporter, 18 real retrospective fixtures, model/score/market detail,
 14 role evidence states, audit empty states, historical metric/calibration charts.
 Daily published fixtures and hosted portfolio are BLOCKED; no invented live data.
 See DASHBOARD.md. No deploy, hosted write, migration or pilot activation.
+
+## Worker → dashboard — 2026-10-19
+PARTIAL: gerçek kalıcı dört worker çıktısına salt okunur, opt-in köprü eklendi.
+Pydantic skor sözleşmesi; model/ensemble skorları ve piyasaları; Red Team ve
+hakem tur/risk kayıtları; yeni Worker analizleri sekmesi. Sentetik kayıtlar
+public JSON'a konmadı. Hosted doğrulama, günlük izinli canlı kaynak ve deploy
+BLOCKED. 14 rolün yalnız kanıtlı yürütme kayıtları done olarak gösterilir.
