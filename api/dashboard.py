@@ -17,7 +17,7 @@ def query(data, params):
     date.fromisoformat(day)
     fixture_id = params.get('fixture', [None])[0]
     if fixture_id:
-        match = next((f for f in data['fixtures']+data['history'] if f['id'] == fixture_id), None)
+        match = next((f for f in data['fixtures']+data['history']+data.get('research',{}).get('records',[]) if f['id'] == fixture_id), None)
         return (200, match) if match else (404, {'error': 'fixture_not_found'})
     result = dict(data)
     # A stored date is not enough to call an unverified fixture a published daily match.
