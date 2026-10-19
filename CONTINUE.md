@@ -1,3 +1,11 @@
+## GitHub teslimat doğrulaması — 2026-10-19
+
+Uzak `feature/expert-engines` commit **9bd15a79917159e6d79fd115f2fa5a6433d3e16b**, yerel test edilmiş ağaca `git diff --exit-code` ile eşit doğrulandı. PR #1 bu sekiz yeni commit'i içeriyor ve açıklaması güncellendi. Git CLI kimlik erişimi yoktu; önceden yetkilendirilmiş GitHub tarayıcı yüklemesi kullanıldı. Yerel Git bundle checkpoint mevcut.
+
+Bu commit'in GitHub Actions **39290072695**, verify job **118188393455** sonucu **success**: Python, native PostgreSQL bağımsız bağlantılar, dashboard Node ve PGlite migration/güvenlik adımları geçti. Bu hosted JWT/Auth/RLS kabulü değildir. Yerel Python kanıtı 410/403/7 olarak ayrı raporlanır.
+
+Vercel güvenli girişinde hesap sayfası görüldü; AI Betting Lab proje araması içerik hatası verdi, tek yeniden yükleme sonrasında tekrar giriş sayfasına yönlendi. Proje/deployment kabulü doğrulanamadı; yayın yapılmadı. Bir sonraki oturum önce mevcut Vercel oturumunu/proje erişimini doğrulamalı; giriş veya yayın kabulü gerekirse güvenli akışı kullanmalı. Başka projelerde işlem yapılmadı.
+
 ## 2026-10-19 — Gerçek fikstür ve koşullu model bağlantısı
 
 **Durum: PARTIAL.** OpenLigaDB Bundesliga 2026/27 kaynağı gerçek ağ erişimiyle toplandı: 306 normalize kayıt, 0 ret. 19 Ekim için bu ligde maç yok; sonraki 7 günde 9 maç var. Başka ligler kapsanmış sayılmaz. Beş maçta tam takım adı/eğitim eşleşmesi var; dört maç `insufficient_data`. Sağlayıcı neutral bilgisini vermediğinden her uygun maç için iki ayrı venue senaryosu hesaplandı; bunlar birleştirilmiş nihai tahmin değildir. 612 gerçek tarihsel maç, kronolojik eğitim/doğrulama ayrımı kullanıldı. Güncel sezon eksikleri ve eski eğitim kesimi görünür.
