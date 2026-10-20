@@ -35,6 +35,9 @@ def query(data, params, now=None):
     result['fixtures'] = [f for f in data['fixtures'] if eligible(f) and datetime.fromisoformat(f['kickoff_at']).astimezone(ZoneInfo('Europe/Istanbul')).date().isoformat() == day]
     result['selected_date'] = day
     result['daily_status'] = 'available' if result['fixtures'] else 'insufficient_data'
+    result['automation_status'] = data.get('automation', {
+        'status':'not_published', 'pilot_enabled':False,
+        'portfolio_execution':False, 'phases':{}})
     return 200, result
 
 
