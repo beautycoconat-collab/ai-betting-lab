@@ -19,12 +19,13 @@ CREATE TABLE IF NOT EXISTS v2_health(source TEXT PRIMARY KEY,successes INTEGER N
 '''
 
 class Queue:
-    def __init__(self,path,registry=None):
+    def __init__(self,path,registry=None,request_reserver=None):
         self.store=Store(path);self.db=self.store.db;self.db.executescript(SCHEMA)
         if registry is None:
             from .bootstrap import merge_budget
             merge_budget(self.db)
         self.registry=registry or json.loads((Path(__file__).resolve().parents[1]/'config/source_registry_v2.json').read_text())
+        self.request_reserver=request_reserver
     def enqueue(self,source,kind,params,now=None,cycle=None):
         if source not in self.registry:raise ValueError('unknown_source')
         if kind not in ('discover','collect'):raise ValueError('unknown_job_kind')
@@ -111,6 +112,11 @@ class Queue:
                     return result|{'status':'lease_lost'}
                 return result|{'status':'cached','snapshot_id':cached['id'],'network_requests':0}
             self.store.reserve(policy.get('quota_group',source),policy,now)
+            # The local ledger protects one runner. A hosted reservation, when
+            # configured, is the authoritative cross-run/worker gate. Both are
+            # intentionally consumed before HTTP, including failed attempts.
+            if self.request_reserver is not None and not self.request_reserver(source):
+                raise StopCollection('hosted_quota_denied')
             with self.db:self.db.execute('UPDATE v2_jobs SET attempts=attempts+1 WHERE id=? AND lease_token=?',(j['id'],j['lease_token']))
             body,headers=fetcher(url);observed=clock();sid=digest([source,url,observed,digest(body)])
             # Keep raw evidence on parse errors but never publish it after a lost lease.
