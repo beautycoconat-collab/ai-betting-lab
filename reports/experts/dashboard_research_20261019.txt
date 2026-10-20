@@ -1,0 +1,24 @@
+test_bad_date_and_schema_rejected (test_dashboard.DashboardTests.test_bad_date_and_schema_rejected) ... ok
+test_lookup_and_missing_fixture (test_dashboard.DashboardTests.test_lookup_and_missing_fixture) ... ok
+test_markets_and_unsupported_half (test_dashboard.DashboardTests.test_markets_and_unsupported_half) ... ok
+test_missing_database_not_created (test_dashboard.DashboardTests.test_missing_database_not_created) ... ok
+test_models_preserved_and_mass_conserved (test_dashboard.DashboardTests.test_models_preserved_and_mass_conserved) ... ok
+test_no_claimed_reviews_or_wallet (test_dashboard.DashboardTests.test_no_claimed_reviews_or_wallet) ... ok
+test_public_bundle_no_runtime_secrets (test_dashboard.DashboardTests.test_public_bundle_no_runtime_secrets) ... ok
+test_real_archive_not_live (test_dashboard.DashboardTests.test_real_archive_not_live) ... ok
+test_reproducible_publication (test_dashboard.DashboardTests.test_reproducible_publication) ... ok
+test_unverified_runtime_fixtures_never_daily (test_dashboard.DashboardTests.test_unverified_runtime_fixtures_never_daily) ... ok
+test_actual_worker_chain_projects_without_promoting_to_live (test_research_feed.ResearchFeedTests.test_actual_worker_chain_projects_without_promoting_to_live) ... ok
+test_contract_rejects_unknown_version_nonfinite_and_duplicate_scores (test_research_feed.ResearchFeedTests.test_contract_rejects_unknown_version_nonfinite_and_duplicate_scores) ... ok
+test_future_cutoff_rejected_without_exception_text (test_research_feed.ResearchFeedTests.test_future_cutoff_rejected_without_exception_text) ... ok
+test_incomplete_chain_stays_missing (test_research_feed.ResearchFeedTests.test_incomplete_chain_stays_missing) ... ok
+test_malformed_probability_output_is_quarantined (test_research_feed.ResearchFeedTests.test_malformed_probability_output_is_quarantined) ... ok
+test_old_output_has_no_invented_score_distribution (test_research_feed.ResearchFeedTests.test_old_output_has_no_invented_score_distribution) ... ok
+test_opt_in_readonly_and_api_lookup (test_research_feed.ResearchFeedTests.test_opt_in_readonly_and_api_lookup) ... ok
+test_raw_inputs_never_published (test_research_feed.ResearchFeedTests.test_raw_inputs_never_published) ... ok
+test_retry_does_not_duplicate_research_record (test_research_feed.ResearchFeedTests.test_retry_does_not_duplicate_research_record) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 2.934s
+
+OK

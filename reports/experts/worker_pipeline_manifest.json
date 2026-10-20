@@ -1,0 +1,20 @@
+{
+  "source": "2026-10-16 local development based on earlier calibrated ZIP",
+  "upstream_commit": "dd8c67fadd9e92487c534c0e4afa3e205a04e393",
+  "github_pushed": false,
+  "supabase_changed": false,
+  "run_mode": "research-only",
+  "new_and_updated": {
+    "experts/worker_pipeline.py": "c81c897b8a975c76fdcc527661a3a88eb74b9a469690f438536bcc97342f31ae",
+    "tests_experts/test_worker_pipeline.py": "aa4192a678f8495e08fdcf61811cb24c54678956e47af000c4bee0d0e99dc432",
+    "scripts/demo_worker_pipeline.py": "b4fcd774811eca0712556fc85c0fd8a75a50a1ddb957a3a80b9510943a6ba91a",
+    "docs/worker_pipeline.md": "09b2f1bdcab3bb6cf5a0035c446d2d54e7796c352ab339db320ca0f13b5c36f6",
+    "reports/experts/worker_pipeline_demo.json": "f5468c9f5deb182212f20424857d81c39a3e62d0893160e2370f8ee396879bd2",
+    "reports/experts/worker_pipeline_full_expert_suite.txt": "bc0afdbbd5e5d37e90f6f291fe326dc996349c624dad7f568d49c3e7e3b6a790",
+    "reports/experts/worker_pipeline_acceptance.txt": "5a700077f52ac4924a1fb69f0b42f853d7cd563a21aa747bdcc63902420fe093",
+    "CONTINUE.md": "21c986117a8ea89a024f6e9b3acab3293801fe291e1cb129886b07f699c8f836",
+    "EXPERT_PROGRESS.md": "7608156027a1184f300503a19b17fc242e94e8e4382f3401d91e308216a2fae9",
+    "MASTER_PROGRESS.md": "6d233c7517428ecf0458d67064a96e53973211342fe0068322361fe41365217b",
+    "TEST_REPORT.md": "8a9e3f99b9e96bc8840a2115d2faa8a094fdfdb74a58a572051752e3beed6dac"
+  }
+}

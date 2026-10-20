@@ -11,6 +11,7 @@ from .adapters import ADAPTERS
 SCHEMA='''
 CREATE TABLE IF NOT EXISTS v2_jobs(id TEXT PRIMARY KEY,source TEXT NOT NULL,kind TEXT NOT NULL,params TEXT NOT NULL,status TEXT NOT NULL DEFAULT 'pending',attempts INTEGER NOT NULL DEFAULT 0,not_before TEXT NOT NULL,lease_until TEXT,lease_token TEXT,last_error TEXT);
 CREATE TABLE IF NOT EXISTS v2_snapshots(id TEXT PRIMARY KEY,job_id TEXT NOT NULL,source TEXT NOT NULL,url TEXT NOT NULL,observed_at TEXT NOT NULL,sha256 TEXT NOT NULL,body BLOB NOT NULL,headers TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS v2_job_snapshots(job_id TEXT NOT NULL REFERENCES v2_jobs(id),snapshot_id TEXT NOT NULL REFERENCES v2_snapshots(id),PRIMARY KEY(job_id,snapshot_id));
 CREATE TABLE IF NOT EXISTS v2_results(snapshot_id TEXT NOT NULL,source TEXT NOT NULL,native_id TEXT NOT NULL,payload TEXT NOT NULL,PRIMARY KEY(snapshot_id,native_id));
 CREATE TABLE IF NOT EXISTS v2_catalog(snapshot_id TEXT NOT NULL,source TEXT NOT NULL,payload TEXT NOT NULL);
 CREATE TABLE IF NOT EXISTS v2_rejected(snapshot_id TEXT NOT NULL,row_index INTEGER NOT NULL,reason TEXT NOT NULL,PRIMARY KEY(snapshot_id,row_index));
@@ -18,16 +19,24 @@ CREATE TABLE IF NOT EXISTS v2_health(source TEXT PRIMARY KEY,successes INTEGER N
 '''
 
 class Queue:
-    def __init__(self,path,registry=None):
+    def __init__(self,path,registry=None,request_reserver=None):
         self.store=Store(path);self.db=self.store.db;self.db.executescript(SCHEMA)
         if registry is None:
             from .bootstrap import merge_budget
             merge_budget(self.db)
         self.registry=registry or json.loads((Path(__file__).resolve().parents[1]/'config/source_registry_v2.json').read_text())
-    def enqueue(self,source,kind,params,now=None):
+        self.request_reserver=request_reserver
+    def enqueue(self,source,kind,params,now=None,cycle=None):
         if source not in self.registry:raise ValueError('unknown_source')
         if kind not in ('discover','collect'):raise ValueError('unknown_job_kind')
-        key=digest([source,kind,params]);now=now or utcnow()
+        # A fixed cycle supports daily refresh without defeating per-cycle
+        # idempotency. Legacy (cycle=None) job IDs are intentionally unchanged.
+        if cycle is not None:
+            from datetime import date
+            if type(cycle) is not str:
+                raise ValueError('invalid_collection_cycle')
+            date.fromisoformat(cycle)
+        key=digest([source,kind,params] if cycle is None else [source,kind,params,cycle]);now=now or utcnow()
         with self.db:self.db.execute('INSERT OR IGNORE INTO v2_jobs(id,source,kind,params,not_before) VALUES(?,?,?,?,?)',(key,source,kind,json.dumps(params,sort_keys=True),now))
         return key
     def claim(self,now):
@@ -57,42 +66,94 @@ class Queue:
             self.db.execute('INSERT OR IGNORE INTO v2_health(source) VALUES(?)',(source,))
             if success:self.db.execute('UPDATE v2_health SET successes=successes+1,consecutive_failures=0,last_success=?,last_error=NULL WHERE source=?',(now,source))
             else:self.db.execute('UPDATE v2_health SET failures=failures+1,consecutive_failures=consecutive_failures+1,last_error=? WHERE source=?',(reason,source))
+    def _lease_active(self, job, at):
+        """Verify the source worker still owns the claim before writing data."""
+        row = self.db.execute("""SELECT 1 FROM v2_jobs WHERE id=? AND status='running'
+            AND lease_token=? AND lease_until>?""",
+            (job['id'], job['lease_token'], at)).fetchone()
+        return row is not None
+
+    def _commit_if_owner(self, job, at, write):
+        """Publish a batch atomically, protected by SQLite lease fencing."""
+        self.db.execute('BEGIN IMMEDIATE')
+        try:
+            if not self._lease_active(job, at):
+                self.db.rollback()
+                return False
+            write()
+            self.db.commit()
+            return True
+        except Exception:
+            self.db.rollback()
+            raise
+
     def work_one(self,fetcher=fetch,clock=utcnow):
         now=clock();j=self.claim(now)
         if not j:return None
         source=j['source'];policy=self.registry[source];result={'job_id':j['id'],'source':source}
         try:
-            if policy['status']!='approved':raise StopCollection('source_not_approved')
+            if policy.get('status')!='approved':raise StopCollection('source_not_approved')
+            if not (policy.get('license') and str(policy.get('terms_url', '')).startswith('https://')
+                    and policy.get('reviewed_at', '9999') <= now[:10]):
+                raise StopCollection('source_permission_unverified')
             if now[:10]>policy['review_expires']:raise StopCollection('source_review_expired')
             adapter=ADAPTERS[source];p=json.loads(j['params']);url=adapter.url(j['kind'],p)
-            cached=self.db.execute('SELECT id,observed_at FROM v2_snapshots WHERE source=? AND url=? AND (EXISTS(SELECT 1 FROM v2_results WHERE snapshot_id=v2_snapshots.id) OR EXISTS(SELECT 1 FROM v2_catalog WHERE snapshot_id=v2_snapshots.id)) ORDER BY observed_at DESC LIMIT 1',(source,url)).fetchone()
+            cached=self.db.execute('''SELECT id,observed_at FROM v2_snapshots
+                WHERE source=? AND url=? AND (EXISTS(SELECT 1 FROM v2_results WHERE snapshot_id=v2_snapshots.id)
+                OR EXISTS(SELECT 1 FROM v2_catalog WHERE snapshot_id=v2_snapshots.id))
+                ORDER BY observed_at DESC LIMIT 1''',(source,url)).fetchone()
             if cached and 0<=(datetime.fromisoformat(now)-datetime.fromisoformat(cached['observed_at'])).total_seconds()<policy.get('cache_seconds',21600):
-                self.finish(j,'done',at=now)
+                def cache_completion():
+                    self.db.execute('INSERT OR IGNORE INTO v2_job_snapshots VALUES(?,?)',
+                                    (j['id'],cached['id']))
+                    self.db.execute('''UPDATE v2_jobs SET status='done',lease_until=NULL,
+                        lease_token=NULL WHERE id=?''', (j['id'],))
+                if not self._commit_if_owner(j, clock(), cache_completion):
+                    return result|{'status':'lease_lost'}
                 return result|{'status':'cached','snapshot_id':cached['id'],'network_requests':0}
             self.store.reserve(policy.get('quota_group',source),policy,now)
+            # The local ledger protects one runner. A hosted reservation, when
+            # configured, is the authoritative cross-run/worker gate. Both are
+            # intentionally consumed before HTTP, including failed attempts.
+            if self.request_reserver is not None and not self.request_reserver(source):
+                raise StopCollection('hosted_quota_denied')
             with self.db:self.db.execute('UPDATE v2_jobs SET attempts=attempts+1 WHERE id=? AND lease_token=?',(j['id'],j['lease_token']))
             body,headers=fetcher(url);observed=clock();sid=digest([source,url,observed,digest(body)])
-            with self.db:self.db.execute('INSERT OR IGNORE INTO v2_snapshots VALUES(?,?,?,?,?,?,?,?)',(sid,j['id'],source,url,observed,digest(body),zlib.compress(body),json.dumps(headers)))
+            # Keep raw evidence on parse errors but never publish it after a lost lease.
+            if not self._commit_if_owner(j, observed, lambda: self.db.execute('''INSERT OR IGNORE INTO v2_snapshots
+                    VALUES(?,?,?,?,?,?,?,?)''',(sid,j['id'],source,url,observed,digest(body),zlib.compress(body),json.dumps(headers)))):
+                return result|{'status':'lease_lost'}
             payload=adapter.decode(body,j['kind'])
             if j['kind']=='discover':
                 catalog=adapter.catalog(payload)
                 if not catalog:raise ValueError('empty_catalog')
-                with self.db:self.db.execute('INSERT INTO v2_catalog VALUES(?,?,?)',(sid,source,json.dumps(catalog)))
+                def publish():
+                    self.db.execute('INSERT OR IGNORE INTO v2_job_snapshots VALUES(?,?)',(j['id'],sid))
+                    self.db.execute('INSERT INTO v2_catalog VALUES(?,?,?)',(sid,source,json.dumps(catalog)))
+                    self.db.execute('''UPDATE v2_jobs SET status='done',last_error=NULL,
+                        lease_until=NULL,lease_token=NULL WHERE id=?''',(j['id'],))
+                if not self._commit_if_owner(j, clock(), publish):
+                    return result|{'status':'lease_lost'}
                 result['catalog_entries']=len(catalog)
             else:
                 from .normalization import normalize
                 good,bad=normalize(adapter,payload,p)
-                with self.db:
+                if not good:raise ValueError('no_valid_results')
+                def publish():
+                    self.db.execute('INSERT OR IGNORE INTO v2_job_snapshots VALUES(?,?)',(j['id'],sid))
                     for r in good:self.db.execute('INSERT OR IGNORE INTO v2_results VALUES(?,?,?,?)',(sid,source,r['native_id'],json.dumps(r,ensure_ascii=False)))
                     for i,reason in bad:self.db.execute('INSERT INTO v2_rejected VALUES(?,?,?)',(sid,i,reason))
                     if source=='international':self.db.execute('INSERT INTO v2_catalog VALUES(?,?,?)',(sid,source,json.dumps(adapter.catalog(payload))))
-                if not good:raise ValueError('no_valid_results')
+                    self.db.execute('''UPDATE v2_jobs SET status='done',last_error=NULL,
+                        lease_until=NULL,lease_token=NULL WHERE id=?''',(j['id'],))
+                if not self._commit_if_owner(j, clock(), publish):
+                    return result|{'status':'lease_lost'}
                 result.update(accepted=len(good),rejected=len(bad))
-            self.finish(j,'done',at=observed);self.health(source,True,observed)
-            return result|{'status':'done'}
+            self.health(source,True,observed)
+            return result|{'status':'done','snapshot_id':sid}
         except StopCollection as e:
-            reason=str(e);terminal=reason in ('source_not_approved','source_review_expired','local_storage_budget')
-            self.finish(j,'blocked' if terminal else 'pending',reason,None if terminal else self.defer_time(policy.get('quota_group',source),policy,now),at=now)
+            reason=str(e);terminal=reason in ('source_not_approved','source_permission_unverified','source_review_expired','local_storage_budget')
+            self.finish(j,'blocked' if terminal else 'pending',reason,None if terminal else self.defer_time(policy.get('quota_group',source),policy,now),at=clock())
             return result|{'status':'blocked' if terminal else 'deferred','reason':reason}
         except (HTTPError,URLError,OSError,TimeoutError,ValueError,KeyError,TypeError,zipfile.BadZipFile) as e:
             reason=f'http_{e.code}' if isinstance(e,HTTPError) else type(e).__name__
@@ -105,7 +166,7 @@ class Queue:
                 self.store.cooldown(policy.get('quota_group',source),until.isoformat())
             self.health(source,False,now,reason)
             terminal=j['attempts']>=2 or isinstance(e,(ValueError,KeyError,TypeError))
-            self.finish(j,'failed' if terminal else 'pending',reason,self.defer_time(policy.get('quota_group',source),policy,now),at=now)
+            self.finish(j,'failed' if terminal else 'pending',reason,self.defer_time(policy.get('quota_group',source),policy,now),at=clock())
             return result|{'status':'failed' if terminal else 'deferred','reason':reason}
     def report(self):
         return {'jobs':[dict(r) for r in self.db.execute('SELECT id,source,kind,params,status,attempts,not_before,last_error FROM v2_jobs ORDER BY source,id')], 'health':[dict(r) for r in self.db.execute('SELECT * FROM v2_health')]}

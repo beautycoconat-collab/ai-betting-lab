@@ -1,8 +1,11 @@
 [project]
 name = "ai-betting-lab"
 version = "0.1.0"
-requires-python = ">=3.11"
+requires-python = ">=3.11,<3.13"
 description = "Paper-only football research lab: phase 1 ingestion"
-dependencies = []
+dependencies = ["pydantic==2.13.5", "psycopg[binary]==3.3.6"]
 [tool.unittest]
 start-directory = "tests"
+
+[tool.vercel]
+entrypoint = "api.dashboard:handler"

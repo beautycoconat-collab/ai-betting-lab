@@ -1,0 +1,17 @@
+test_cancelled_validator_blocks_entire_chain (tests_experts.test_worker_pipeline.WorkerPipelineTests.test_cancelled_validator_blocks_entire_chain) ... ok
+test_expired_lease_cannot_publish (tests_experts.test_worker_pipeline.WorkerPipelineTests.test_expired_lease_cannot_publish) ... ok
+test_expired_source_policy_blocks_validation (tests_experts.test_worker_pipeline.WorkerPipelineTests.test_expired_source_policy_blocks_validation) ... ok
+test_four_real_handlers_and_immutable_audit (tests_experts.test_worker_pipeline.WorkerPipelineTests.test_four_real_handlers_and_immutable_audit) ... ok
+test_future_observation_rejected_and_no_prediction (tests_experts.test_worker_pipeline.WorkerPipelineTests.test_future_observation_rejected_and_no_prediction) ... ok
+test_invalid_snapshot_fails_closed (tests_experts.test_worker_pipeline.WorkerPipelineTests.test_invalid_snapshot_fails_closed) ... ok
+test_model_does_not_run_before_validation (tests_experts.test_worker_pipeline.WorkerPipelineTests.test_model_does_not_run_before_validation) ... ok
+test_no_fabricated_lineup_means_review_skip (tests_experts.test_worker_pipeline.WorkerPipelineTests.test_no_fabricated_lineup_means_review_skip) ... ok
+test_prematch_refuses_retrospective_engine (tests_experts.test_worker_pipeline.WorkerPipelineTests.test_prematch_refuses_retrospective_engine) ... ok
+test_quarantined_evidence_fails_closed (tests_experts.test_worker_pipeline.WorkerPipelineTests.test_quarantined_evidence_fails_closed) ... ok
+test_reject_invalid_fixture_and_future_cutoff (tests_experts.test_worker_pipeline.WorkerPipelineTests.test_reject_invalid_fixture_and_future_cutoff) ... ok
+test_replay_idempotent_and_revisions_rejected (tests_experts.test_worker_pipeline.WorkerPipelineTests.test_replay_idempotent_and_revisions_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.750s
+
+OK

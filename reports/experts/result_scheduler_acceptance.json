@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-10-16",
+  "status": "PARTIAL",
+  "kind": "local_manual_result_scheduler",
+  "starting_remote_sha": "dd8c67fadd9e92487c534c0e4afa3e205a04e393",
+  "github_pushed": false,
+  "new_tests": {
+    "scheduler": 12,
+    "cli": 2,
+    "status": "passed"
+  },
+  "regression": {
+    "source_outcome_selected": {
+      "ran": 74,
+      "passed": 74
+    },
+    "other_expert_models": {
+      "ran": 121,
+      "passed": 121
+    },
+    "foundation": {
+      "ran": 36,
+      "passed": 34,
+      "skipped": 2
+    },
+    "full_discovery": "timeout_not_accepted"
+  },
+  "runtime": {
+    "network_used": false,
+    "production_scheduler_enabled": false,
+    "hosted_migrations_applied": false,
+    "real_money_bets": false,
+    "pilot_enabled": false
+  },
+  "limitations": [
+    "synthetic_provider_fixtures",
+    "source_permission_review_not_rechecked_live",
+    "no_fresh_published_at_attestation",
+    "no_supabase_hosted_execution",
+    "no_auto_score_corrections",
+    "no_dashboard",
+    "no_validated_github_ci"
+  ]
+}

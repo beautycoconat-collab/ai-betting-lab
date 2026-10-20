@@ -1,0 +1,89 @@
+name: Daily research (security gated)
+on:
+  schedule:
+    - cron: '30 4 * * *'
+  workflow_dispatch:
+    inputs:
+      initialize_quota_ledger:
+        description: Create the first empty quota ledger without network access
+        required: false
+        type: boolean
+        default: false
+permissions:
+  contents: read
+concurrency:
+  group: daily-research-${{ github.repository }}
+  cancel-in-progress: false
+jobs:
+  research:
+    if: >-
+      vars.LAB_RESEARCH_ACCEPTED == 'true' &&
+      vars.LAB_HOSTED_SECURITY_ACCEPTED == 'true' &&
+      vars.LAB_WORKER_AUTH_ACCEPTED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    environment: daily-research
+    env:
+      LAB_TEST_PROJECT_REF: oswpkwwbjwyktuqcakhr
+      LAB_DISPOSABLE_TEST_PROJECT: '1'
+      LAB_EXPECTED_DB_HOST: ${{ secrets.LAB_EXPECTED_DB_HOST }}
+      LAB_TEST_DSN: ${{ secrets.LAB_TEST_DSN }}
+      LAB_HOSTED_SECURITY_ACCEPTED: ${{ vars.LAB_HOSTED_SECURITY_ACCEPTED }}
+      LAB_WORKER_AUTH_ACCEPTED: ${{ vars.LAB_WORKER_AUTH_ACCEPTED }}
+      LAB_SSLROOTCERT: /etc/ssl/certs/ca-certificates.crt
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: pip install -r requirements-cloud.txt
+      - name: Restore persistent source quota ledger
+        id: quota
+        uses: actions/cache/restore@v4
+        with:
+          path: data/dashboard-live.sqlite
+          key: source-budget-v2-${{ github.run_id }}
+          restore-keys: source-budget-v2-
+      - name: Initialize empty quota ledger (manual, no network)
+        if: github.event_name == 'workflow_dispatch' && inputs.initialize_quota_ledger
+        run: |
+          test -z "${{ steps.quota.outputs.cache-matched-key }}"
+          python - <<'PY'
+          from engine.queue import Queue
+          q=Queue('data/dashboard-live.sqlite')
+          q.close()
+          PY
+      - name: Require restored quota history for network collection
+        if: ${{ !(github.event_name == 'workflow_dispatch' && inputs.initialize_quota_ledger) }}
+        run: |
+          test -n "${{ steps.quota.outputs.cache-matched-key }}"
+          test -s data/dashboard-live.sqlite
+          echo 'LAB_QUOTA_LEDGER_RESTORED=true' >> "$GITHUB_ENV"
+      - name: Run daily collection, research and hosted persistence
+        if: ${{ !(github.event_name == 'workflow_dispatch' && inputs.initialize_quota_ledger) }}
+        run: >-
+          python -m scripts.daily_automation
+          --database data/dashboard-live.sqlite
+          --out public/data/dashboard.json
+          --status-out public/data/automation-status.json
+          --persist-supabase
+      - name: Save updated quota ledger
+        uses: actions/cache/save@v4
+        if: always() && hashFiles('data/dashboard-live.sqlite') != ''
+        with:
+          path: data/dashboard-live.sqlite
+          key: source-budget-v2-${{ github.run_id }}
+      - name: Publish sanitized research artifacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: daily-research-${{ github.run_id }}
+          path: |
+            public/data/dashboard.json
+            public/data/automation-status.json
+          if-no-files-found: warn
+          retention-days: 7
+# Cron alone cannot activate collection. All three repository acceptance
+# variables are intentionally absent/false. The workflow cannot place bets,
+# mutate a wallet, apply migrations, create roles, or deploy Vercel.

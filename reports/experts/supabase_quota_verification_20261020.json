@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "verified_at": "2026-10-20",
+  "project_ref": "oswpkwwbjwyktuqcakhr",
+  "mode": "read_only_metadata_and_definition_inspection",
+  "source": {
+    "id": "openliga",
+    "status": "approved",
+    "max_daily": 4,
+    "min_interval_seconds": 21600,
+    "review_expires": "2026-11-13T00:00:00+00:00",
+    "reserved_last_24h": 0
+  },
+  "rpc": {
+    "signature": "lab.reserve_source_request(text)",
+    "security_definer": true,
+    "search_path_fixed": true,
+    "execute_roles": ["postgres", "lab_source_hunter"],
+    "public_execute": false,
+    "locks_source_row": true,
+    "counts_before_http": true
+  },
+  "live_reservation_called": false,
+  "reason": "Do not consume a real source quota merely to inspect the gate",
+  "pilot_enabled": false,
+  "portfolio_execution": false
+}

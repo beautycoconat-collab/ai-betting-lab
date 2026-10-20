@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "name": "AI Betting Lab — offline result scheduler increment",
+  "base_commit": "dd8c67fadd9e92487c534c0e4afa3e205a04e393",
+  "base_zip": "AI_Betting_Lab_20261016_Sonuc_Denetimi_Tam_Kaynak.zip",
+  "github_pushed": false,
+  "full_archive_contents": 268,
+  "changed_files": [
+    "CONTINUE.md",
+    "EXPERT_PROGRESS.md",
+    "MASTER_PROGRESS.md",
+    "TEST_REPORT.md",
+    "docs/result_scheduler.md",
+    "experts/result_scheduler.py",
+    "reports/experts/result_scheduler_acceptance.json",
+    "scripts/result_cycle.py",
+    "tests_experts/test_result_cycle_cli.py",
+    "tests_experts/test_result_scheduler.py"
+  ],
+  "old_files_preserved": 257,
+  "supabase_001_005_unchanged": true,
+  "no_real_bets": true,
+  "pilot_enabled": false,
+  "test_status": "14 new tests passed; 74+121 selected tests passed in separate runs; full regression timed out"
+}

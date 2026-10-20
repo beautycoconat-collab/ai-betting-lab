@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0",
+  "url": "https://ai-betting-lab.vercel.app/",
+  "deployment": "6yD5cZV4npcW6Epat3uThRnvRTm4",
+  "source_commit": "a580320a493e9614c53dfcb62b170c0c794c2160",
+  "target": "production",
+  "http": [
+    {
+      "path": "/api/dashboard?date=2026-10-19",
+      "status": 200,
+      "cache": "no-store",
+      "fixtures": 0
+    },
+    {
+      "path": "/api/dashboard?date=2026-10-23",
+      "status": 200,
+      "cache": "no-store",
+      "fixtures": 1
+    },
+    {
+      "path": "/api/dashboard?date=2026-10-24",
+      "status": 200,
+      "cache": "no-store",
+      "fixtures": 6
+    },
+    {
+      "path": "/api/dashboard?date=2026-10-25",
+      "status": 200,
+      "cache": "no-store",
+      "fixtures": 2
+    },
+    {
+      "path": "/api/dashboard?date=bad",
+      "status": 400,
+      "cache": null,
+      "fixtures": 0
+    },
+    {
+      "path": "/api/dashboard?fixture=missing",
+      "status": 404,
+      "cache": null,
+      "fixtures": 0
+    },
+    {
+      "path": "/data/dashboard.json",
+      "status": 200,
+      "cache": "public, max-age=0, must-revalidate",
+      "fixtures": 9
+    }
+  ],
+  "pilot_enabled": false,
+  "hosted_jwt_acceptance": false,
+  "continuous_publication": false,
+  "detail_scenarios": 2,
+  "published_snapshot_exact_match": true
+}
