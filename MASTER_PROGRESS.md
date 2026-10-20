@@ -1,3 +1,11 @@
+# 2026-10-19 — Günlük otomasyon geliştirmesi
+
+- **PARTIAL:** `scripts.daily_automation` fikstür toplama, 14-rol araştırma projeksiyonu, var olan sonuç planlarının idempotent uzlaştırılması ve dashboard durum yayını için tek çevrim sağlar.
+- **FULL (fail-closed kod yolu):** kalıcı kota defteri olmadan ağ çağrısı; hosted güvenlik/worker kabulü olmadan Supabase yazımı; her durumda pilot ve portföy yürütmesi engellenir.
+- **PREPARED / DISABLED:** GitHub Actions günlük `04:30 UTC` tetikleyicisi üç repository acceptance değişkeniyle kapılıdır. Bu değişkenler etkinleştirilmedi; üretim zamanlayıcısı fiilen çalışmıyor.
+- **BLOCKED:** Hosted JWT/Auth/RLS ve en-az-yetkili worker kabulü gerçek kullanıcı JWT'siyle tamamlanmadı. Bu nedenle workflow kapıları açılmadı ve Vercel otomatik yayın bağlanmadı.
+- **Test:** 415 Python testi geçti, 7 kontrollü atlandı; Node yayın/smoke kontrolleri geçti. Ayrıntı `TEST_REPORT.md` ve `reports/experts/daily_automation_python_20261019.txt`.
+
 ## Vercel dashboard yayın kabulü — 2026-10-19
 
 **Dashboard yayında:** https://ai-betting-lab.vercel.app/ . Kullanıcının üretim dağıtımı için devam onayından sonra `6yD5cZV4npcW6Epat3uThRnvRTm4` READY oldu. Vercel proje ID: `prj_5bVfIsnlr2SKOurNjyUlgczkFxDc`; takım `beautycoconat-8169s-projects`. Vercel Drop ile 40 kaynak dosyası yüklendi; GitHub otomatik bağlantısı kurulmadı. Paket GitHub `a580320` sürümünün runtime dosyalarını ve doğrulanmış JSON'unu içerir. Paket SHA-256: `0dbc62f601b796fc26f7b2926c78da7898b4363aee6facc23e8f9beeae23d3b3`.
@@ -251,3 +259,10 @@ Pydantic skor sözleşmesi; model/ensemble skorları ve piyasaları; Red Team ve
 hakem tur/risk kayıtları; yeni Worker analizleri sekmesi. Sentetik kayıtlar
 public JSON'a konmadı. Hosted doğrulama, günlük izinli canlı kaynak ve deploy
 BLOCKED. 14 rolün yalnız kanıtlı yürütme kayıtları done olarak gösterilir.
+# 2026-10-20 — Merkezi Supabase kota rezervasyonu
+
+- **FULL (kod ve birim/entegrasyon testi):** source queue, hosted modda her HTTP çağrısından önce `lab_source_hunter` rolüyle `lab.reserve_source_request(source)` çağırır. False veya bağlantı hatasında HTTP gönderilmez.
+- **FULL (güncel salt okunur doğrulama):** OpenLigaDB politikası günlük 4, altı saat aralık ve 2026-11-13 bitiş tarihiyle Supabase'te mevcuttur; RPC PUBLIC/anon/authenticated tarafından yürütülemez.
+- **PARTIAL:** GitHub Actions çevrimi hazırlanmıştır, fakat gerçek JWT/RLS + worker kabul kapıları açılmadığı için cron işi çalışmaz.
+- **BLOCKED:** Talimatta belirtilen yeni kota ZIP'i çalışma alanında ve ChatGPT dosyalarında bulunamadı. Mevcut fonksiyon sözleşmesi ve doğrulanmış veritabanı tanımı üzerinden uyumlu entegrasyon yapıldı; paket daha sonra görünür olursa ayrıca diff alınmalıdır.
+

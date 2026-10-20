@@ -1,3 +1,14 @@
+# 2026-10-19 — Günlük otomasyon test raporu
+
+- `python -m scripts.ci_python`: **415 test geçti, 7 kontrollü atlandı**, 36.509 saniye.
+- Atlanan 5 test GitHub'a yüklenmeyen büyük tarihsel teslimat artifactlerini; 2 test yerel native PostgreSQL için opt-in DSN'i gerektirir.
+- `node --check public/app.js`: geçti.
+- `node scripts/check_dashboard.mjs`: geçti.
+- `node scripts/test_dashboard_ui.mjs`: geçti; bu smoke testi gerçek mobil/tarayıcı yerleşim kabulü değildir.
+- Yeni testler kalıcı kota defteri kapısını, hosted güvenlik kapısını, pilot/portföyün kapalı kalmasını, atomik durum yayınını ve kilitli tahmin yokken performans uydurulmamasını doğrular.
+- Hosted Supabase/JWT/RLS bu değişiklikte yeniden çalıştırılmadı. Zamanlanmış workflow kapıları açılmadı ve canlı günlük çevrim çalıştırılmadı.
+- Ham çıktı: `reports/experts/daily_automation_python_20261019.txt`.
+
 ## Vercel dashboard yayın kabulü — 2026-10-19
 
 **Dashboard yayında:** https://ai-betting-lab.vercel.app/ . Kullanıcının üretim dağıtımı için devam onayından sonra `6yD5cZV4npcW6Epat3uThRnvRTm4` READY oldu. Vercel proje ID: `prj_5bVfIsnlr2SKOurNjyUlgczkFxDc`; takım `beautycoconat-8169s-projects`. Vercel Drop ile 40 kaynak dosyası yüklendi; GitHub otomatik bağlantısı kurulmadı. Paket GitHub `a580320` sürümünün runtime dosyalarını ve doğrulanmış JSON'unu içerir. Paket SHA-256: `0dbc62f601b796fc26f7b2926c78da7898b4363aee6facc23e8f9beeae23d3b3`.
@@ -375,3 +386,12 @@ bağlantısı sınanmadı. Son radar dahil uzak PR CI ayrıca raporlanmalıdır.
   git diff --check passed. No new migration, hosted write or pilot activation.
 - Prior remote native/PGlite green run 38941420495 remains separate evidence;
   new CI execution is to be verified at the new remote head.
+# 2026-10-20 — Supabase kota kapısı entegrasyonu
+
+- Supabase test projesi `oswpkwwbjwyktuqcakhr` salt okunur SQL ile yeniden incelendi: `openliga` approved; günlük sınır 4; minimum aralık 21.600 saniye; izin bitişi 2026-11-13; son 24 saat rezervasyonu 0.
+- `lab.reserve_source_request(text)` tanımı ve ACL doğrulandı: yürütme yalnız `postgres` ve `lab_source_hunter`; fonksiyon kaynak satırını kilitliyor, izin/kota/aralık kontrollerinden sonra HTTP öncesi `request_reserved` kaydı açıyor.
+- `python -m scripts.ci_python`: bağımlılıklar kurulduktan sonra **419 test geçti, 7 kontrollü atlandı**, 21.090 saniye.
+- Yeni 4 test: hosted ret durumunda HTTP çağrılmaması, rezervasyonun HTTP'den önce gelmesi, yalnız worker rolü ve parametrik RPC kullanılması, Supabase erişim hatasında kapalı kalma.
+- İlk tam koşu bu çalışma ortamında `psycopg` kurulu olmadığı için 6 configuration hatası verdi; sabitlenmiş `requirements-cloud.txt` kurulduktan sonraki ikinci koşu yukarıdaki başarılı sonuçtur.
+- Gerçek kota tüketen RPC çağrısı yapılmadı; salt okunur şema/ACL incelemesi gerçek davranış testi yerine gösterilmedi.
+

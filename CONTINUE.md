@@ -1,3 +1,11 @@
+# 2026-10-19 — Günlük otomasyondan devam noktası
+
+Son tamamlanan kod: `dashboard/automation.py`, `scripts/daily_automation.py`, güvenlik kapılı `.github/workflows/daily-research.yml`, dashboard otomasyon durumu ve 5 yeni test.
+
+Doğrulama komutu: `python -m scripts.ci_python` (415 geçti, 7 kontrollü skip) ve `node scripts/check_dashboard.mjs && node scripts/test_dashboard_ui.mjs`.
+
+Sıradaki somut iş: hosted JWT/Auth/RLS + worker rol kabulünü gerçek Supabase test projesinde, gizli değerleri yazdırmadan kanıtlamak. Bu kabul tamamlanmadan `LAB_RESEARCH_ACCEPTED`, `LAB_HOSTED_SECURITY_ACCEPTED`, `LAB_WORKER_AUTH_ACCEPTED` açılmamalı. Sonra manuel `initialize_quota_ledger=true` çalıştırması, bir kontrollü günlük çevrim ve artifact/Supabase/dashboard zinciri doğrulanmalı. Yeni migration uygulanmadı; pilot ve portföy kapalı.
+
 ## Vercel dashboard yayın kabulü — 2026-10-19
 
 **Dashboard yayında:** https://ai-betting-lab.vercel.app/ . Kullanıcının üretim dağıtımı için devam onayından sonra `6yD5cZV4npcW6Epat3uThRnvRTm4` READY oldu. Vercel proje ID: `prj_5bVfIsnlr2SKOurNjyUlgczkFxDc`; takım `beautycoconat-8169s-projects`. Vercel Drop ile 40 kaynak dosyası yüklendi; GitHub otomatik bağlantısı kurulmadı. Paket GitHub `a580320` sürümünün runtime dosyalarını ve doğrulanmış JSON'unu içerir. Paket SHA-256: `0dbc62f601b796fc26f7b2926c78da7898b4363aee6facc23e8f9beeae23d3b3`.
@@ -314,3 +322,9 @@ hosted read-only Auth/JWT/RLS; erişim varsa Vercel preview ve mobil QA.
 001–005 migration, hosted veriler ve main değişmedi; pilot hâlâ kapalı.
 Yerel son doğrulama: 398 toplam / 391 passed / 7 controlled skips (32.349s).
 Node render smoke geçti; gerçek browser QA geçmedi diye raporlanmayacak.
+# 2026-10-20 — Son devam noktası
+
+Merkezi kota kodu `engine/hosted_quota.py` üzerinden `engine/queue.py` HTTP öncesine bağlandı. `dashboard.automation` hosted günlük çevrimde bu kapıyı zorunlu kullanır. Tam test: 419 geçti, 7 kontrollü skip. Supabase politikası ve RPC ACL'si salt okunur sorguyla gerçek projede doğrulandı; kota tüketen canlı RPC testi yapılmadı.
+
+GitHub'a aktarılması gereken yerel commit `2266d4e` ve ardından gelen kota değişiklikleri vardır. Normal git kimlik doğrulaması yok; tarayıcı oturumu yeniden doğrulandı. Ekli kota ZIP'i henüz bulunamadı. Sonraki adım: değişen dosyaları `feature/expert-engines` dalına yükle, uzak SHA'yı ve PR #1'i doğrula; ardından hosted JWT/RLS/worker kabulini gerçek kullanıcı JWT'siyle tamamla. Main/migration/pilot/cüzdan değişmedi.
+

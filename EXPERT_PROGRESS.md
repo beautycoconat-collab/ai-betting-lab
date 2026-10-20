@@ -1,3 +1,11 @@
+# 2026-10-19 — Uzman 01/14 günlük çevrim bağlantısı
+
+- Baş Koordinatör günlük çevrimi kaynak kuyruğu, model araştırması ve sonuç uzlaştırma ile birleştirir: **PARTIAL** (hosted worker kapalı).
+- Kaynak Avcısı OpenLigaDB için kalıcı kota/lease defteri şartıyla çağrılır: **PARTIAL** (Bundesliga canlı kapsam; geniş lig keşfi henüz yayınlanmıyor).
+- Uzman 06–11 mevcut model/Red Team/Hakem zinciriyle çalışır; çözülmeyen kanıtta sonuç `conditional_scenarios` veya `insufficient_data` kalır.
+- Uzman 14 yalnız önceden kilitlenmiş ileriye dönük tahmin + doğrulanmış sonuç planlarını derecelendirir: **PARTIAL**. Bugünkü dashboard adayları onaylanmış ileri tahmin sayılmaz; sahte Brier/Log Loss üretilmez.
+- Risk/portföy ve pilot: **BLOCKED / KAPALI**.
+
 ## Vercel dashboard yayın kabulü — 2026-10-19
 
 **Dashboard yayında:** https://ai-betting-lab.vercel.app/ . Kullanıcının üretim dağıtımı için devam onayından sonra `6yD5cZV4npcW6Epat3uThRnvRTm4` READY oldu. Vercel proje ID: `prj_5bVfIsnlr2SKOurNjyUlgczkFxDc`; takım `beautycoconat-8169s-projects`. Vercel Drop ile 40 kaynak dosyası yüklendi; GitHub otomatik bağlantısı kurulmadı. Paket GitHub `a580320` sürümünün runtime dosyalarını ve doğrulanmış JSON'unu içerir. Paket SHA-256: `0dbc62f601b796fc26f7b2926c78da7898b4363aee6facc23e8f9beeae23d3b3`.
@@ -239,3 +247,10 @@ The dashboard validates the complete validator/model/red-team/referee DAG and
 immutable input hashes before projection. Only these four roles receive done
 states for those records. Research mode is never upgraded to live verified data.
 Legacy worker records are supported without inventing missing score distributions.
+# 2026-10-20 — Uzman 02 kota kapısı
+
+- Kaynak Avcısı hosted çalışmada HTTP öncesi merkezi Supabase rezervasyonu yapar: **FULL (kod/test)**.
+- Onaysız, süresi dolmuş, günlük kotası dolmuş veya altı saat aralığını sağlamayan kaynakta HTTP çağrısı yoktur.
+- Supabase ulaşılamazsa açık devam etmek yerine `hosted_quota_unavailable` ile durur.
+- Canlı zamanlanmış worker: **BLOCKED**; JWT/RLS ve worker kabul işaretleri açılmadı.
+
